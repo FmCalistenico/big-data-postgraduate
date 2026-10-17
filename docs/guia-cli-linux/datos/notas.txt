@@ -1,0 +1,7 @@
+id;nombre;grupo;nota
+1;Ana;A;4.2
+2;Luis;B;3.1
+3;Marta;A;4.8
+4;Juan;B;
+3;Marta;A;4.8
+5;Sara;C;6.0

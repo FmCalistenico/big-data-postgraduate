@@ -10,12 +10,20 @@ Las doce clases suman 64 horas efectivas. Las actividades comparten los bloques 
 | 3–4 | E04–E06 y P02–P03; ejecutar formatos antes de calidad PQRS | Contrato, conciliación, proyección Parquet, prueba de reejecución y consulta | 10 % |
 | 5–6 | E07 después de calidad/consultas agroambientales; E08–E09 con geometrías y rásteres | Equivalencia Spark/DuckDB, cardinalidad y mapa con cobertura explícita | 10 % |
 | 7–8 | E10/P04 con formatos ya preparado; I01/E11 con NASA y fuentes de clima | Un informe experimental y una traza de eventos | 20 % |
-| 9–11 | E12 como práctica común de evaluación temporal; E13 en el dominio elegido | Producto candidato el 31/10, corrección y ensayo el 06/11, informe final | 35 % |
+| 9–12 | E12 como práctica común de evaluación temporal; E13 en el dominio elegido | Producto candidato el 31/10, clínica docente sin entrega el 06/11, informe final | 35 % |
 | 12 | E13 con evidencias reconstruibles | Sustentación final el 07/11 y explicación individual | 15 % |
+
+## Política de entrega
+
+Viernes: explicación y demostraciones guiadas por el profesor, sin entregas ni calificación. El profesor ejecuta, explica y comparte sus archivos de referencia; los estudiantes observan, preguntan y pueden seguir voluntariamente. Sábado: ejecución por los estudiantes, revisión y entrega durante la clase. La evidencia evaluable debe corresponder a su propia ejecución. No se exige una entrega ni trabajo autónomo obligatorio entre ambos encuentros.
+
+E = ejercicio general del curso (E01–E13). P = práctica con datos PQRS (P01–P04); PQRS significa peticiones, quejas, reclamos y sugerencias. El número identifica la actividad, no la sesión. T01 = taller teórico de capacidad; I01 = introducción a eventos NASA.
+
+Las fechas y cierres de las seis entregas están en [Entregas sabatinas](entregas-sabados.md). El candidato del 31/10 es formativo; el bloque E12–E13 se califica con 35 % sobre la versión final del 07/11.
 
 ## Orden mínimo de ejecución
 
-Desde `kit/`, con el entorno activo:
+En la clase 2, ejecutar [P01 paso a paso con pandas](../kit/Notebooks/01_Perfil_PQRS.ipynb): cada lectura y control queda visible. Después de esta clase, estos comandos automatizan las operaciones ya estudiadas; desde `kit/`, con el entorno activo:
 
 ```sh
 python pqrs_talleres.py perfil
@@ -25,9 +33,9 @@ python pqrs_talleres.py benchmark --repeticiones 3
 python pqrs_talleres.py eventos
 ```
 
-Perfil, formatos, calidad y benchmark usan las muestras incluidas por defecto. Eventos requiere `data/raw/nasa.json`. P03 usa DIVIPOLA para el control territorial cuando está disponible: descargarla antes de solicitar ese control. Los notebooks actuales preparan sus pasos previos; sus celdas se distribuyen entre las clases correspondientes, no se ejecutan todas en cada encuentro.
+Perfil, formatos, calidad y benchmark usan las muestras incluidas por defecto. Eventos requiere `data/raw/nasa.json`. El notebook P03 requiere DIVIPOLA para desarrollar los joins; descargarla antes de ejecutarlo. P02 y P03 muestran las operaciones pandas y no llaman al script para resolverlas. P03 requiere el Parquet de P02 y DIVIPOLA para sus joins. Las celdas se distribuyen entre las clases correspondientes, no se ejecutan todas en cada encuentro.
 
-Para la ruta agroambiental: `talleres.py calidad` → `talleres.py consultas` → `spark_taller.py lotes` o `talleres.py modelo`. Geografía necesita DANE e IGAC; `talleres.py clima` lee NASA, CHIRPS, SoilGrids y WoSIS. E11 lee NASA para Spark.
+Para la ruta agroambiental: `talleres.py calidad` → `talleres.py consultas` → `spark_taller.py lotes` o `talleres.py modelo`. Geografía necesita DANE e IGAC; `talleres.py suelo` lee SoilGrids y WoSIS; `talleres.py clima` lee NASA y CHIRPS. E11 lee NASA para Spark.
 
 ## Uso de Supersalud histórico y actual
 
@@ -54,3 +62,5 @@ Todas las instalaciones de Python, entornos virtuales, bibliotecas y herramienta
 ## Ruta y rama del curso
 
 El clon se realiza siempre desde `main` en `/mnt/c/Users/TUPTC/bigdata/big-data-postgraduate`. El entorno está en `.venv` de la raíz; los ejercicios se ejecutan desde `kit/`, dentro de Ubuntu-26.04 sobre WSL. Para actualizar, situarse en `main` y ejecutar `git pull --ff-only origin main` después de revisar los cambios locales.
+
+Las actividades geoespaciales E08, E09 y E11 se desarrollan con GeoPandas, Rasterio y Matplotlib en Jupyter. Consultar los [notebooks y sus requisitos](../kit/Notebooks/README.md#ejercicios-geoespaciales).

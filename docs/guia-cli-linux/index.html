@@ -1,0 +1,396 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Línea de comandos: explorar, filtrar y verificar archivos</title><style>body{font:18px/1.65 system-ui,sans-serif;color:#192c43;background:#f5f7fa;margin:0}main{max-width:1100px;margin:auto;padding:48px 26px;background:white}h1{font-size:2.4em;line-height:1.15}h2{margin-top:2em}img{width:100%;height:auto}figure{margin:28px 0}figcaption{font-size:.85em;color:#52647a}code{background:#eef2f6;padding:2px 5px;border-radius:4px}aside{border-left:5px solid #238351;background:#eff9f2;padding:15px 22px}table{border-collapse:collapse;width:100%;font-size:.9em}td,th{border:1px solid #d9e1e9;text-align:left;padding:10px}li{margin:8px 0}@media print{body{background:white}main{padding:0}figure,table,aside{break-inside:avoid}h2{break-after:avoid}}
+html{scroll-behavior:smooth}.scenario-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0}.scenario-nav a{display:block;padding:16px;border:1px solid #cdd5df;border-radius:10px;text-decoration:none;color:#192c43;background:#f7f9fc}.scenario-nav a:hover{background:#eaf0f7}.scenario-nav span{display:block;font-size:.85em;margin-top:4px}.scenario{margin-top:56px;padding-top:24px;border-top:3px solid #263b55;scroll-margin-top:20px}.scenario-heading{background:#f0f3f7;border-radius:10px;padding:22px 26px;margin-bottom:24px}.scenario-label{display:inline-block;font-size:.78em;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#42546b}.scenario-heading h2{margin:8px 0;font-size:1.65em}.scenario-heading p{margin:0;color:#42546b}.step-label{display:block;font-size:.65em;text-transform:uppercase;letter-spacing:.04em;color:#596a7f;margin-bottom:6px}pre{overflow-x:auto;padding:18px;background:#eef2f6;border-radius:8px}pre code{padding:0}@media(max-width:700px){.scenario-nav{grid-template-columns:1fr}main{padding:28px 18px}h1{font-size:1.8em}.scenario-heading{padding:18px}}@media print{.scenario{break-before:page}.scenario-heading{break-inside:avoid;break-after:avoid}.scenario-nav{grid-template-columns:repeat(3,1fr)}}
+.challenge-card{margin:30px 0;padding:0 22px 18px;border:1px solid #cdd5df;border-radius:10px}.challenge-card .scenario-heading{margin:0 -22px 18px;border-radius:9px 9px 0 0}.challenge-card h3{margin:8px 0 0;font-size:1.25em}.scenario-nav .challenge-link{grid-column:1/-1;border:2px solid #263b55}@media print{.challenge-card .scenario-heading{break-after:avoid}}
+
+pre{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.4}pre code{background:none}th{background:#eef2f6}td code{overflow-wrap:anywhere}.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:26px 0}.flow div{padding:20px;border-radius:10px;border-top:5px solid #27823b;background:#eff9f2}.flow div:nth-child(2){border-color:#1479bf;background:#edf6fc}.flow div:nth-child(3){border-color:#7b3db2;background:#f5effa}.flow b,.flow span{display:block}.flow span{font-size:.9em;margin-top:8px}.result{border-left:4px solid #1479bf;background:#edf6fc;padding:12px 18px}.muted{color:#52647a}footer{margin-top:40px;font-size:.85em;color:#52647a}@media(max-width:700px){.flow{grid-template-columns:1fr}}
+@media print{@page{size:A4;margin:15mm 15mm 18mm}body{font-size:10pt;line-height:1.32}main{max-width:none;padding:0}h1{font-size:27pt}h2{font-size:19pt}h3{font-size:13pt;margin:13pt 0 6pt}p{margin:6pt 0}li{margin:4pt 0}pre{font-size:8.5pt;padding:8pt;margin:6pt 0;break-inside:avoid}table{font-size:9pt}td,th{padding:4.5pt}tr{break-inside:avoid}table{break-inside:auto}thead{display:table-header-group}.scenario{break-before:page;margin:0;padding:0;border:0}.scenario-heading{padding:10pt 13pt;margin-bottom:10pt}.scenario-heading h2{font-size:19pt}.scenario-nav{gap:6pt;margin:12pt 0}.scenario-nav a{padding:8pt;font-size:9pt}.flow{gap:8pt;margin:14pt 0}.flow div{padding:12pt}.challenge-card{break-inside:avoid;margin:12pt 0;padding:0 12pt 8pt}.challenge-card .scenario-heading{margin:0 -12pt 8pt;padding:8pt 12pt}aside{padding:10pt 14pt}a{color:inherit;text-decoration:none}h2,h3{break-after:avoid}p,li{orphans:3;widows:3}footer{margin-top:18pt}}
+@media print{#e6 pre{padding:6pt;margin:5pt 0}#e6 h3{margin:9pt 0 5pt}#e6 td,#e6 th{padding:4pt}}
+.cheat-table td:first-child{width:29%}.cheat-table .example{display:block;margin-top:6px;background:#eef2f6;padding:5px;white-space:pre-wrap;overflow-wrap:anywhere}.cheat-note{color:#52647a;font-size:.9em}@media print{.cheat-table{font-size:9pt;line-height:1.3}.cheat-table td{padding:6pt}.cheat-table .example{font-size:8.5pt;margin-top:4pt;padding:3pt}.cheatsheet p{font-size:9pt}.cheat-note{margin-top:10pt!important}}
+</style></head><body><main>
+<h1>Línea de comandos:<br>explorar, filtrar y verificar archivos</h1>
+<p>Una guía práctica para el trabajo en datos · Linux, macOS y una terminal Linux en WSL.</p>
+<p>Antes de analizar un archivo es necesario conocer su ubicación, su contenido y el cumplimiento de las condiciones esperadas. La guía presenta comandos pequeños que pueden combinarse para explorar, buscar, resumir y verificar los resultados.</p>
+<div class="flow"><div><b>1 · Explorar</b><span>Ubicar archivos, reconocer su tipo y leer una muestra.</span><code>pwd · ls · head</code></div><div><b>2 · Consultar</b><span>Buscar coincidencias y trabajar con registros y columnas.</span><code>grep · wc · awk</code></div><div><b>3 · Verificar</b><span>Detectar faltantes, duplicados y diferencias.</span><code>sort · uniq · diff</code></div></div>
+<nav class="scenario-nav" aria-label="Escenarios de la guía">
+<a href="#e1"><b>E1 · Preparar el entorno</b><span>Rutas, carpetas y archivos</span></a>
+<a href="#e2"><b>E2 · Inspeccionar un archivo</b><span>Tipo, tamaño y contenido</span></a>
+<a href="#e3"><b>E3 · Buscar y contar</b><span>grep, wc y patrones</span></a>
+<a href="#e4"><b>E4 · Trabajar con columnas</b><span>AWK, filtros y cálculos</span></a>
+<a href="#e5"><b>E5 · Verificar la calidad</b><span>Vacíos, duplicados y rangos</span></a>
+<a href="#e6"><b>E6 · Combinar y conservar</b><span>Tuberías, informes e integridad</span></a>
+<a class="challenge-link" href="#cheat-sheet"><b>Cheat sheet · 100 comandos de Linux</b><span>Opciones habituales y ejemplos por categoría</span></a>
+<a class="challenge-link" href="#desafio"><b>Desafío · Práctica integradora</b><span>Revisar un archivo y justificar los hallazgos</span></a></nav>
+<aside><strong>Cómo usar esta guía.</strong> Los bloques muestran comandos listos para copiar, sin el símbolo del prompt. Los pasos de preparación se ejecutan una vez y se conserva la misma terminal. Las salidas esperadas corresponden a los archivos de práctica incluidos.</aside>
+<p>Los ejemplos usan Bash o Zsh. En Windows se ejecutan dentro de WSL; no se deben copiar directamente a PowerShell. Algunas opciones adicionales cambian entre macOS y Linux: la ayuda local está disponible mediante <code>man comando</code>.</p>
+<p><strong>La idea central:</strong> un comando consulta o transforma una entrada y produce una salida. Una salida breve puede revelar un problema; no demuestra por sí sola que todo el archivo sea correcto.</p>
+<section class="scenario" id="e1"><header class="scenario-heading"><span class="scenario-label">Escenario E1 · Preparación</span><h2>Preparar el entorno</h2><p>Se prepara una carpeta de práctica con archivos de contenido conocido.</p></header>
+<p>La <strong>terminal</strong> es la ventana de interacción; el <strong>shell</strong> interpreta las instrucciones introducidas. Un comando suele tener la forma <code>comando opciones argumentos</code>. En <code>ls -lh datos/</code>, la opción <code>-l</code> pide detalles y <code>-h</code> presenta tamaños legibles.</p>
+<table><thead><tr><th>Comando o ruta</th><th>Para qué sirve</th></tr></thead><tbody>
+<tr><td><code>pwd</code> / <code>ls -lah</code></td><td>Ver la ubicación / listar también archivos ocultos.</td></tr>
+<tr><td><code>cd carpeta</code> / <code>cd ..</code></td><td>Entrar a una carpeta / subir un nivel.</td></tr>
+<tr><td><code>cd ~</code> / <code>cd -</code></td><td>Ir a la carpeta personal / volver a la ubicación anterior.</td></tr>
+<tr><td><code>.</code> / <code>..</code> / <code>~</code></td><td>Directorio actual / superior / personal.</td></tr>
+<tr><td><code>mkdir -p datos resultados</code></td><td>Crear carpetas si no existen.</td></tr>
+</tbody></table>
+<h3><span class="step-label">E1 · Paso 1</span>Crear un espacio de trabajo</h3>
+<pre><code>mkdir practica-cli
+cd practica-cli
+mkdir datos resultados
+pwd</code></pre>
+<p>Si <code>practica-cli</code> ya existe, se elige otro nombre para una práctica nueva. Las rutas con espacios se escriben entre comillas: <code>cd "Mis documentos"</code>.</p>
+<h3><span class="step-label">E1 · Paso 2</span>Crear los datos del ejercicio</h3>
+<pre><code>cat &gt; datos/notas.txt &lt;&lt;&#x27;EOF&#x27;
+id;nombre;grupo;nota
+1;Ana;A;4.2
+2;Luis;B;3.1
+3;Marta;A;4.8
+4;Juan;B;
+3;Marta;A;4.8
+5;Sara;C;6.0
+EOF</code></pre>
+<p>El bloque <code>&lt;&lt;'EOF'</code> entrega varias líneas al comando <code>cat</code>. La línea final <code>EOF</code> debe escribirse sola. En este ejemplo se utiliza punto y coma como separador, punto decimal y una fila de encabezado.</p>
+<aside><strong>Conservar el original.</strong> <code>&gt;</code> crea o sobrescribe el destino. Este bloque se ejecuta únicamente dentro de la carpeta de práctica. El archivo contiene deliberadamente una nota vacía, un identificador repetido y una nota fuera del rango 0 a 5.</aside>
+</section>
+<section class="scenario" id="e2"><header class="scenario-heading"><span class="scenario-label">Escenario E2 · Inspección</span><h2>Inspeccionar un archivo</h2><p>Se reconoce el contenido antes de filtrarlo o modificarlo.</p></header>
+<pre><code>file datos/notas.txt
+ls -lh datos/notas.txt
+head -n 3 datos/notas.txt
+tail -n 2 datos/notas.txt
+wc -l datos/notas.txt</code></pre>
+<p>La muestra inicial permite reconocer el encabezado y el separador. La muestra final puede revelar un archivo incompleto o registros inesperados. El archivo de práctica tiene <strong>7 líneas terminadas en salto de línea: 1 encabezado y 6 filas de datos</strong>.</p>
+<table><thead><tr><th>Comando</th><th>Cuándo usarlo</th></tr></thead><tbody>
+<tr><td><code>cat archivo.txt</code></td><td>Leer completo un archivo pequeño.</td></tr>
+<tr><td><code>less archivo.txt</code></td><td>Explorar texto largo sin imprimirlo todo en pantalla.</td></tr>
+<tr><td><code>head -n 10 archivo.txt</code></td><td>Leer las diez primeras líneas.</td></tr>
+<tr><td><code>tail -n 10 archivo.txt</code></td><td>Leer las diez últimas líneas.</td></tr>
+<tr><td><code>tail -f proceso.log</code></td><td>Observar nuevas líneas de un registro; salir con Ctrl + C.</td></tr>
+<tr><td><code>nl -ba archivo.txt</code></td><td>Mostrar números de línea, incluidas las vacías.</td></tr>
+<tr><td><code>sed -n '3,6p' archivo.txt</code></td><td>Mostrar únicamente las líneas 3 a 6.</td></tr>
+</tbody></table>
+<h3>Explorar sin perder la ubicación</h3>
+<p>Dentro de <code>less</code>, se utiliza <code>/Marta</code> para buscar, <code>n</code> para seguir, <code>g</code> para ir al inicio, <code>G</code> para ir al final y <code>q</code> para salir.</p>
+<pre><code>find datos -type f -name &#x27;*.txt&#x27;
+du -sh datos
+df -h .</code></pre>
+<p><code>find</code> localiza archivos; las comillas conservan el patrón para que lo interprete ese comando. <code>du</code> mide el espacio ocupado y <code>df</code> informa sobre el sistema de archivos donde está la carpeta.</p>
+<aside><strong>Tipo y extensión son pistas distintas.</strong> Un nombre terminado en <code>.csv</code> no garantiza que el contenido sea CSV. <code>file</code> ayuda a reconocer el tipo, pero no valida columnas, reglas del negocio ni todos los registros.</aside>
+</section>
+<section class="scenario" id="e3"><header class="scenario-heading"><span class="scenario-label">Escenario E3 · Búsqueda</span><h2>Buscar y contar con grep y wc</h2><p>Se localizan registros y se cuenta cuántas líneas cumplen una condición.</p></header>
+<pre><code>grep -n &#x27;Marta&#x27; datos/notas.txt
+grep -c &#x27;;A;&#x27; datos/notas.txt
+grep -v &#x27;^id;&#x27; datos/notas.txt</code></pre>
+<p>La primera consulta encuentra a Marta en las líneas <strong>4 y 6</strong>. La segunda devuelve <strong>3</strong> líneas del grupo A. La tercera excluye las líneas que comienzan por <code>id;</code>. Para omitir exactamente la primera línea, se utiliza <code>awk 'NR &gt; 1'</code>.</p>
+<table><thead><tr><th>Opción de grep</th><th>Qué cambia</th></tr></thead><tbody>
+<tr><td><code>-n</code></td><td>Incluye el número de línea.</td></tr>
+<tr><td><code>-i</code></td><td>Ignora diferencias entre mayúsculas y minúsculas.</td></tr>
+<tr><td><code>-v</code></td><td>Selecciona líneas que no coinciden.</td></tr>
+<tr><td><code>-c</code></td><td>Cuenta líneas coincidentes, no apariciones.</td></tr>
+<tr><td><code>-F</code></td><td>Interpreta la búsqueda como texto literal.</td></tr>
+<tr><td><code>-E</code></td><td>Activa expresiones regulares extendidas.</td></tr>
+<tr><td><code>-r -n</code></td><td>Busca recursivamente en una carpeta y muestra líneas.</td></tr>
+<tr><td><code>-C 2</code></td><td>Incluye dos líneas de contexto alrededor de cada coincidencia.</td></tr>
+</tbody></table>
+<h3>Patrones que conviene reconocer</h3>
+<pre><code>grep &#x27;^id;&#x27; datos/notas.txt          # Inicio de línea
+grep &#x27;;$&#x27; datos/notas.txt            # Fin de línea
+grep -E &#x27;Ana|Luis&#x27; datos/notas.txt    # Una alternativa u otra
+grep -F &#x27;4.8&#x27; datos/notas.txt        # Punto literal
+grep -n &#x27;^[[:space:]]*$&#x27; datos/notas.txt</code></pre>
+<p>El último comando detecta líneas vacías o compuestas solo por espacios y tabulaciones. No muestra resultados en esta muestra: un <strong>campo vacío</strong> dentro de una fila no equivale a una <strong>línea vacía</strong>.</p>
+<table><thead><tr><th>Comando</th><th>Qué cuenta</th></tr></thead><tbody>
+<tr><td><code>wc -l datos/notas.txt</code></td><td>Saltos de línea: 7 en la muestra.</td></tr>
+<tr><td><code>wc -w datos/notas.txt</code></td><td>Palabras separadas por espacios en blanco; no columnas con punto y coma.</td></tr>
+<tr><td><code>wc -c datos/notas.txt</code></td><td>Bytes.</td></tr>
+<tr><td><code>wc -m datos/notas.txt</code></td><td>Caracteres según la configuración regional.</td></tr>
+</tbody></table>
+<aside><strong>El último salto importa.</strong> <code>wc -l</code> no cuenta una última línea sin salto final. <code>awk 'END {print NR+0}' archivo.txt</code> cuenta también ese registro. Los bytes y los caracteres pueden diferir en texto con tildes.</aside>
+</section>
+<section class="scenario" id="e4"><header class="scenario-heading"><span class="scenario-label">Escenario E4 · Columnas</span><h2>Trabajar con AWK</h2><p>Se seleccionan campos, se aplican condiciones y se calcula un resumen.</p></header>
+<p>AWK procesa registros, normalmente líneas. La forma básica es <code>awk 'condición {acción}' archivo</code>. Sin condición, la acción se aplica a todos los registros. Por defecto separa campos por espacios y tabulaciones; en este caso se declara <code>-F';'</code>.</p>
+<table><thead><tr><th>Elemento</th><th>Significado</th></tr></thead><tbody>
+<tr><td><code>$0</code></td><td>Registro completo.</td></tr>
+<tr><td><code>$1</code>, <code>$2</code>, <code>$NF</code></td><td>Primer campo, segundo campo y último campo.</td></tr>
+<tr><td><code>NR</code> / <code>NF</code></td><td>Número de registro leído / cantidad de campos del registro.</td></tr>
+<tr><td><code>BEGIN</code> / <code>END</code></td><td>Acciones antes de leer / después de terminar.</td></tr>
+<tr><td><code>&amp;&amp;</code> / <code>||</code></td><td>Y lógico / O lógico.</td></tr>
+</tbody></table>
+<h3>Seleccionar y filtrar</h3>
+<pre><code># Nombre y nota, sin encabezado
+awk -F&#x27;;&#x27; &#x27;NR &gt; 1 {print $2, $4}&#x27; datos/notas.txt
+
+# Filas del grupo A
+awk -F&#x27;;&#x27; &#x27;NR &gt; 1 &amp;&amp; $3 == &quot;A&quot; {print $0}&#x27; datos/notas.txt
+
+# Filas con nota presente y dentro del rango esperado
+awk -F&#x27;;&#x27; &#x27;NR &gt; 1 &amp;&amp; $4 != &quot;&quot; &amp;&amp; $4 &gt;= 0 &amp;&amp; $4 &lt;= 5 {
+  print $2, $4
+}&#x27; datos/notas.txt</code></pre>
+<p>El último filtro devuelve Ana, Luis y Marta dos veces. Una condición de rango no elimina duplicados. En este paso se supone que toda nota no vacía tiene formato numérico; en E5 se comprueba también esa condición.</p>
+<h3>Calcular con una condición explícita</h3>
+<pre><code>awk -F&#x27;;&#x27; &#x27;NR &gt; 1 &amp;&amp; $4 != &quot;&quot; &amp;&amp; $4 &gt;= 0 &amp;&amp; $4 &lt;= 5 {
+  suma += $4; n++
+}
+END {
+  if (n &gt; 0) printf &quot;Filas: %d | Promedio: %.3f\n&quot;, n, suma/n
+  else print &quot;Sin notas válidas&quot;
+}&#x27; datos/notas.txt</code></pre>
+<p><strong>Resultado esperado:</strong> <code>Filas: 4 | Promedio: 4.225</code>, con punto decimal. El promedio incluye el registro repetido; todavía no es un resultado depurado.</p>
+<aside><strong>Separar campos no equivale a interpretar CSV.</strong> <code>awk -F','</code> sirve para texto simple separado por comas. Si hay delimitadores entre comillas o saltos dentro de campos, se requiere un lector CSV, por ejemplo el módulo <code>csv</code> de Python. Para TSV simple se utiliza <code>-F'\t'</code>.</aside>
+</section>
+<section class="scenario" id="e5"><header class="scenario-heading"><span class="scenario-label">Escenario E5 · Calidad</span><h2>Verificar la estructura y los valores</h2><p>Se reúne evidencia de los problemas antes de decidir cómo corregirlos.</p></header>
+<h3>1. Comprobar columnas y campos obligatorios</h3>
+<pre><code>awk -F&#x27;;&#x27; &#x27;NF != 4 {print &quot;Columnas incorrectas, línea&quot;, NR}&#x27; datos/notas.txt
+awk -F&#x27;;&#x27; &#x27;NR &gt; 1 &amp;&amp; $4 ~ /^[[:space:]]*$/ {
+  print &quot;Nota vacía, línea&quot;, NR
+}&#x27; datos/notas.txt</code></pre>
+<p>No hay filas con cantidad incorrecta de columnas. Sí hay una nota vacía en la <strong>línea 5</strong>: la fila conserva sus cuatro campos, aunque el último no tenga contenido.</p>
+<h3>2. Separar el formato numérico de la regla de rango</h3>
+<pre><code>awk -F&#x27;;&#x27; &#x27;NR &gt; 1 {
+  if ($4 ~ /^[[:space:]]*$/) next
+  if ($4 !~ /^[0-9]+([.][0-9]+)?$/)
+    print &quot;Formato inválido, línea&quot;, NR &quot;:&quot;, $4
+  else if ($4+0 &lt; 0 || $4+0 &gt; 5)
+    print &quot;Fuera de rango, línea&quot;, NR &quot;:&quot;, $4
+}&#x27; datos/notas.txt</code></pre>
+<p>La regla acepta enteros no negativos y decimales con punto, sin espacios ni signo. La muestra produce <strong>Fuera de rango, línea 7: 6.0</strong>. Otros formatos, como <code>4,2</code>, deben tratarse mediante una regla distinta y explícita.</p>
+<h3>3. Detectar duplicados y frecuencias</h3>
+<pre><code># Identificadores presentes más de una vez
+awk -F&#x27;;&#x27; &#x27;NR &gt; 1 {print $1}&#x27; datos/notas.txt | sort | uniq -d
+
+# Filas completas repetidas, excluyendo el encabezado
+awk &#x27;NR &gt; 1&#x27; datos/notas.txt | sort | uniq -d
+
+# Cantidad de filas por grupo
+awk -F&#x27;;&#x27; &#x27;NR &gt; 1 {print $3}&#x27; datos/notas.txt | sort | uniq -c</code></pre>
+<p>Los resultados muestran el identificador <strong>3</strong> y la fila <code>3;Marta;A;4.8</code> repetidos. Las frecuencias son <strong>A: 3, B: 2, C: 1</strong>. <code>uniq</code> compara líneas consecutivas; por eso se ordenan primero.</p>
+<aside><strong>Detectar antes de eliminar.</strong> Dos filas con la misma clave pueden contener datos distintos. <code>sort -u</code> elimina líneas idénticas, pero no decide qué registro debe prevalecer cuando una clave tiene versiones diferentes.</aside>
+</section>
+<section class="scenario" id="e6"><header class="scenario-heading"><span class="scenario-label">Escenario E6 · Flujo de trabajo</span><h2>Combinar comandos y conservar resultados</h2><p>Se guarda una salida revisable y se comprueba que el original se conserva.</p></header>
+<table><thead><tr><th>Operador</th><th>Función</th></tr></thead><tbody>
+<tr><td><code>|</code></td><td>Envía la salida estándar a la entrada del siguiente comando.</td></tr>
+<tr><td><code>&gt;</code> / <code>&gt;&gt;</code></td><td>Sobrescribe el destino / agrega al final.</td></tr>
+<tr><td><code>2&gt;</code></td><td>Guarda los mensajes de error.</td></tr>
+<tr><td><code>&amp;&amp;</code></td><td>Ejecuta el siguiente comando si el anterior terminó con código 0.</td></tr>
+</tbody></table>
+<pre><code>awk -F&#x27;;&#x27; &#x27;NR &gt; 1 {print $3}&#x27; datos/notas.txt |
+  sort | uniq -c | sort -nr &gt; resultados/frecuencias.txt
+cat resultados/frecuencias.txt
+cp -i datos/notas.txt resultados/notas_copia.txt
+cmp datos/notas.txt resultados/notas_copia.txt</code></pre>
+<p><code>cmp</code> no imprime nada cuando los archivos son idénticos. <code>diff -u original.txt revisado.txt</code> muestra diferencias de texto. En ambos, el código 0 indica igualdad, 1 indica diferencias y los errores usan otros códigos.</p>
+<h3>Comprobar integridad con SHA-256</h3>
+<pre><code># macOS: crear y verificar una lista de huellas
+shasum -a 256 datos/notas.txt &gt; resultados/notas.sha256
+shasum -a 256 -c resultados/notas.sha256
+
+# Linux con herramientas GNU: alternativa equivalente
+sha256sum datos/notas.txt &gt; resultados/notas.sha256
+sha256sum -c resultados/notas.sha256</code></pre>
+<p>Desde la carpeta de práctica se ejecuta el par correspondiente al sistema operativo. La verificación debe indicar <code>OK</code>. La huella detecta cambios respecto a la referencia; no valida las notas ni la identidad de quien produjo el archivo.</p>
+<h3>Otros comandos para el trabajo diario</h3>
+<table><thead><tr><th>Ejemplo</th><th>Uso</th></tr></thead><tbody>
+<tr><td><code>cut -d';' -f2,4 datos/notas.txt</code></td><td>Extraer nombre y nota, incluido el encabezado.</td></tr>
+<tr><td><code>tr '[:lower:]' '[:upper:]' &lt; entrada.txt &gt; salida.txt</code></td><td>Convertir letras según la configuración regional.</td></tr>
+<tr><td><code>mv -i anterior.txt nuevo.txt</code></td><td>Mover o renombrar con confirmación si el destino existe.</td></tr>
+<tr><td><code>rm -i copia.txt</code></td><td>Eliminar con confirmación; normalmente no pasa por la papelera.</td></tr>
+</tbody></table>
+<aside><strong>Entrada y destino deben ser distintos.</strong> Debe evitarse <code>sort archivo.txt &gt; archivo.txt</code>: el shell puede vaciar el archivo antes de que <code>sort</code> lo lea. El resultado se guarda con otro nombre y se revisa antes de reemplazar el original.</aside>
+</section>
+<section class="scenario" id="desafio"><header class="scenario-heading"><span class="scenario-label">Desafío · Práctica integradora</span><h2>Práctica integradora: revisar antes de analizar</h2><p>Pedro inspecciona los datos y Julia revisa la evidencia de los hallazgos.</p></header>
+<p>La práctica utiliza el archivo de notas. Pedro ejecuta las verificaciones y guarda las salidas; Julia repite los comandos desde la carpeta de práctica y contrasta los resultados. Después intercambian los papeles.</p>
+<section class="challenge-card"><header class="scenario-heading"><span class="scenario-label">E1–E2 · Ubicar e inspeccionar</span><h3>Reconocer el archivo</h3></header><ul><li>¿Desde qué carpeta deben ejecutarse los ejemplos?</li><li>¿Cuál es el separador y cuántas filas de datos hay?</li><li>¿Qué evidencia distingue una nota vacía de una línea vacía?</li></ul></section>
+<section class="challenge-card"><header class="scenario-heading"><span class="scenario-label">E3–E4 · Consultar y resumir</span><h3>Explicar los conteos</h3></header><ul><li>Localizar las apariciones de Marta con sus números de línea.</li><li>Obtener las frecuencias por grupo y explicar por qué A aparece tres veces.</li><li>Calcular el promedio de las notas presentes en el rango 0 a 5. ¿Por qué aún contiene un duplicado?</li></ul></section>
+<section class="challenge-card"><header class="scenario-heading"><span class="scenario-label">E5–E6 · Verificar y conservar</span><h3>Proponer una corrección revisable</h3></header><ul><li>Guardar los identificadores repetidos en resultados/duplicados.txt.</li><li>Documentar la nota vacía y la nota fuera de rango sin inventar valores de reemplazo.</li><li>Crear una copia de trabajo y proponer cómo tratar cada hallazgo.</li><li>Comparar la copia revisada con el original y comprobar la huella del original.</li></ul></section>
+<aside><strong>Entrega de la práctica.</strong> La entrega incluye los comandos usados, las salidas obtenidas y una breve decisión para cada problema. Una tercera persona debe poder repetir la revisión sin adivinar rutas, separadores ni criterios de validez.</aside>
+<p><strong>Control para la revisión:</strong> 6 filas de datos; Marta en las líneas 4 y 6; nota vacía en la línea 5; valor 6.0 en la línea 7; identificador 3 repetido. Si se elimina solo la fila idéntica duplicada y se excluyen la nota vacía y la nota fuera de rango, quedan 3 notas y su promedio es aproximadamente 4.033. Esa exclusión es una decisión de la práctica, no una regla universal.</p>
+</section>
+<section class="scenario" id="consulta"><header class="scenario-heading"><span class="scenario-label">Consulta rápida · Referencia</span><h2>Elegir el comando según la pregunta</h2><p>Un recordatorio para seguir practicando.</p></header>
+<table><thead><tr><th>Pregunta</th><th>Herramientas</th></tr></thead><tbody>
+<tr><td>¿Cuál es la ubicación actual y qué archivos hay?</td><td><code>pwd</code>, <code>ls -lah</code>, <code>find</code></td></tr>
+<tr><td>¿Qué tipo de archivo es y cuánto ocupa?</td><td><code>file</code>, <code>ls -lh</code>, <code>du -sh</code></td></tr>
+<tr><td>¿Qué hay al principio o al final?</td><td><code>head</code>, <code>tail</code>, <code>less</code></td></tr>
+<tr><td>¿Qué líneas contienen un texto?</td><td><code>grep -n</code>; <code>-F</code> para texto literal</td></tr>
+<tr><td>¿Cuántas líneas o bytes hay?</td><td><code>wc -l</code>, <code>wc -c</code></td></tr>
+<tr><td>¿Cómo se seleccionan campos y se aplican condiciones?</td><td><code>awk</code>, <code>cut</code></td></tr>
+<tr><td>¿Qué se repite y con qué frecuencia?</td><td><code>sort</code>, <code>uniq -d</code>, <code>uniq -c</code></td></tr>
+<tr><td>¿Cambió el contenido de un archivo?</td><td><code>diff -u</code>, <code>cmp</code>, SHA-256</td></tr>
+</tbody></table>
+<h3>Atajos y ayuda local</h3>
+<table><thead><tr><th>Acción</th><th>Tecla o comando</th></tr></thead><tbody>
+<tr><td>Autocompletar rutas y comandos</td><td>Tab</td></tr>
+<tr><td>Recuperar comandos anteriores</td><td>Flechas arriba y abajo</td></tr>
+<tr><td>Buscar en el historial</td><td>Ctrl + R</td></tr>
+<tr><td>Interrumpir un proceso</td><td>Ctrl + C</td></tr>
+<tr><td>Limpiar la vista de la terminal</td><td>Ctrl + L</td></tr>
+<tr><td>Consultar el manual</td><td><code>man awk</code>, <code>man grep</code>, <code>man wc</code></td></tr>
+<tr><td>Consultar cómo se resuelve un comando</td><td><code>command -v awk</code></td></tr>
+</tbody></table>
+<h3>Cuando una salida no coincide</h3>
+<ol><li>Comprobar la ubicación con <code>pwd</code> y el nombre con <code>ls</code>.</li><li>Revisar el encabezado, el separador y los finales de línea.</li><li>Confirmar si el conteo incluye encabezados, duplicados o campos vacíos.</li><li>Ejecutar cada etapa de una tubería por separado para localizar la diferencia.</li></ol>
+<p><code>grep</code> termina con código 0 si encontró coincidencias y con 1 si no encontró ninguna; un error usa un código distinto. Por eso <code>grep patrón archivo &amp;&amp; otro_comando</code> solo ejecuta el segundo comando cuando hay coincidencias.</p>
+<footer>Material de práctica · Octubre de 2026. Ejemplos para archivos de texto simples; las comprobaciones deben adaptarse al formato y a las reglas del conjunto de datos.</footer>
+</section>
+<div id="cheat-sheet">
+<section class="scenario cheatsheet"><header class="scenario-heading"><span class="scenario-label">Cheat sheet · 01 / 10 · Comandos 01–10</span><h2>Ubicación y archivos</h2><p>100 comandos de uso frecuente en Linux · Opciones y ejemplos</p></header>
+<p>Selección práctica de uso frecuente, sin un orden estadístico de popularidad. Las opciones corresponden principalmente a GNU/Linux y Bash; algunas herramientas requieren instalación. Las acciones y los formatos se distinguen de las opciones cuando corresponde.</p>
+<table class="cheat-table"><thead><tr><th>N.º · Comando / función</th><th>Opciones, argumentos y ejemplo</th></tr></thead><tbody>
+<tr data-command="pwd"><td><strong>01 · <code>pwd</code></strong><br>Mostrar la ruta actual.</td><td>-L: ruta lógica; -P: resolver enlaces.<br><code class="example">pwd -P</code></td></tr>
+<tr data-command="ls"><td><strong>02 · <code>ls</code></strong><br>Listar archivos.</td><td>-l: detalles; -a: ocultos; -h: tamaños legibles; -t: fecha.<br><code class="example">ls -lah</code></td></tr>
+<tr data-command="cd"><td><strong>03 · <code>cd</code></strong><br>Cambiar de directorio (shell).</td><td>-P: ruta física; ..: nivel superior; -: ubicación anterior.<br><code class="example">cd ..</code></td></tr>
+<tr data-command="mkdir"><td><strong>04 · <code>mkdir</code></strong><br>Crear directorios.</td><td>-p: crear padres; -m: establecer permisos.<br><code class="example">mkdir -p proyecto/datos</code></td></tr>
+<tr data-command="touch"><td><strong>05 · <code>touch</code></strong><br>Crear un archivo vacío o actualizar fechas.</td><td>-a: acceso; -m: modificación; -c: no crear.<br><code class="example">touch notas.txt</code></td></tr>
+<tr data-command="cp"><td><strong>06 · <code>cp</code></strong><br>Copiar archivos y directorios.</td><td>-r: recursivo; -a: preservar atributos; -i: confirmar reemplazo.<br><code class="example">cp -ai datos respaldo</code></td></tr>
+<tr data-command="mv"><td><strong>07 · <code>mv</code></strong><br>Mover o renombrar.</td><td>-i: confirmar reemplazo; -n: no sobrescribir; -v: mostrar acciones.<br><code class="example">mv -i viejo.txt nuevo.txt</code></td></tr>
+<tr data-command="rm"><td><strong>08 · <code>rm</code></strong><br>Eliminar archivos sin papelera.</td><td>-i: confirmar; -r: directorios; -f: sin confirmación.<br><code class="example">rm -i copia.txt</code></td></tr>
+<tr data-command="rmdir"><td><strong>09 · <code>rmdir</code></strong><br>Eliminar directorios vacíos.</td><td>-p: eliminar también padres vacíos; -v: mostrar acciones.<br><code class="example">rmdir temporal</code></td></tr>
+<tr data-command="ln"><td><strong>10 · <code>ln</code></strong><br>Crear enlaces.</td><td>-s: simbólico; -i: confirmar reemplazo; -v: mostrar acciones.<br><code class="example">ln -s datos acceso_datos</code></td></tr>
+</tbody></table>
+<p class="cheat-note">Las rutas son ejemplos. Las operaciones de copia, movimiento y eliminación modifican archivos; las opciones -i permiten confirmar reemplazos o eliminaciones.</p>
+</section>
+<section class="scenario cheatsheet"><header class="scenario-heading"><span class="scenario-label">Cheat sheet · 02 / 10 · Comandos 11–20</span><h2>Exploración y metadatos</h2><p>100 comandos de uso frecuente en Linux · Opciones y ejemplos</p></header>
+<table class="cheat-table"><thead><tr><th>N.º · Comando / función</th><th>Opciones, argumentos y ejemplo</th></tr></thead><tbody>
+<tr data-command="find"><td><strong>11 · <code>find</code></strong><br>Buscar por atributos y nombre.</td><td>-type f: archivos; -name: patrón; -mtime: días; -size: tamaño.<br><code class="example">find . -type f -name &#x27;*.csv&#x27;</code></td></tr>
+<tr data-command="locate"><td><strong>12 · <code>locate</code></strong><br>Buscar rutas en un índice; puede estar desactualizado.</td><td>-i: ignorar mayúsculas; -b: nombre base; -l N: límite.<br><code class="example">locate -i -l 20 informe</code></td></tr>
+<tr data-command="file"><td><strong>13 · <code>file</code></strong><br>Identificar el tipo de contenido.</td><td>-b: sin nombre; --mime: tipo MIME; -L: seguir enlaces.<br><code class="example">file --mime datos.csv</code></td></tr>
+<tr data-command="stat"><td><strong>14 · <code>stat</code></strong><br>Mostrar metadatos (GNU).</td><td>-c: formato; -f: sistema de archivos; -L: seguir enlaces.<br><code class="example">stat -c &#x27;%n %s bytes&#x27; datos.csv</code></td></tr>
+<tr data-command="du"><td><strong>15 · <code>du</code></strong><br>Medir espacio ocupado.</td><td>-s: total; -h: legible; --max-depth=N: profundidad.<br><code class="example">du -sh datos</code></td></tr>
+<tr data-command="df"><td><strong>16 · <code>df</code></strong><br>Consultar espacio disponible.</td><td>-h: legible; -T: tipo; -i: inodos.<br><code class="example">df -hT .</code></td></tr>
+<tr data-command="lsblk"><td><strong>17 · <code>lsblk</code></strong><br>Listar dispositivos de bloques.</td><td>-f: sistemas de archivos; -o: columnas; -p: rutas completas.<br><code class="example">lsblk -f</code></td></tr>
+<tr data-command="readlink"><td><strong>18 · <code>readlink</code></strong><br>Consultar el destino de un enlace.</td><td>-f: resolver ruta; -e: exigir que exista toda la ruta.<br><code class="example">readlink -f acceso_datos</code></td></tr>
+<tr data-command="basename"><td><strong>19 · <code>basename</code></strong><br>Extraer el nombre final de una ruta.</td><td>-a: varias rutas; -s SUFIJO: quitar sufijo.<br><code class="example">basename -s .csv /datos/ventas.csv</code></td></tr>
+<tr data-command="dirname"><td><strong>20 · <code>dirname</code></strong><br>Extraer la parte de directorio.</td><td>Argumento: una o varias rutas; -z: terminación NUL.<br><code class="example">dirname /datos/ventas.csv</code></td></tr>
+</tbody></table>
+<p class="cheat-note">locate consulta una base de datos actualizada por updatedb. Su disponibilidad y sus opciones dependen de la implementación. Los dispositivos no se modifican con los ejemplos de consulta.</p>
+</section>
+<section class="scenario cheatsheet"><header class="scenario-heading"><span class="scenario-label">Cheat sheet · 03 / 10 · Comandos 21–30</span><h2>Lectura y búsqueda de texto</h2><p>100 comandos de uso frecuente en Linux · Opciones y ejemplos</p></header>
+<table class="cheat-table"><thead><tr><th>N.º · Comando / función</th><th>Opciones, argumentos y ejemplo</th></tr></thead><tbody>
+<tr data-command="cat"><td><strong>21 · <code>cat</code></strong><br>Mostrar o concatenar archivos.</td><td>-n: numerar; -b: numerar no vacías; -A: caracteres no visibles.<br><code class="example">cat -n notas.txt</code></td></tr>
+<tr data-command="less"><td><strong>22 · <code>less</code></strong><br>Explorar texto por páginas.</td><td>-N: números; -S: no ajustar líneas; -i: búsqueda flexible.<br><code class="example">less -N proceso.log</code></td></tr>
+<tr data-command="head"><td><strong>23 · <code>head</code></strong><br>Mostrar el inicio.</td><td>-n N: líneas; -c N: bytes.<br><code class="example">head -n 20 datos.csv</code></td></tr>
+<tr data-command="tail"><td><strong>24 · <code>tail</code></strong><br>Mostrar el final o seguir cambios.</td><td>-n N: líneas; -f: seguir; -F: seguir nombre y reintentar.<br><code class="example">tail -F proceso.log</code></td></tr>
+<tr data-command="nl"><td><strong>25 · <code>nl</code></strong><br>Numerar líneas.</td><td>-ba: todas; -w N: ancho; -s TEXTO: separador.<br><code class="example">nl -ba notas.txt</code></td></tr>
+<tr data-command="wc"><td><strong>26 · <code>wc</code></strong><br>Contar contenido.</td><td>-l: saltos de línea; -w: palabras; -c: bytes; -m: caracteres.<br><code class="example">wc -l datos.csv</code></td></tr>
+<tr data-command="grep"><td><strong>27 · <code>grep</code></strong><br>Buscar líneas coincidentes.</td><td>-n: línea; -i: sin distinción; -v: excluir; -E: regex; -F: literal; -r: recursivo.<br><code class="example">grep -n -i &#x27;error&#x27; proceso.log</code></td></tr>
+<tr data-command="awk"><td><strong>28 · <code>awk</code></strong><br>Filtrar campos y calcular.</td><td>-F: separador; -v: variable; -f: programa desde archivo.<br><code class="example">awk -F&#x27;;&#x27; &#x27;NR&gt;1 {print $2}&#x27; datos.txt</code></td></tr>
+<tr data-command="sed"><td><strong>29 · <code>sed</code></strong><br>Transformar texto por reglas.</td><td>-n: suprimir impresión automática; -E: regex extendida; -e: expresión.<br><code class="example">sed -n &#x27;10,20p&#x27; notas.txt</code></td></tr>
+<tr data-command="cut"><td><strong>30 · <code>cut</code></strong><br>Extraer campos o posiciones.</td><td>-d: delimitador; -f: campos; -c: posiciones de caracteres.<br><code class="example">cut -d&#x27;;&#x27; -f1,3 datos.txt</code></td></tr>
+</tbody></table>
+<p class="cheat-note">AWK y cut separan campos simples; no interpretan por sí solos todas las reglas de CSV. wc -l cuenta saltos de línea y grep -c, líneas coincidentes.</p>
+</section>
+<section class="scenario cheatsheet"><header class="scenario-heading"><span class="scenario-label">Cheat sheet · 04 / 10 · Comandos 31–40</span><h2>Transformación y verificación</h2><p>100 comandos de uso frecuente en Linux · Opciones y ejemplos</p></header>
+<table class="cheat-table"><thead><tr><th>N.º · Comando / función</th><th>Opciones, argumentos y ejemplo</th></tr></thead><tbody>
+<tr data-command="sort"><td><strong>31 · <code>sort</code></strong><br>Ordenar líneas.</td><td>-n: numérico; -r: inverso; -k: clave; -t: separador; -u: únicas.<br><code class="example">sort -t&#x27;;&#x27; -k4,4n datos_sin_cabecera.txt</code></td></tr>
+<tr data-command="uniq"><td><strong>32 · <code>uniq</code></strong><br>Comparar líneas consecutivas.</td><td>-c: frecuencia; -d: repetidas; -u: no repetidas.<br><code class="example">sort nombres.txt | uniq -c</code></td></tr>
+<tr data-command="tr"><td><strong>33 · <code>tr</code></strong><br>Traducir o eliminar caracteres.</td><td>-d: eliminar; -s: comprimir repeticiones; -c: complementar conjunto.<br><code class="example">tr -d &#x27;\r&#x27; &lt; entrada.txt &gt; salida.txt</code></td></tr>
+<tr data-command="paste"><td><strong>34 · <code>paste</code></strong><br>Unir líneas de archivos en columnas.</td><td>-d: separadores; -s: unir líneas de cada archivo.<br><code class="example">paste -d&#x27;;&#x27; nombres.txt notas.txt</code></td></tr>
+<tr data-command="join"><td><strong>35 · <code>join</code></strong><br>Unir archivos ordenados por una clave.</td><td>-t: separador; -1 N y -2 N: campo de cada entrada; -a 1: incluir no emparejadas.<br><code class="example">join -t&#x27;;&#x27; a_ordenado.txt b_ordenado.txt</code></td></tr>
+<tr data-command="split"><td><strong>36 · <code>split</code></strong><br>Dividir un archivo.</td><td>-l N: líneas; -b N: bytes; -d: sufijos numéricos.<br><code class="example">split -l 1000 -d datos.txt parte_</code></td></tr>
+<tr data-command="diff"><td><strong>37 · <code>diff</code></strong><br>Comparar texto.</td><td>-u: contexto unificado; -r: recursivo; -q: indicar solo diferencias.<br><code class="example">diff -u original.txt revisado.txt</code></td></tr>
+<tr data-command="cmp"><td><strong>38 · <code>cmp</code></strong><br>Comparar bytes.</td><td>-s: silencioso; -l: listar diferencias; -n N: límite.<br><code class="example">cmp original.bin copia.bin</code></td></tr>
+<tr data-command="comm"><td><strong>39 · <code>comm</code></strong><br>Comparar listas ordenadas con la misma configuración regional.</td><td>-1, -2, -3: ocultar cada columna de salida.<br><code class="example">comm -12 lista_a.txt lista_b.txt</code></td></tr>
+<tr data-command="sha256sum"><td><strong>40 · <code>sha256sum</code></strong><br>Calcular o verificar huellas SHA-256.</td><td>-c: verificar lista; --status: solo código de salida; -b: modo binario.<br><code class="example">sha256sum archivo.zip</code></td></tr>
+</tbody></table>
+<p class="cheat-note">join y comm requieren entradas ordenadas de forma compatible. Los ejemplos usan archivos preparados para esa condición; sort aplicado a datos con encabezado también ordena el encabezado.</p>
+</section>
+<section class="scenario cheatsheet"><header class="scenario-heading"><span class="scenario-label">Cheat sheet · 05 / 10 · Comandos 41–50</span><h2>Shell y ejecución</h2><p>100 comandos de uso frecuente en Linux · Opciones y ejemplos</p></header>
+<table class="cheat-table"><thead><tr><th>N.º · Comando / función</th><th>Opciones, argumentos y ejemplo</th></tr></thead><tbody>
+<tr data-command="printf"><td><strong>41 · <code>printf</code></strong><br>Imprimir con formato.</td><td>%s: texto; %d: entero; %f: decimal; \n: salto. Son formatos, no opciones.<br><code class="example">printf &#x27;%s\n&#x27; &#x27;Revisión terminada&#x27;</code></td></tr>
+<tr data-command="echo"><td><strong>42 · <code>echo</code></strong><br>Imprimir argumentos.</td><td>-n: omitir salto final (Bash); para escapes portables se prefiere printf.<br><code class="example">echo &#x27;Proceso terminado&#x27;</code></td></tr>
+<tr data-command="tee"><td><strong>43 · <code>tee</code></strong><br>Mostrar salida y guardarla.</td><td>-a: agregar; -i: ignorar interrupción SIGINT.<br><code class="example">wc -l datos.txt | tee conteo.txt</code></td></tr>
+<tr data-command="xargs"><td><strong>44 · <code>xargs</code></strong><br>Construir llamadas a partir de la entrada.</td><td>-0: entrada NUL; -n N: argumentos por llamada; -P N: procesos; -r: no ejecutar sin entrada.<br><code class="example">find . -name &#x27;*.txt&#x27; -print0 | xargs -0 -r wc -l</code></td></tr>
+<tr data-command="history"><td><strong>45 · <code>history</code></strong><br>Consultar el historial de Bash.</td><td>N: últimas entradas; -a: guardar nuevas; -r: leer historial.<br><code class="example">history 20</code></td></tr>
+<tr data-command="alias"><td><strong>46 · <code>alias</code></strong><br>Definir abreviaturas de Bash.</td><td>-p: listar; nombre=&#x27;comando&#x27;: definir.<br><code class="example">alias ll=&#x27;ls -lah&#x27;</code></td></tr>
+<tr data-command="export"><td><strong>47 · <code>export</code></strong><br>Exportar variables en Bash.</td><td>-p: listar; -n: retirar atributo de exportación.<br><code class="example">export EDITOR=nano</code></td></tr>
+<tr data-command="env"><td><strong>48 · <code>env</code></strong><br>Consultar o ajustar el entorno de un proceso.</td><td>-i: entorno vacío; -u NOMBRE: omitir variable.<br><code class="example">env -u DEBUG programa</code></td></tr>
+<tr data-command="which"><td><strong>49 · <code>which</code></strong><br>Buscar ejecutables en PATH.</td><td>-a: todas las coincidencias; no describe todos los elementos del shell.<br><code class="example">which -a python3</code></td></tr>
+<tr data-command="command"><td><strong>50 · <code>command</code></strong><br>Consultar o ejecutar desde el shell.</td><td>-v: resolución; -V: descripción; -p: PATH estándar.<br><code class="example">command -v awk</code></td></tr>
+</tbody></table>
+<p class="cheat-note">Las opciones de los comandos internos se refieren a Bash. Las tuberías y las redirecciones pertenecen al shell. La sesión actual determina el alcance de alias y export.</p>
+</section>
+<section class="scenario cheatsheet"><header class="scenario-heading"><span class="scenario-label">Cheat sheet · 06 / 10 · Comandos 51–60</span><h2>Ayuda, identidad y permisos</h2><p>100 comandos de uso frecuente en Linux · Opciones y ejemplos</p></header>
+<table class="cheat-table"><thead><tr><th>N.º · Comando / función</th><th>Opciones, argumentos y ejemplo</th></tr></thead><tbody>
+<tr data-command="man"><td><strong>51 · <code>man</code></strong><br>Consultar manuales.</td><td>-k: buscar temas; -f: descripción; N: sección del manual.<br><code class="example">man 1 ls</code></td></tr>
+<tr data-command="apropos"><td><strong>52 · <code>apropos</code></strong><br>Buscar por descripción en manuales.</td><td>-i: sin distinción; -e: coincidencia exacta; -s N: sección.<br><code class="example">apropos -s 1 archive</code></td></tr>
+<tr data-command="id"><td><strong>53 · <code>id</code></strong><br>Consultar identidad y grupos.</td><td>-u: UID; -g: GID principal; -G: grupos; -n: nombres.<br><code class="example">id -un</code></td></tr>
+<tr data-command="whoami"><td><strong>54 · <code>whoami</code></strong><br>Mostrar el usuario efectivo.</td><td>Sin opciones habituales; --help: ayuda; --version: versión.<br><code class="example">whoami</code></td></tr>
+<tr data-command="who"><td><strong>55 · <code>who</code></strong><br>Listar sesiones conectadas.</td><td>-a: información ampliada; -b: último arranque; -q: conteo.<br><code class="example">who -b</code></td></tr>
+<tr data-command="chmod"><td><strong>56 · <code>chmod</code></strong><br>Cambiar permisos.</td><td>-R: recursivo; -v: informar; u+x: añadir ejecución al propietario.<br><code class="example">chmod u+x script.sh</code></td></tr>
+<tr data-command="chown"><td><strong>57 · <code>chown</code></strong><br>Cambiar propietario y grupo.</td><td>-R: recursivo; -h: enlace mismo; --from: propietario previo.<br><code class="example">sudo chown ana:datos informe.txt</code></td></tr>
+<tr data-command="chgrp"><td><strong>58 · <code>chgrp</code></strong><br>Cambiar grupo de archivos.</td><td>-R: recursivo; -h: enlace mismo; -v: informar.<br><code class="example">chgrp datos informe.txt</code></td></tr>
+<tr data-command="umask"><td><strong>59 · <code>umask</code></strong><br>Consultar o fijar la máscara de creación (Bash).</td><td>-S: forma simbólica; -p: forma reutilizable; 027: ejemplo de máscara.<br><code class="example">umask -S</code></td></tr>
+<tr data-command="sudo"><td><strong>60 · <code>sudo</code></strong><br>Ejecutar con privilegios autorizados.</td><td>-u: usuario destino; -l: permisos; -k: invalidar credenciales en caché.<br><code class="example">sudo -l</code></td></tr>
+</tbody></table>
+<p class="cheat-note">Cambiar propietarios puede requerir privilegios. chmod -R, chown -R y chgrp -R afectan recursivamente al contenido. La máscara umask limita los permisos al crear archivos.</p>
+</section>
+<section class="scenario cheatsheet"><header class="scenario-heading"><span class="scenario-label">Cheat sheet · 07 / 10 · Comandos 61–70</span><h2>Procesos y trabajos</h2><p>100 comandos de uso frecuente en Linux · Opciones y ejemplos</p></header>
+<table class="cheat-table"><thead><tr><th>N.º · Comando / función</th><th>Opciones, argumentos y ejemplo</th></tr></thead><tbody>
+<tr data-command="ps"><td><strong>61 · <code>ps</code></strong><br>Obtener una instantánea de procesos.</td><td>-e: todos; -f: formato completo; -o: columnas; -p: PID.<br><code class="example">ps -eo pid,comm,%cpu,%mem</code></td></tr>
+<tr data-command="top"><td><strong>62 · <code>top</code></strong><br>Monitorizar procesos.</td><td>-d N: intervalo; -p PID: filtrar; -b: modo lote; -n N: iteraciones.<br><code class="example">top -b -n 1</code></td></tr>
+<tr data-command="htop"><td><strong>63 · <code>htop</code></strong><br>Explorar procesos de forma interactiva; requiere instalación.</td><td>-d N: décimas de segundo; -p: PID; -u: usuario.<br><code class="example">htop -u ana</code></td></tr>
+<tr data-command="pgrep"><td><strong>64 · <code>pgrep</code></strong><br>Buscar identificadores de procesos.</td><td>-a: línea completa; -f: buscar en argumentos; -u: usuario; -x: nombre exacto.<br><code class="example">pgrep -a -x python3</code></td></tr>
+<tr data-command="kill"><td><strong>65 · <code>kill</code></strong><br>Enviar una señal a un PID.</td><td>-TERM: terminar ordenadamente; -KILL: forzar; -l: listar señales.<br><code class="example">kill -TERM 1234</code></td></tr>
+<tr data-command="pkill"><td><strong>66 · <code>pkill</code></strong><br>Enviar señales a procesos coincidentes.</td><td>-x: nombre exacto; -f: argumentos; -u: usuario; -TERM: señal.<br><code class="example">pkill -TERM -x programa_prueba</code></td></tr>
+<tr data-command="jobs"><td><strong>67 · <code>jobs</code></strong><br>Listar trabajos de la sesión de Bash.</td><td>-l: incluir PID; -p: solo PID; -r: en ejecución; -s: detenidos.<br><code class="example">jobs -l</code></td></tr>
+<tr data-command="fg"><td><strong>68 · <code>fg</code></strong><br>Pasar un trabajo al primer plano.</td><td>%N: número mostrado por jobs; no lleva opciones de uso común.<br><code class="example">fg %1</code></td></tr>
+<tr data-command="bg"><td><strong>69 · <code>bg</code></strong><br>Reanudar un trabajo detenido en segundo plano.</td><td>%N: número mostrado por jobs; no lleva opciones de uso común.<br><code class="example">bg %1</code></td></tr>
+<tr data-command="nohup"><td><strong>70 · <code>nohup</code></strong><br>Ejecutar ignorando la señal de cierre SIGHUP.</td><td>Sin opciones operativas habituales; &amp; es un operador del shell.<br><code class="example">nohup bash tarea.sh &gt; tarea.log 2&gt;&amp;1 &amp;</code></td></tr>
+</tbody></table>
+<p class="cheat-note">Los PID, nombres y números de trabajo son ejemplos. TERM permite la finalización ordenada; KILL no permite limpieza. jobs, fg y bg operan sobre trabajos de la sesión actual.</p>
+</section>
+<section class="scenario cheatsheet"><header class="scenario-heading"><span class="scenario-label">Cheat sheet · 08 / 10 · Comandos 71–80</span><h2>Sistema y servicios</h2><p>100 comandos de uso frecuente en Linux · Opciones y ejemplos</p></header>
+<table class="cheat-table"><thead><tr><th>N.º · Comando / función</th><th>Opciones, argumentos y ejemplo</th></tr></thead><tbody>
+<tr data-command="uname"><td><strong>71 · <code>uname</code></strong><br>Consultar información del sistema.</td><td>-a: toda; -r: kernel; -m: arquitectura.<br><code class="example">uname -a</code></td></tr>
+<tr data-command="hostname"><td><strong>72 · <code>hostname</code></strong><br>Consultar el nombre del equipo.</td><td>-f: nombre completo; -I: direcciones disponibles (Linux).<br><code class="example">hostname -I</code></td></tr>
+<tr data-command="uptime"><td><strong>73 · <code>uptime</code></strong><br>Consultar tiempo activo y carga.</td><td>-p: duración legible; -s: fecha de arranque.<br><code class="example">uptime -p</code></td></tr>
+<tr data-command="free"><td><strong>74 · <code>free</code></strong><br>Consultar memoria y swap.</td><td>-h: legible; -m: MiB; -s N: intervalo en segundos.<br><code class="example">free -h</code></td></tr>
+<tr data-command="date"><td><strong>75 · <code>date</code></strong><br>Consultar o formatear fechas (GNU).</td><td>-u: UTC; -d: interpretar fecha; +FORMATO: salida.<br><code class="example">date -u &#x27;+%Y-%m-%d %H:%M:%S UTC&#x27;</code></td></tr>
+<tr data-command="watch"><td><strong>76 · <code>watch</code></strong><br>Repetir una consulta.</td><td>-n N: intervalo; -d: resaltar cambios; -t: sin encabezado.<br><code class="example">watch -n 2 &#x27;df -h .&#x27;</code></td></tr>
+<tr data-command="systemctl"><td><strong>77 · <code>systemctl</code></strong><br>Consultar y administrar servicios systemd.</td><td>status/start/stop/restart: acciones; --user: usuario; --failed: fallidos.<br><code class="example">systemctl --failed</code></td></tr>
+<tr data-command="journalctl"><td><strong>78 · <code>journalctl</code></strong><br>Consultar registros de systemd.</td><td>-u: unidad; -b: arranque; -f: seguir; -n N: últimas; --since: desde fecha.<br><code class="example">journalctl -b -n 50</code></td></tr>
+<tr data-command="dmesg"><td><strong>79 · <code>dmesg</code></strong><br>Consultar mensajes del kernel; puede requerir privilegios.</td><td>-H: legible; -T: fechas; -w: seguir; --level: nivel.<br><code class="example">dmesg --level=err,warn</code></td></tr>
+<tr data-command="crontab"><td><strong>80 · <code>crontab</code></strong><br>Consultar o editar tareas cron del usuario.</td><td>-l: listar; -e: editar; -r: eliminar la tabla completa.<br><code class="example">crontab -l</code></td></tr>
+</tbody></table>
+<p class="cheat-note">systemctl y journalctl requieren systemd. Las unidades disponibles dependen del sistema. crontab -r elimina la programación del usuario; -l solo la consulta.</p>
+</section>
+<section class="scenario cheatsheet"><header class="scenario-heading"><span class="scenario-label">Cheat sheet · 09 / 10 · Comandos 81–90</span><h2>Red y acceso remoto</h2><p>100 comandos de uso frecuente en Linux · Opciones y ejemplos</p></header>
+<table class="cheat-table"><thead><tr><th>N.º · Comando / función</th><th>Opciones, argumentos y ejemplo</th></tr></thead><tbody>
+<tr data-command="ip"><td><strong>81 · <code>ip</code></strong><br>Consultar interfaces y rutas.</td><td>-br: breve; -c: color; addr/link/route: objetos; show: consulta.<br><code class="example">ip -br addr</code></td></tr>
+<tr data-command="ss"><td><strong>82 · <code>ss</code></strong><br>Consultar sockets.</td><td>-t: TCP; -u: UDP; -l: escucha; -n: numérico; -p: procesos.<br><code class="example">ss -tuln</code></td></tr>
+<tr data-command="ping"><td><strong>83 · <code>ping</code></strong><br>Comprobar respuestas ICMP.</td><td>-c N: cantidad; -W N: espera; -I: interfaz u origen.<br><code class="example">ping -c 4 example.com</code></td></tr>
+<tr data-command="traceroute"><td><strong>84 · <code>traceroute</code></strong><br>Consultar saltos hacia un destino.</td><td>-n: sin DNS; -m N: máximo de saltos; -I: ICMP.<br><code class="example">traceroute -n example.com</code></td></tr>
+<tr data-command="dig"><td><strong>85 · <code>dig</code></strong><br>Consultar DNS.</td><td>+short: breve; @SERVIDOR: DNS; A/MX/TXT: tipo de registro.<br><code class="example">dig +short example.com A</code></td></tr>
+<tr data-command="curl"><td><strong>86 · <code>curl</code></strong><br>Transferir datos por URL.</td><td>-I: cabeceras; -L: redirecciones; -o: destino; -f: fallar en HTTP erróneo; -sS: silencioso con errores.<br><code class="example">curl -I https://example.com</code></td></tr>
+<tr data-command="wget"><td><strong>87 · <code>wget</code></strong><br>Descargar archivos.</td><td>-O: destino; -c: continuar; -q: silencioso; --spider: comprobar recurso.<br><code class="example">wget --spider https://example.com</code></td></tr>
+<tr data-command="ssh"><td><strong>88 · <code>ssh</code></strong><br>Iniciar una sesión remota segura.</td><td>-p: puerto; -i: clave privada; -L: reenvío local; -v: diagnóstico.<br><code class="example">ssh -p 22 usuario@servidor</code></td></tr>
+<tr data-command="scp"><td><strong>89 · <code>scp</code></strong><br>Copiar mediante SSH.</td><td>-r: directorios; -P: puerto; -i: clave privada; -p: preservar fechas y modos.<br><code class="example">scp informe.txt usuario@servidor:/tmp/</code></td></tr>
+<tr data-command="rsync"><td><strong>90 · <code>rsync</code></strong><br>Sincronizar archivos.</td><td>-a: archivo; -v: detalle; -h: legible; -n: simulación; --delete: eliminar extras del destino.<br><code class="example">rsync -avhn origen/ destino/</code></td></tr>
+</tbody></table>
+<p class="cheat-note">Los destinos remotos son ilustrativos. La ausencia de respuesta ICMP no demuestra que un servicio esté caído. En rsync, -n simula; --delete puede borrar archivos del destino.</p>
+</section>
+<section class="scenario cheatsheet"><header class="scenario-heading"><span class="scenario-label">Cheat sheet · 10 / 10 · Comandos 91–100</span><h2>Compresión, paquetes y edición</h2><p>100 comandos de uso frecuente en Linux · Opciones y ejemplos</p></header>
+<table class="cheat-table"><thead><tr><th>N.º · Comando / función</th><th>Opciones, argumentos y ejemplo</th></tr></thead><tbody>
+<tr data-command="tar"><td><strong>91 · <code>tar</code></strong><br>Agrupar o extraer archivos.</td><td>-c: crear; -x: extraer; -t: listar; -f: archivo; -z: gzip; -J: xz.<br><code class="example">tar -czf respaldo.tar.gz datos/</code></td></tr>
+<tr data-command="gzip"><td><strong>92 · <code>gzip</code></strong><br>Comprimir o descomprimir gzip.</td><td>-d: descomprimir; -k: conservar original; -c: salida estándar; -t: integridad.<br><code class="example">gzip -k datos.txt</code></td></tr>
+<tr data-command="gunzip"><td><strong>93 · <code>gunzip</code></strong><br>Descomprimir gzip.</td><td>-k: conservar comprimido; -c: salida estándar; -t: comprobar integridad.<br><code class="example">gunzip -k datos.txt.gz</code></td></tr>
+<tr data-command="zip"><td><strong>94 · <code>zip</code></strong><br>Crear archivos ZIP.</td><td>-r: recursivo; -u: actualizar; -q: silencioso.<br><code class="example">zip -r respaldo.zip datos/</code></td></tr>
+<tr data-command="unzip"><td><strong>95 · <code>unzip</code></strong><br>Consultar o extraer ZIP.</td><td>-l: listar; -t: integridad; -d: destino; -n: no sobrescribir.<br><code class="example">unzip -l respaldo.zip</code></td></tr>
+<tr data-command="apt"><td><strong>96 · <code>apt</code></strong><br>Gestionar paquetes en Debian y Ubuntu.</td><td>update/install/remove/search/show: acciones; -s: simular cambios.<br><code class="example">apt show curl</code></td></tr>
+<tr data-command="dnf"><td><strong>97 · <code>dnf</code></strong><br>Gestionar paquetes en Fedora y sistemas compatibles.</td><td>install/remove/upgrade/search/info: acciones; --assumeno: responder no.<br><code class="example">dnf info curl</code></td></tr>
+<tr data-command="nano"><td><strong>98 · <code>nano</code></strong><br>Editar texto.</td><td>-l: números de línea; -B: respaldo; -v: solo lectura.<br><code class="example">nano -l notas.txt</code></td></tr>
+<tr data-command="vim"><td><strong>99 · <code>vim</code></strong><br>Editar texto con modos.</td><td>-R: solo lectura; -d: diferencias; +N: iniciar en línea N.<br><code class="example">vim -R notas.txt</code></td></tr>
+<tr data-command="tmux"><td><strong>100 · <code>tmux</code></strong><br>Mantener sesiones de terminal.</td><td>new -s: crear; attach -t: conectar; ls: listar sesiones.<br><code class="example">tmux new -s trabajo</code></td></tr>
+</tbody></table>
+<p class="cheat-note">apt y dnf corresponden a familias distintas de distribuciones. Los comandos de consulta no instalan paquetes. gzip y gunzip conservan el original en los ejemplos gracias a -k.</p>
+</section>
+<section class="scenario cheat-sources"><header class="scenario-heading"><span class="scenario-label">Cheat sheet · Documentación</span><h2>Interpretación y referencias</h2><p>Consulta de detalles y diferencias entre implementaciones.</p></header>
+<p>La lista reúne 100 comandos distintos por nombre, agrupados por finalidad. Incluye herramientas externas y comandos internos del shell. No representa una clasificación medida de frecuencia de uso.</p>
+<p><code>ARCHIVO</code>, <code>N</code>, <code>PID</code>, los usuarios y los destinos representan valores que deben adaptarse al caso. Las opciones no se combinan automáticamente: cada ejemplo utiliza solo las necesarias. En comandos internos de Bash, <code>help nombre</code> ofrece ayuda local; para herramientas externas se utiliza <code>man nombre</code>.</p>
+<table><thead><tr><th>Familia</th><th>Documentación de referencia</th></tr></thead><tbody>
+<tr><td>Archivos, texto y huellas</td><td><a href="https://www.gnu.org/software/coreutils/manual/">Manual de GNU Coreutils</a></td></tr>
+<tr><td>Shell y comandos internos</td><td><a href="https://www.gnu.org/software/bash/manual/">Manual de GNU Bash</a></td></tr>
+<tr><td>Búsqueda y procesamiento</td><td><a href="https://www.gnu.org/software/grep/manual/">GNU grep</a> · <a href="https://www.gnu.org/software/gawk/manual/">GNU AWK</a> · <a href="https://www.gnu.org/software/sed/manual/">GNU sed</a> · <a href="https://www.gnu.org/software/findutils/manual/">GNU Findutils</a></td></tr>
+<tr><td>Procesos y red</td><td><a href="https://man7.org/linux/man-pages/man1/ps.1.html">ps</a> · <a href="https://man7.org/linux/man-pages/man8/ip.8.html">ip</a> · <a href="https://man7.org/linux/man-pages/man8/ss.8.html">ss</a></td></tr>
+<tr><td>Servicios</td><td><a href="https://man7.org/linux/man-pages/man1/systemctl.1.html">systemctl</a> · <a href="https://man7.org/linux/man-pages/man1/journalctl.1.html">journalctl</a></td></tr>
+<tr><td>Transferencias y archivos</td><td><a href="https://curl.se/docs/manpage.html">curl</a> · <a href="https://www.openssh.com/manual.html">OpenSSH</a> · <a href="https://download.samba.org/pub/rsync/rsync.1">rsync</a> · <a href="https://www.gnu.org/software/tar/manual/">GNU tar</a></td></tr>
+<tr><td>Paquetes y editores</td><td>Manuales locales: <code>man apt</code>, <code>man dnf</code>, <code>man nano</code>, <code>man vim</code> y <code>man tmux</code>.</td></tr>
+</tbody></table><p>Las versiones instaladas y las políticas de acceso determinan qué opciones y operaciones están disponibles. La guía principal mantiene ejemplos de texto sencillos compatibles con Linux y macOS; este anexo se centra en Linux.</p></section></div></main></body></html>

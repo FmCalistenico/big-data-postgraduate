@@ -4,10 +4,6 @@
     "blocks": [
       {
         "type": "p",
-        "text": "Preparado por el PhD Esteban Hernández, CyberColombia."
-      },
-      {
-        "type": "p",
         "text": "Curso de Postgrado: BigData, Especialización en Bases de datos. Preparado por el PhD Esteban Hernández, CyberColombia. El programa desarrolla competencias de ingeniería de datos sobre dos dominios abiertos: reportes administrativos de salud (PQRS/PQRD de Supersalud) y datos agroambientales de suelo, territorio, producción agrícola y clima. Cada dominio conserva su unidad y significado. El vínculo común es el diseño de ingesta, contratos, calidad, formatos, ejecución y evidencia reproducible."
       },
       {
@@ -23,24 +19,14 @@
         "text": "Diseñar, ejecutar y evaluar un sistema local de ingesta, calidad, integración y análisis que conserve la procedencia y el significado de los datos. El estudiante debe justificar cuándo un portátil es suficiente y qué cambiaría al crecer el volumen, la concurrencia o las exigencias de actualización."
       },
       {
-        "type": "p",
-        "text": "- RA1. Formular una pregunta verificable, identificar la unidad de análisis y evaluar cobertura, licencias y límites de las fuentes."
-      },
-      {
-        "type": "p",
-        "text": "- RA2. Descargar y verificar archivos, conservar el corte original, tipar variables y reportar datos aptos y pendientes de revisión."
-      },
-      {
-        "type": "p",
-        "text": "- RA3. Integrar códigos territoriales, tablas y geometrías sin multiplicar observaciones ni confundir escalas espaciales."
-      },
-      {
-        "type": "p",
-        "text": "- RA4. Comparar DuckDB y Spark local, medir formatos y explicar particiones, joins, ventanas y eventos tardíos."
-      },
-      {
-        "type": "p",
-        "text": "- RA5. Evaluar una línea base temporal, documentar incertidumbre y defender un producto reproducible con límites explícitos."
+        "type": "list",
+        "items": [
+          "RA1. Formular una pregunta verificable, identificar la unidad de análisis y evaluar cobertura, licencias y límites de las fuentes.",
+          "RA2. Descargar y verificar archivos, conservar el corte original, tipar variables y reportar datos aptos y pendientes de revisión.",
+          "RA3. Integrar códigos territoriales, tablas y geometrías sin multiplicar observaciones ni confundir escalas espaciales.",
+          "RA4. Comparar DuckDB y Spark local, medir formatos y explicar particiones, joins, ventanas y eventos tardíos.",
+          "RA5. Evaluar una línea base temporal, documentar incertidumbre y defender un producto reproducible con límites explícitos."
+        ]
       },
       {
         "type": "h",
@@ -73,11 +59,23 @@
             "Total de clase en línea, excluidas pausas",
             "64 h"
           ]
+        ],
+        "widths": [
+          0.7,
+          0.3
         ]
       },
       {
         "type": "p",
         "text": "Doce sesiones online en seis fines de semana, del 2 de octubre al 7 de noviembre de 2026. Las 64 horas corresponden íntegramente a docencia en línea. El trabajo autónomo opcional no se descuenta de esta obligación. La instalación y la comprobación inicial disponen de un bloque durante la sesión 2."
+      },
+      {
+        "type": "p",
+        "text": "Viernes: explicación y demostraciones guiadas por el profesor, sin entregas ni calificación. El profesor ejecuta, explica y comparte sus archivos de referencia; los estudiantes observan, preguntan y pueden seguir voluntariamente. Sábado: ejecución por los estudiantes, revisión y entrega durante la clase. La evidencia evaluable debe corresponder a su propia ejecución. No se exige una entrega ni trabajo autónomo obligatorio entre ambos encuentros."
+      },
+      {
+        "type": "p",
+        "text": "E = ejercicio general del curso (E01–E13). P = práctica con datos PQRS (P01–P04); PQRS significa peticiones, quejas, reclamos y sugerencias. El número identifica la actividad, no la sesión. T01 = taller teórico de capacidad; I01 = introducción a eventos NASA."
       },
       {
         "type": "h",
@@ -92,35 +90,40 @@
         ],
         "rows": [
           [
-            "02/10/2026 y 03/10/2026",
+            "02/10 y 03/10",
             "Fundamentos y escala / Ingesta y perfilado",
             "11 h 15 min"
           ],
           [
-            "09/10/2026 y 10/10/2026",
+            "09/10 y 10/10",
             "Arquitecturas, formatos y pipelines / Calidad e integración",
             "11 h 15 min"
           ],
           [
-            "16/10/2026 y 17/10/2026",
+            "16/10 y 17/10",
             "Procesamiento con Spark / Consultas e integración distribuida",
             "10 h 30 min"
           ],
           [
-            "23/10/2026 y 24/10/2026",
+            "23/10 y 24/10",
             "Rendimiento y escalabilidad / Streaming de eventos",
             "10 h 30 min"
           ],
           [
-            "30/10/2026 y 31/10/2026",
+            "30/10 y 31/10",
             "Analítica y gobernanza / Integración y auditoría del proyecto",
             "10 h 30 min"
           ],
           [
-            "06/11/2026 y 07/11/2026",
+            "06/11 y 07/11",
             "Clínica de proyectos y ensayo de defensa / Sustentación y cierre contractual",
             "10 h"
           ]
+        ],
+        "widths": [
+          0.29,
+          0.49,
+          0.22
         ]
       },
       {
@@ -147,11 +150,11 @@
         ],
         "rows": [
           [
-            "E01–E03 + P01: procedencia, descarga y perfilado",
+            "E01–E03: procedencia, descarga y perfilado",
             "10 %"
           ],
           [
-            "E04–E06 + P02–P03: calidad, formatos y SQL",
+            "E04–E06: calidad, formatos y SQL",
             "10 %"
           ],
           [
@@ -159,7 +162,7 @@
             "10 %"
           ],
           [
-            "E10/P04 + I01/E11: experimento y eventos",
+            "E10–E11: experimento y eventos",
             "20 %"
           ],
           [
@@ -170,6 +173,10 @@
             "Sustentación individual",
             "15 %"
           ]
+        ],
+        "widths": [
+          0.78,
+          0.22
         ]
       },
       {
@@ -182,7 +189,7 @@
       },
       {
         "type": "p",
-        "text": "Cada equipo elige dominio agroambiental o PQRS y presenta un pipeline ejecutable de uno de los dominios, un catálogo de fuentes, tablas Parquet, una consulta equivalente entre motores, un mapa agroambiental o una tabla territorial PQRS con cobertura explícita, un experimento de rendimiento, evidencia de eventos y una evaluación temporal. El informe de 8 a 12 páginas debe separar resultados observados, estimaciones, limitaciones y propuesta de escalamiento. La sustentación final se realiza el 7 de noviembre. La sesión del 6 permite ensayar, corregir y validar el producto dentro de las horas contratadas. Planificar 15 minutos por equipo incluyendo preguntas y transición; ajustar el número de turnos al grupo real."
+        "text": "Cada equipo elige dominio agroambiental o PQRS y presenta un pipeline ejecutable de uno de los dominios, un catálogo de fuentes, tablas Parquet, una consulta equivalente entre motores, un mapa con cobertura explícita, un experimento de rendimiento, evidencia de eventos y una evaluación temporal. El informe de 8 a 12 páginas debe separar resultados observados, estimaciones, limitaciones y propuesta de escalamiento. La sustentación final se realiza el 7 de noviembre. La sesión del 6 permite ensayar, corregir y validar el producto dentro de las horas contratadas. Planificar 15 minutos por equipo incluyendo preguntas y transición; ajustar el número de turnos al grupo real."
       },
       {
         "type": "h",
@@ -206,6 +213,11 @@
             "DIVIPOLA, shapes, propiedades del suelo, EVA, clima y análisis temporal",
             "Escalas y unidades distintas; muestra municipal no representa automáticamente toda la superficie."
           ]
+        ],
+        "widths": [
+          0.26,
+          0.37,
+          0.37
         ]
       },
       {
@@ -217,24 +229,180 @@
         "text": "Prerrequisitos operativos y progresión"
       },
       {
-        "type": "p",
-        "text": "- Saber usar una terminal, tipos básicos de Python y SELECT/GROUP BY en SQL. El diagnóstico inicial orienta la ayuda docente."
+        "type": "list",
+        "items": [
+          "Saber usar una terminal, tipos básicos de Python y SELECT/GROUP BY en SQL. El diagnóstico inicial orienta la ayuda docente.",
+          "Iniciar con las tres muestras reales de 1.000 filas PQRS y los CSV agroambientales. Las muestras son las primeras filas y sirven para probar código; no tienen representatividad estadística.",
+          "El profesor demuestra datos completos PQRS en la sesión 7 después de validar la consulta con muestras. Descargar un corte por vez o acceder a la copia docente.",
+          "E01–E13 y P01–P04 comparten los bloques del programa. P01–P03 complementan los talleres de las sesiones 2–4; P04 se demuestra en la sesión 7 y se ejecuta y entrega en la sesión 8. No se añaden horas."
+        ]
+      },
+      {
+        "type": "h",
+        "text": "Fechas de entrega y calificación"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Sábado / cierre",
+          "Evidencia",
+          "Peso"
+        ],
+        "rows": [
+          [
+            "10-03 · 16:45–17:00",
+            "Ficha de problema, presupuesto de recursos, manifiesto, perfil y claves territoriales",
+            "10 %"
+          ],
+          [
+            "10-10 · 16:30–16:45",
+            "Contrato propio, Parquet, prueba de reejecución, controles de calidad, consultas equivalentes y cobertura",
+            "10 %"
+          ],
+          [
+            "10-17 · 16:30–17:00",
+            "Plan y equivalencia Spark/DuckDB, consulta de ventanas, mapa y alcance espacial",
+            "10 %"
+          ],
+          [
+            "10-24 · 16:30–17:00",
+            "Informe de benchmark propio, traza de eventos y análisis de recuperación",
+            "20 %"
+          ],
+          [
+            "10-31 · 16:30–17:00",
+            "Evaluación temporal EVA, ficha de gobernanza, producto candidato e informe con hallazgos",
+            "Hito formativo del bloque de proyecto (35 %)"
+          ],
+          [
+            "11-07 · 16:00–16:30",
+            "Paquete final corregido, informe de 8–12 páginas y registro de defensa individual",
+            "35 % proyecto + 15 % sustentación"
+          ]
+        ],
+        "widths": [
+          0.24,
+          0.55,
+          0.21
+        ]
       },
       {
         "type": "p",
-        "text": "- Iniciar con las tres muestras reales de 1.000 filas PQRS y los CSV agroambientales. Las muestras son las primeras filas y sirven para probar código; no tienen representatividad estadística."
+        "text": "El candidato del 31 de octubre recibe retroalimentación y no añade otra ponderación. El bloque E12–E13 se califica con 35 % sobre la versión final del 7 de noviembre, que incorpora E12 y las correcciones. La sustentación individual vale 15 %. Total del curso: 100 %. Los archivos parciales del sábado forman una entrega única por fin de semana."
       },
       {
-        "type": "p",
-        "text": "- Usar datos completos PQRS en la sesión 7 después de validar la consulta con muestras. Descargar un corte por vez o acceder a la copia docente."
+        "type": "h",
+        "text": "Nombres completos de las actividades"
       },
       {
-        "type": "p",
-        "text": "- E01–E13 y P01–P04 comparten los bloques del programa. P01–P03 complementan los talleres de las sesiones 2–4; P04 forma parte de la sesión 7. No se añaden horas."
-      },
-      {
-        "type": "p",
-        "text": "Las prácticas P01–P04 e I01 se evalúan dentro de las entregas existentes, sin pesos adicionales. Consultar el [mapa de ejercicios](mapa-ejercicios.md) y el [proyecto por dominio](../proyecto/README.md)."
+        "type": "table",
+        "headers": [
+          "Código",
+          "Significado",
+          "Actividad"
+        ],
+        "rows": [
+          [
+            "E01",
+            "Ejercicio 01",
+            "Pregunta y procedencia"
+          ],
+          [
+            "E02",
+            "Ejercicio 02",
+            "Descarga y perfil inicial"
+          ],
+          [
+            "E03",
+            "Ejercicio 03",
+            "Identidad territorial y vigencias"
+          ],
+          [
+            "E04",
+            "Ejercicio 04",
+            "Formatos y contrato de datos"
+          ],
+          [
+            "E05",
+            "Ejercicio 05",
+            "Calidad de análisis de suelo"
+          ],
+          [
+            "E06",
+            "Ejercicio 06",
+            "Rendimiento agrícola e integración SQL"
+          ],
+          [
+            "E07",
+            "Ejercicio 07",
+            "Spark y equivalencia de resultados"
+          ],
+          [
+            "E08",
+            "Ejercicio 08",
+            "Shapes y capacidad de uso"
+          ],
+          [
+            "E09",
+            "Ejercicio 09",
+            "Propiedades del suelo y profundidad"
+          ],
+          [
+            "E10",
+            "Ejercicio 10",
+            "Rendimiento del procesamiento"
+          ],
+          [
+            "E11",
+            "Ejercicio 11",
+            "Clima y reproducción de eventos"
+          ],
+          [
+            "E12",
+            "Ejercicio 12",
+            "Línea base temporal y gobernanza"
+          ],
+          [
+            "E13",
+            "Ejercicio 13",
+            "Producto integrador reproducible"
+          ],
+          [
+            "P01",
+            "Práctica PQRS 01",
+            "Perfil PQRS y lectura por bloques"
+          ],
+          [
+            "P02",
+            "Práctica PQRS 02",
+            "Parquet, contrato y reejecución"
+          ],
+          [
+            "P03",
+            "Práctica PQRS 03",
+            "Calidad de reportes y consulta diferida"
+          ],
+          [
+            "P04",
+            "Práctica PQRS 04",
+            "Escala real y comparación de motores"
+          ],
+          [
+            "T01",
+            "Taller teórico",
+            "Capacidad y escala"
+          ],
+          [
+            "I01",
+            "Introducción",
+            "Eventos finitos con NASA"
+          ]
+        ],
+        "widths": [
+          0.12,
+          0.28,
+          0.6
+        ]
       }
     ]
   },
@@ -243,259 +411,97 @@
     "blocks": [
       {
         "type": "p",
-        "text": "Las fechas de las primeras diez sesiones coinciden con las presentaciones institucionales vigentes. Se agregan los encuentros del 6 y 7 de noviembre de 2026 para cumplir el cierre contractual. El 31 de octubre queda destinado a integración y auditoría, y la sustentación final se traslada al 7 de noviembre."
+        "text": "Calendario contractual: 12 sesiones del 2 de octubre al 7 de noviembre de 2026. Las entregas estudiantiles se concentran exclusivamente en los seis sábados."
       },
       {
         "type": "h",
-        "text": "Cómputo contractual confirmado"
+        "text": "Carga contractual"
       },
       {
         "type": "p",
-        "text": "El curso comprende 64 horas efectivas de clase en línea: 3.840 minutos de 60 minutos por hora. El trabajo autónomo no integra esa suma. Los recesos y el almuerzo se excluyen. La ampliación fuera de clase es opcional y no condiciona la realización de los talleres o la evaluación."
+        "text": "64 horas efectivas de clase en línea, equivalentes a 3.840 minutos. Recesos, almuerzo y trabajo autónomo excluidos."
+      },
+      {
+        "type": "p",
+        "text": "Viernes: explicación y demostraciones guiadas por el profesor, sin entregas ni calificación. El profesor ejecuta, explica y comparte sus archivos de referencia; los estudiantes observan, preguntan y pueden seguir voluntariamente. Sábado: ejecución por los estudiantes, revisión y entrega durante la clase. La evidencia evaluable debe corresponder a su propia ejecución. No se exige una entrega ni trabajo autónomo obligatorio entre ambos encuentros."
+      },
+      {
+        "type": "p",
+        "text": "E = ejercicio general del curso (E01–E13). P = práctica con datos PQRS (P01–P04); PQRS significa peticiones, quejas, reclamos y sugerencias. El número identifica la actividad, no la sesión. T01 = taller teórico de capacidad; I01 = introducción a eventos NASA."
       },
       {
         "type": "table",
         "headers": [
-          "Organización",
-          "Tiempo efectivo"
-        ],
-        "rows": [
-          [
-            "12 encuentros con horarios originales",
-            "67 h 30 min"
-          ],
-          [
-            "Reducción de cuatro viernes: 45 min cada uno",
-            "−3 h"
-          ],
-          [
-            "Reducción del sábado 7 de noviembre",
-            "−30 min"
-          ],
-          [
-            "Docencia en línea resultante",
-            "64 h"
-          ]
-        ],
-        "widths": [
-          0.73,
-          0.27
-        ]
-      },
-      {
-        "type": "p",
-        "text": "Se conservan completos los encuentros del 2, 3, 9 y 10 de octubre. Los viernes 16, 23 y 30 de octubre y 6 de noviembre terminan a las 21:15, con 3 horas efectivas. Los sábados 17, 24 y 31 de octubre conservan 7 h 30 min efectivas. El sábado 7 de noviembre termina a las 16:30, con 7 horas efectivas."
-      },
-      {
-        "type": "h",
-        "text": "Distribución de temas por fechas"
-      },
-      {
-        "type": "table",
-        "headers": [
-          "Sesión / fecha",
-          "Tema y práctica",
+          "Fecha / horario",
+          "Tema y modalidad",
           "Clase efectiva"
         ],
         "rows": [
           [
-            "01 · Viernes 02/10/2026",
-            "Fundamentos y escala. E01 / T01: pregunta, procedencia y capacidad",
+            "Viernes 02/10/2026 18:00–22:00",
+            "Fundamentos y escala. Demostración guiada por el profesor",
             "3 h 45 min"
           ],
           [
-            "02 · Sábado 03/10/2026",
-            "Ingesta y perfilado. E02–E03 / P01: descargas, PQRS y DIVIPOLA",
+            "Sábado 03/10/2026 08:00–17:00",
+            "Ingesta y perfilado. Actividad estudiantil y entrega en clase",
             "7 h 30 min"
           ],
           [
-            "03 · Viernes 09/10/2026",
-            "Arquitecturas, formatos y pipelines. E04 / P02: contrato, CSV y Parquet",
+            "Viernes 09/10/2026 18:00–22:00",
+            "Arquitecturas, formatos y pipelines. Demostración guiada por el profesor",
             "3 h 45 min"
           ],
           [
-            "04 · Sábado 10/10/2026",
-            "Calidad e integración. E05–E06 / P03: suelos, calidad PQRS y EVA",
+            "Sábado 10/10/2026 08:00–17:00",
+            "Calidad e integración. Actividad estudiantil y entrega en clase",
             "7 h 30 min"
           ],
           [
-            "05 · Viernes 16/10/2026",
-            "Procesamiento con Spark. E07: planes, particiones y equivalencia Spark/DuckDB",
-            "3 h"
+            "Viernes 16/10/2026 18:00–21:15",
+            "Procesamiento con Spark. Demostración guiada por el profesor",
+            "3 h "
           ],
           [
-            "06 · Sábado 17/10/2026",
-            "Consultas e integración distribuida. E07–E09: joins, shapes DANE/IGAC, SoilGrids y WoSIS",
+            "Sábado 17/10/2026 08:00–17:00",
+            "Consultas e integración distribuida. Actividad estudiantil y entrega en clase",
             "7 h 30 min"
           ],
           [
-            "07 · Viernes 23/10/2026",
-            "Rendimiento y escalabilidad. E10 / P04: tiempo, RAM y motores con PQRS real",
-            "3 h"
+            "Viernes 23/10/2026 18:00–21:15",
+            "Rendimiento y escalabilidad. Demostración guiada por el profesor",
+            "3 h "
           ],
           [
-            "08 · Sábado 24/10/2026",
-            "Streaming de eventos. E11 / I01: NASA, CHIRPS, eventos, ventanas y recuperación",
+            "Sábado 24/10/2026 08:00–17:00",
+            "Streaming de eventos. Actividad estudiantil y entrega en clase",
             "7 h 30 min"
           ],
           [
-            "09 · Viernes 30/10/2026",
-            "Analítica y gobernanza. E12: rendimiento por cultivo, evaluación temporal y gobernanza",
-            "3 h"
+            "Viernes 30/10/2026 18:00–21:15",
+            "Analítica y gobernanza. Demostración guiada por el profesor",
+            "3 h "
           ],
           [
-            "10 · Sábado 31/10/2026",
-            "Integración y auditoría del proyecto. E13: reconstrucción, pruebas y auditoría cruzada",
+            "Sábado 31/10/2026 08:00–17:00",
+            "Integración y auditoría del proyecto. Actividad estudiantil y entrega en clase",
             "7 h 30 min"
           ],
           [
-            "11 · Viernes 06/11/2026",
-            "Clínica de proyectos y ensayo de defensa. E13: correcciones, límites e informe final",
-            "3 h"
+            "Viernes 06/11/2026 18:00–21:15",
+            "Clínica de proyectos y ensayo de defensa. Demostración guiada por el profesor",
+            "3 h "
           ],
           [
-            "12 · Sábado 07/11/2026",
-            "Sustentación y cierre contractual. E13: defensa, retroalimentación y entrega verificable",
-            "7 h"
+            "Sábado 07/11/2026 08:00–16:30",
+            "Sustentación y cierre contractual. Actividad estudiantil y entrega en clase",
+            "7 h "
           ]
         ],
         "widths": [
-          0.26,
-          0.55,
+          0.3,
+          0.51,
           0.19
-        ]
-      },
-      {
-        "type": "h",
-        "text": "Horarios y productos de cada encuentro"
-      },
-      {
-        "type": "table",
-        "headers": [
-          "Fecha",
-          "Horario de Colombia",
-          "Producto"
-        ],
-        "rows": [
-          [
-            "Viernes 02/10/2026",
-            "18:00–22:00",
-            "Ficha de problema y presupuesto de recursos"
-          ],
-          [
-            "Sábado 03/10/2026",
-            "08:00–17:00",
-            "Manifiesto, perfil y claves territoriales"
-          ],
-          [
-            "Viernes 09/10/2026",
-            "18:00–22:00",
-            "Parquet, contrato y traza de reejecución"
-          ],
-          [
-            "Sábado 10/10/2026",
-            "08:00–17:00",
-            "Controles de calidad y consulta conciliada"
-          ],
-          [
-            "Viernes 16/10/2026",
-            "18:00–21:15",
-            "Plan explicado y control de equivalencia"
-          ],
-          [
-            "Sábado 17/10/2026",
-            "08:00–17:00",
-            "Consulta, mapa y alcance espacial"
-          ],
-          [
-            "Viernes 23/10/2026",
-            "18:00–21:15",
-            "Tabla experimental e informe de rendimiento"
-          ],
-          [
-            "Sábado 24/10/2026",
-            "08:00–17:00",
-            "Traza de eventos y análisis de recuperación"
-          ],
-          [
-            "Viernes 30/10/2026",
-            "18:00–21:15",
-            "Evaluación temporal y ficha de gobernanza"
-          ],
-          [
-            "Sábado 31/10/2026",
-            "08:00–17:00",
-            "Producto candidato y lista de hallazgos"
-          ],
-          [
-            "Viernes 06/11/2026",
-            "18:00–21:15",
-            "Producto corregido, informe y ensayo"
-          ],
-          [
-            "Sábado 07/11/2026",
-            "08:00–16:30",
-            "Producto final, sustentación y acta de cierre"
-          ]
-        ],
-        "widths": [
-          0.23,
-          0.22,
-          0.55
-        ]
-      },
-      {
-        "type": "h",
-        "text": "Carga por fin de semana"
-      },
-      {
-        "type": "table",
-        "headers": [
-          "Fechas de 2026",
-          "Clases",
-          "Horas efectivas"
-        ],
-        "rows": [
-          [
-            "02/10/2026 y 03/10/2026",
-            "1–2",
-            "11 h 15 min"
-          ],
-          [
-            "09/10/2026 y 10/10/2026",
-            "3–4",
-            "11 h 15 min"
-          ],
-          [
-            "16/10/2026 y 17/10/2026",
-            "5–6",
-            "10 h 30 min"
-          ],
-          [
-            "23/10/2026 y 24/10/2026",
-            "7–8",
-            "10 h 30 min"
-          ],
-          [
-            "30/10/2026 y 31/10/2026",
-            "9–10",
-            "10 h 30 min"
-          ],
-          [
-            "06/11/2026 y 07/11/2026",
-            "11–12",
-            "10 h"
-          ],
-          [
-            "Total",
-            "12",
-            "64 h"
-          ]
-        ],
-        "widths": [
-          0.47,
-          0.16,
-          0.37
         ]
       },
       {
@@ -504,27 +510,52 @@
       },
       {
         "type": "p",
-        "text": "Viernes: coffee break 20:00–20:15. Sábados: receso de la mañana 09:30–09:45, almuerzo 12:00–13:00 y receso de la tarde 15:00–15:15. Estos períodos se mantienen incluso en el último encuentro, que termina a las 16:30."
+        "text": "Viernes: 20:00–20:15. Sábados: 09:30–09:45 y 15:00–15:15; almuerzo 12:00–13:00. Último sábado: cierre 16:30."
       },
       {
         "type": "h",
-        "text": "Descargas, talleres y continuidad"
+        "text": "Entregas sabatinas"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Fecha / cierre",
+          "Actividades y evidencia"
+        ],
+        "rows": [
+          [
+            "2026-10-03 16:45–17:00",
+            "E01–E03 / P01 / T01: Ficha de problema, presupuesto de recursos, manifiesto, perfil y claves territoriales"
+          ],
+          [
+            "2026-10-10 16:30–16:45",
+            "E04–E06 / P02–P03: Contrato propio, Parquet, prueba de reejecución, controles de calidad, consultas equivalentes y cobertura"
+          ],
+          [
+            "2026-10-17 16:30–17:00",
+            "E07–E09: Plan y equivalencia Spark/DuckDB, consulta de ventanas, mapa y alcance espacial"
+          ],
+          [
+            "2026-10-24 16:30–17:00",
+            "E10–E11 / P04 / I01: Informe de benchmark propio, traza de eventos y análisis de recuperación"
+          ],
+          [
+            "2026-10-31 16:30–17:00",
+            "E12–E13: Evaluación temporal EVA, ficha de gobernanza, producto candidato e informe con hallazgos"
+          ],
+          [
+            "2026-11-07 16:00–16:30",
+            "E13 / sustentación individual: Paquete final corregido, informe de 8–12 páginas y registro de defensa individual"
+          ]
+        ],
+        "widths": [
+          0.27,
+          0.73
+        ]
       },
       {
         "type": "p",
-        "text": "La instalación, el perfilado inicial y la descarga selectiva tienen espacio en la sesión 2. El docente conserva una copia validada para evitar que una descarga nacional de 1,816 GB consuma el bloque de práctica. Antes del 23 de octubre se comprueba la consulta en las muestras PQRS. Los completos permiten observar escala real; el camino con muestras conserva los criterios de equivalencia en un portátil limitado. No se exige duplicar fuera de clase todas las rutas o descargar capas globales."
-      },
-      {
-        "type": "p",
-        "text": "Los talleres P01–P04 comparten los bloques de E01–E13. Los shapes DANE/IGAC, DIVIPOLA, SoilGrids y WoSIS se aplican el 17 de octubre. El rendimiento agrícola se introduce el 10 y se evalúa temporalmente el 30. NASA y CHIRPS apoyan los eventos del 24. Los ejercicios siguen utilizando observaciones abiertas, conservan originales y declaran unidades, cobertura y límites."
-      },
-      {
-        "type": "h",
-        "text": "Hitos del proyecto"
-      },
-      {
-        "type": "p",
-        "text": "31 de octubre: producto candidato reproducible y auditoría cruzada. 6 de noviembre: clínica, correcciones y ensayo de defensa dentro de la clase. 7 de noviembre: sustentación, evaluación individual, entrega final y cierre contractual. La jornada final reserva 345 minutos a sustentaciones y preguntas, 45 a retroalimentación y 30 al acta y cierre. Con 15 minutos por equipo ofrece 23 cupos; el docente ajusta los turnos a la cantidad real de equipos y puede iniciar sustentaciones en la sesión del día 6."
+        "text": "El 31 de octubre es un hito formativo del proyecto. El 6 de noviembre es una clínica demostrativa del profesor y ensayo sin calificación ni entrega. La defensa individual evaluable y la entrega final se realizan el sábado 7 de noviembre. Con turnos de 15 minutos se disponen de hasta 23 equipos; los ensayos del viernes no se califican."
       },
       {
         "type": "h",
@@ -536,7 +567,7 @@
       },
       {
         "type": "p",
-        "text": "Fundamentos y escala. 18:00–22:00. 3 h 45 min efectivas."
+        "text": "Fundamentos y escala. 18:00–22:00. Demostración guiada por el profesor."
       },
       {
         "type": "table",
@@ -547,15 +578,15 @@
         "rows": [
           [
             "18:00–18:20",
-            "Organización, diagnóstico y unidades de los dos dominios"
+            "Explicación / demostración docente: Organización, diagnóstico y unidades de los dos dominios"
           ],
           [
             "18:20–19:35",
-            "Cinco V y T01: cálculo de 2 GB, 20 GB y 2 TB"
+            "Explicación / demostración docente: Cinco V y T01: cálculo de 2 GB, 20 GB y 2 TB"
           ],
           [
             "19:35–20:00",
-            "Restricciones, escalamiento y Amdahl"
+            "Explicación / demostración docente: Restricciones, escalamiento y Amdahl"
           ],
           [
             "20:00–20:15",
@@ -563,21 +594,21 @@
           ],
           [
             "20:15–21:30",
-            "E01: casos, procedencia, ciclo de vida y ficha"
+            "Explicación / demostración docente: E01: casos, procedencia, ciclo de vida y ficha"
           ],
           [
             "21:30–22:00",
-            "Discusión y cierre"
+            "Explicación / demostración docente: Discusión y cierre"
           ]
         ],
         "widths": [
-          0.25,
-          0.75
+          0.24,
+          0.76
         ]
       },
       {
         "type": "p",
-        "text": "Producto: Ficha de problema y presupuesto de recursos."
+        "text": "Material de referencia del profesor: Referencia docente: Ficha de problema y presupuesto de recursos; ejecución y entrega estudiantil el sábado."
       },
       {
         "type": "h",
@@ -585,7 +616,7 @@
       },
       {
         "type": "p",
-        "text": "Ingesta y perfilado. 08:00–17:00. 7 h 30 min efectivas."
+        "text": "Ingesta y perfilado. 08:00–17:00. Actividad estudiantil y entrega en clase."
       },
       {
         "type": "table",
@@ -636,7 +667,7 @@
           ],
           [
             "16:00–16:45",
-            "Contrato inicial y diccionario de variables"
+            "Ficha propia E01/T01, contrato inicial y diccionario de variables"
           ],
           [
             "16:45–17:00",
@@ -644,13 +675,13 @@
           ]
         ],
         "widths": [
-          0.25,
-          0.75
+          0.24,
+          0.76
         ]
       },
       {
         "type": "p",
-        "text": "Producto: Manifiesto, perfil y claves territoriales."
+        "text": "Entrega en clase: Ficha de problema, presupuesto de recursos, manifiesto, perfil y claves territoriales."
       },
       {
         "type": "h",
@@ -658,7 +689,7 @@
       },
       {
         "type": "p",
-        "text": "Arquitecturas, formatos y pipelines. 18:00–22:00. 3 h 45 min efectivas."
+        "text": "Arquitecturas, formatos y pipelines. 18:00–22:00. Demostración guiada por el profesor."
       },
       {
         "type": "table",
@@ -669,15 +700,15 @@
         "rows": [
           [
             "18:00–18:45",
-            "Relacional, warehouse, lake y formatos; contraste conceptual con Zarr"
+            "Arquitecturas y formatos: explicación y demostración docente"
           ],
           [
             "18:45–19:15",
-            "E04: contrato de datos y capas del producto"
+            "E04: demostración docente del contrato y las capas"
           ],
           [
             "19:15–20:00",
-            "P02: CSV, proyección y Parquet particionado"
+            "P02: demostración docente CSV a Parquet"
           ],
           [
             "20:00–20:15",
@@ -685,25 +716,29 @@
           ],
           [
             "20:15–21:00",
-            "P02: configuración, fallo controlado y reejecución"
+            "P02: demostración docente de fallo y reejecución"
           ],
           [
-            "21:00–21:45",
-            "ETL/ELT, monitoreo y decisiones de arquitectura"
+            "21:00–21:15",
+            "Explicación / demostración docente: ETL/ELT, orquestación y monitoreo"
+          ],
+          [
+            "21:15–21:45",
+            "Demostración docente de controles y publicación"
           ],
           [
             "21:45–22:00",
-            "Defensa breve del contrato"
+            "Discusión y preparación de la entrega del sábado"
           ]
         ],
         "widths": [
-          0.25,
-          0.75
+          0.24,
+          0.76
         ]
       },
       {
         "type": "p",
-        "text": "Producto: Parquet, contrato y traza de reejecución."
+        "text": "Material de referencia del profesor: Referencia docente: Parquet, contrato y traza de reejecución; ejecución y entrega estudiantil el sábado."
       },
       {
         "type": "h",
@@ -711,7 +746,7 @@
       },
       {
         "type": "p",
-        "text": "Calidad e integración. 08:00–17:00. 7 h 30 min efectivas."
+        "text": "Calidad e integración. 08:00–17:00. Actividad estudiantil y entrega en clase."
       },
       {
         "type": "table",
@@ -730,7 +765,7 @@
           ],
           [
             "09:45–10:45",
-            "P03: calidad PQRS sin exclusiones injustificadas"
+            "09:45–10:00 orientación; 10:00–10:20 E04/P02 propios; 10:20–10:45 P03 calidad"
           ],
           [
             "10:45–12:00",
@@ -758,17 +793,17 @@
           ],
           [
             "16:30–17:00",
-            "Cierre y preparación de Spark"
+            "16:30–16:45 entrega única E04–E06/P02–P03; 16:45–17:00 preparación de Spark"
           ]
         ],
         "widths": [
-          0.25,
-          0.75
+          0.24,
+          0.76
         ]
       },
       {
         "type": "p",
-        "text": "Producto: Controles de calidad y consulta conciliada."
+        "text": "Entrega en clase: Contrato propio, Parquet, prueba de reejecución, controles de calidad, consultas equivalentes y cobertura."
       },
       {
         "type": "h",
@@ -776,7 +811,7 @@
       },
       {
         "type": "p",
-        "text": "Procesamiento con Spark. 18:00–21:15. 3 h efectivas."
+        "text": "Procesamiento con Spark. 18:00–21:15. Demostración guiada por el profesor."
       },
       {
         "type": "table",
@@ -787,15 +822,15 @@
         "rows": [
           [
             "18:00–18:30",
-            "Motores y entorno Spark"
+            "Explicación / demostración docente: Motores y entorno Spark"
           ],
           [
             "18:30–19:15",
-            "Driver, particiones, transformaciones y plan"
+            "Explicación / demostración docente: Driver, particiones, transformaciones y plan"
           ],
           [
             "19:15–20:00",
-            "E07: agregación y acción"
+            "Explicación / demostración docente: E07: agregación y acción"
           ],
           [
             "20:00–20:15",
@@ -803,21 +838,21 @@
           ],
           [
             "20:15–21:00",
-            "E07: equivalencia con DuckDB"
+            "Explicación / demostración docente: E07: equivalencia con DuckDB"
           ],
           [
             "21:00–21:15",
-            "Plan, controles y cierre"
+            "Explicación / demostración docente: Plan, controles y cierre"
           ]
         ],
         "widths": [
-          0.25,
-          0.75
+          0.24,
+          0.76
         ]
       },
       {
         "type": "p",
-        "text": "Producto: Plan explicado y control de equivalencia."
+        "text": "Material de referencia del profesor: Referencia docente: Plan explicado y control de equivalencia; ejecución y entrega estudiantil el sábado."
       },
       {
         "type": "h",
@@ -825,7 +860,7 @@
       },
       {
         "type": "p",
-        "text": "Consultas e integración distribuida. 08:00–17:00. 7 h 30 min efectivas."
+        "text": "Consultas e integración distribuida. 08:00–17:00. Actividad estudiantil y entrega en clase."
       },
       {
         "type": "table",
@@ -836,7 +871,7 @@
         "rows": [
           [
             "08:00–09:30",
-            "Joins, claves, cardinalidad y planes"
+            "Reejecución propia E07, plan y equivalencia (08:00–08:45); joins y cardinalidad (08:45–09:30)"
           ],
           [
             "09:30–09:45",
@@ -868,13 +903,13 @@
           ]
         ],
         "widths": [
-          0.25,
-          0.75
+          0.24,
+          0.76
         ]
       },
       {
         "type": "p",
-        "text": "Producto: Consulta, mapa y alcance espacial."
+        "text": "Entrega en clase: Plan y equivalencia Spark/DuckDB, consulta de ventanas, mapa y alcance espacial."
       },
       {
         "type": "h",
@@ -882,7 +917,7 @@
       },
       {
         "type": "p",
-        "text": "Rendimiento y escalabilidad. 18:00–21:15. 3 h efectivas."
+        "text": "Rendimiento y escalabilidad. 18:00–21:15. Demostración guiada por el profesor."
       },
       {
         "type": "table",
@@ -893,11 +928,11 @@
         "rows": [
           [
             "18:00–18:30",
-            "Protocolo experimental, caché y RSS"
+            "Explicación / demostración docente: Protocolo experimental, caché y RSS"
           ],
           [
             "18:30–20:00",
-            "E10/P04: consulta equivalente y mediciones PQRS"
+            "Explicación / demostración docente: E10/P04: consulta equivalente y mediciones PQRS"
           ],
           [
             "20:00–20:15",
@@ -905,21 +940,21 @@
           ],
           [
             "20:15–21:00",
-            "Repeticiones, planes y comparación CSV–Parquet"
+            "Explicación / demostración docente: Repeticiones, planes y comparación CSV–Parquet"
           ],
           [
             "21:00–21:15",
-            "Informe y decisión de estrategia"
+            "Explicación / demostración docente: Informe y decisión de estrategia"
           ]
         ],
         "widths": [
-          0.25,
-          0.75
+          0.24,
+          0.76
         ]
       },
       {
         "type": "p",
-        "text": "Producto: Tabla experimental e informe de rendimiento."
+        "text": "Material de referencia del profesor: Referencia docente: Tabla experimental e informe de rendimiento; ejecución y entrega estudiantil el sábado."
       },
       {
         "type": "h",
@@ -927,7 +962,7 @@
       },
       {
         "type": "p",
-        "text": "Streaming de eventos. 08:00–17:00. 7 h 30 min efectivas."
+        "text": "Streaming de eventos. 08:00–17:00. Actividad estudiantil y entrega en clase."
       },
       {
         "type": "table",
@@ -938,11 +973,11 @@
         "rows": [
           [
             "08:00–08:45",
-            "NASA, CHIRPS, escalas y unidades"
+            "E10/P04: benchmark propio con muestras; tres repeticiones y equivalencia"
           ],
           [
             "08:45–09:30",
-            "I01: traza finita y conceptos de eventos"
+            "NASA/CHIRPS: unidades y escala (15 min); I01: traza finita (30 min)"
           ],
           [
             "09:30–09:45",
@@ -966,21 +1001,21 @@
           ],
           [
             "15:15–16:30",
-            "Colas, garantías y auditoría de la reproducción"
+            "Auditoría de eventos y consolidación del informe experimental"
           ],
           [
             "16:30–17:00",
-            "Entrega experimental"
+            "Entrega única E10–E11/P04/I01"
           ]
         ],
         "widths": [
-          0.25,
-          0.75
+          0.24,
+          0.76
         ]
       },
       {
         "type": "p",
-        "text": "Producto: Traza de eventos y análisis de recuperación."
+        "text": "Entrega en clase: Informe de benchmark propio, traza de eventos y análisis de recuperación."
       },
       {
         "type": "h",
@@ -988,7 +1023,7 @@
       },
       {
         "type": "p",
-        "text": "Analítica y gobernanza. 18:00–21:15. 3 h efectivas."
+        "text": "Analítica y gobernanza. 18:00–21:15. Demostración guiada por el profesor."
       },
       {
         "type": "table",
@@ -999,11 +1034,11 @@
         "rows": [
           [
             "18:00–18:30",
-            "Métrica, población, tiempo y fuga de información"
+            "Explicación / demostración docente: Métrica, población, tiempo y fuga de información"
           ],
           [
             "18:30–20:00",
-            "E12: persistencia, rendimiento y MAE por cultivo"
+            "Explicación / demostración docente: E12: persistencia, rendimiento y MAE por cultivo"
           ],
           [
             "20:00–20:15",
@@ -1011,25 +1046,25 @@
           ],
           [
             "20:15–20:30",
-            "E12: error por cultivo y cobertura"
+            "Explicación / demostración docente: E12: error por cultivo y cobertura"
           ],
           [
             "20:30–21:00",
-            "Gobernanza y revisión crítica de índices compuestos"
+            "Explicación / demostración docente: Gobernanza y revisión crítica de índices compuestos"
           ],
           [
             "21:00–21:15",
-            "Definición del producto integrador"
+            "Explicación / demostración docente: Definición del producto integrador"
           ]
         ],
         "widths": [
-          0.25,
-          0.75
+          0.24,
+          0.76
         ]
       },
       {
         "type": "p",
-        "text": "Producto: Evaluación temporal y ficha de gobernanza."
+        "text": "Material de referencia del profesor: Referencia docente: Evaluación temporal y ficha de gobernanza; ejecución y entrega estudiantil el sábado."
       },
       {
         "type": "h",
@@ -1037,7 +1072,7 @@
       },
       {
         "type": "p",
-        "text": "Integración y auditoría del proyecto. 08:00–17:00. 7 h 30 min efectivas."
+        "text": "Integración y auditoría del proyecto. 08:00–17:00. Actividad estudiantil y entrega en clase."
       },
       {
         "type": "table",
@@ -1048,7 +1083,7 @@
         "rows": [
           [
             "08:00–09:30",
-            "E13: reconstrucción desde originales y contratos"
+            "E12 propio: evaluación temporal EVA (08:00–08:45); E13: reconstrucción (08:45–09:30)"
           ],
           [
             "09:30–09:45",
@@ -1080,13 +1115,13 @@
           ]
         ],
         "widths": [
-          0.25,
-          0.75
+          0.24,
+          0.76
         ]
       },
       {
         "type": "p",
-        "text": "Producto: Producto candidato y lista de hallazgos."
+        "text": "Entrega en clase: Evaluación temporal EVA, ficha de gobernanza, producto candidato e informe con hallazgos."
       },
       {
         "type": "h",
@@ -1094,7 +1129,7 @@
       },
       {
         "type": "p",
-        "text": "Clínica de proyectos y ensayo de defensa. 18:00–21:15. 3 h efectivas."
+        "text": "Clínica de proyectos y ensayo de defensa. 18:00–21:15. Demostración guiada por el profesor."
       },
       {
         "type": "table",
@@ -1109,7 +1144,7 @@
           ],
           [
             "18:45–20:00",
-            "E13: correcciones y validación entre pares"
+            "Explicación / demostración docente: E13: profesor demuestra correcciones y validación; discusión de casos"
           ],
           [
             "20:00–20:15",
@@ -1121,17 +1156,17 @@
           ],
           [
             "21:00–21:15",
-            "Entrega final y organización de sustentaciones"
+            "Preparación de la entrega del sábado y organización de turnos; sin entrega"
           ]
         ],
         "widths": [
-          0.25,
-          0.75
+          0.24,
+          0.76
         ]
       },
       {
         "type": "p",
-        "text": "Producto: Producto corregido, informe y ensayo."
+        "text": "Material de referencia del profesor: Referencia docente: Producto corregido, informe y ensayo; ejecución y entrega estudiantil el sábado."
       },
       {
         "type": "h",
@@ -1139,7 +1174,7 @@
       },
       {
         "type": "p",
-        "text": "Sustentación y cierre contractual. 08:00–16:30. 7 h efectivas."
+        "text": "Sustentación y cierre contractual. 08:00–16:30. Actividad estudiantil y entrega en clase."
       },
       {
         "type": "table",
@@ -1174,7 +1209,7 @@
           ],
           [
             "15:15–16:00",
-            "Retroalimentación y evaluación individual"
+            "Retroalimentación y evaluación individual; completar correcciones finales"
           ],
           [
             "16:00–16:30",
@@ -1182,13 +1217,13 @@
           ]
         ],
         "widths": [
-          0.25,
-          0.75
+          0.24,
+          0.76
         ]
       },
       {
         "type": "p",
-        "text": "Producto: Producto final, sustentación y acta de cierre."
+        "text": "Entrega en clase: Paquete final corregido, informe de 8–12 páginas y registro de defensa individual."
       }
     ]
   },
@@ -1546,21 +1581,150 @@
     ]
   },
   {
-    "title": "Entorno WSL Ubuntu-26.04 y descarga",
+    "title": "Entorno y procedimiento de descarga",
     "blocks": [
       {
         "type": "p",
-        "text": "La instalación vigente se documenta en docs/instalacion-wsl.md. Usar Windows con WSL 2 y Ubuntu-26.04, Python 3.12 en el entorno .venv de la raíz, JDK 21 y todas las bibliotecas dentro de Ubuntu. Seguir docs/entorno.md para obtener los datos y ejecutar los ejercicios."
+        "text": "Instalación por sistema: Windows sigue docs/instalacion-wsl.md; Linux y macOS siguen docs/instalacion-linux-macos.md de forma nativa. Se mantienen Python 3.12, un único .venv, JDK 21 y los mismos requisitos. Los ejemplos WSL usan /mnt/c/Users/TUPTC/bigdata; en Linux/macOS la carpeta base es ~/bigdata. Editar repositorio o REPO en las celdas con rutas explícitas y seleccionar el kernel del sistema."
+      },
+      {
+        "type": "h",
+        "text": "Preparación del portátil"
+      },
+      {
+        "type": "p",
+        "text": "Python 3.12, terminal y editor de texto son suficientes para iniciar. Se recomienda 16 GB de RAM; con 8 GB se trabaja con dos hilos, un departamento y muestras geográficas. Reservar 5 GB para kit y salidas y, como presupuesto preventivo, 10–15 GB para todo el entorno con Python, Spark, Java y bibliotecas geoespaciales. No se requiere GPU ni nube. La instalación de bibliotecas puede consumir cientos de MB y Spark y las bibliotecas geoespaciales incrementan el espacio instalado; estos son rangos de planificación, no mediciones del archivo de datos."
+      },
+      {
+        "type": "p",
+        "text": "Los mapas se producen en Jupyter con GeoPandas, Rasterio y Matplotlib, instalados en el único .venv mediante los requisitos del kit. Registrar sus versiones. Spark 4.0.1 se introduce en la sesión 5 y requiere JDK completo JDK 21 en Ubuntu; para una cohorte estable se recomienda fijar JDK completo JDK 21 en Ubuntu y no actualizar en mitad del curso."
+      },
+      {
+        "type": "h",
+        "text": "Entorno vigente: WSL 2, Ubuntu-26.04 y Python 3.12"
+      },
+      {
+        "type": "p",
+        "text": "Seguir docs/instalacion-wsl.md del repositorio para instalar WSL 2 y Ubuntu-26.04 desde PowerShell. Python, Java y los talleres se ejecutan dentro de Ubuntu. Un único entorno .venv reside en la raíz del repositorio; no crear otro en kit/. El navegador de Windows abre la URL de Jupyter que emite la terminal Ubuntu."
       },
       {
         "type": "code",
-        "text": "cd /mnt/c/Users/TUPTC/bigdata\ngit clone --branch main https://github.com/eshernan/big-data-postgraduate.git\ncd big-data-postgraduate\n# Continuar según docs/instalacion-wsl.md"
+        "text": "cd /mnt/c/Users/TUPTC/bigdata\ngit clone --branch main https://github.com/eshernan/big-data-postgraduate.git\ncd big-data-postgraduate\n# Si ya existe el clon, entrar en él, sin volver a clonar.\ngit branch --show-current\ngit status --short"
+      },
+      {
+        "type": "code",
+        "text": "curl -LsSf https://astral.sh/uv/install.sh -o /tmp/instalar-uv-bigdata.sh\nsh /tmp/instalar-uv-bigdata.sh\nsource \"$HOME/.local/bin/env\"\nuv python install 3.12\nuv venv --python 3.12 --seed .venv\nsource .venv/bin/activate\n# Si .venv ya existe, solo activarlo.\npython --version\npython -m pip install -r kit/requirements.txt -r kit/requirements_pqrs.txt -r kit/requirements_notebooks.txt\npython -m pip check"
+      },
+      {
+        "type": "p",
+        "text": "Instalar JDK 21 y las bibliotecas geoespaciales siguiendo la guía WSL. La configuración de Spark se guarda en $HOME/.config/bigdata/entorno.sh. Instalar dependencias Spark desde la raíz con python -m pip install -r kit/requirements_spark.txt. Con el entorno activo, entrar en kit/ antes de ejecutar datos, scripts y notebooks. Las descargas tienen espacio dentro de la clase del sábado."
+      },
+      {
+        "type": "h",
+        "text": "Tres rutas para obtener los datos"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Ruta A, recomendada para clase: descomprimir el paquete docente, que ya contiene data/raw. Ejecutar --verificar. Permite continuar sin Internet una vez instalado el software.",
+          "Ruta B, práctica de descarga: crear una carpeta nueva, copiar 00_datos.py y fuentes.json, y ejecutar --descargar con los IDs requeridos. No descargar todas las fuentes simultáneamente.",
+          "Ruta C, contingencia: copiar una carpeta raw de respaldo verificada mediante --respaldo. El script comprueba el SHA-256 antes de incorporar archivos."
+        ]
+      },
+      {
+        "type": "code",
+        "text": "python 00_datos.py --descargar agrosavia divipola eva\npython 00_datos.py --descargar igac_capacidad igac_quimica\npython 00_datos.py --descargar soilgrids wosis nasa chirps\npython 00_datos.py --respaldo \"/ruta/kit_original/data/raw\" --verificar"
+      },
+      {
+        "type": "p",
+        "text": "Las URLs exactas están en fuentes.json y en el catálogo de este libro. El descargador limita cada respuesta a tres veces el tamaño de referencia o 2 MB, lo que sea mayor. Rechaza páginas HTML, no sobrescribe archivos existentes y conserva una descarga que cambió como .nueva. Un SHA-256 distinto puede deberse a nuevos datos o a cambios de serialización: el docente revisa esquema, valores y conteos antes de aprobar otro corte. No se considera que un HTTP 200 por sí solo sea una descarga válida."
+      },
+      {
+        "type": "h",
+        "text": "Descarga manual de los shapes DANE"
+      },
+      {
+        "type": "url",
+        "text": "https://geoportal.dane.gov.co/servicios/descarga-y-metadatos/datos-geoestadisticos/"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Abrir el catálogo vigente y buscar MGN2025-Nivel. Seleccionar los enlaces de Nivel Departamento y Nivel Municipio en formato Shapefile.",
+          "Guardar los ZIP sin modificar como dane_departamentos.zip y dane_municipios.zip dentro de data/raw. Tamaños observados: 12,52 MB y 71,58 MB. Las etiquetas del catálogo pueden diferir del tamaño descargado.",
+          "Verificar con 00_datos.py --verificar. GeoPandas lee los ZIP DANE con read_file y el prefijo zip://. Si se extraen, conservar .shp, .shx, .dbf y .prj juntos y comprobar el CRS antes de reproyectar.",
+          "Si el portal responde 403 o la descarga tarda, usar la copia docente. No insistir con múltiples descargas. El enlace antiguo del MGN devolvió 404 y no debe quedar como dependencia del taller."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "No descargar MGN2025_00_COLOMBIA.zip con todos los niveles: el catálogo anuncia aproximadamente 1,5 GB y contiene detalle que no requiere el curso. Los dos ZIP seleccionados incluyen exclusivamente los niveles necesarios. No se reemplazan polígonos por puntos de DIVIPOLA para evitar esa descarga."
+      },
+      {
+        "type": "h",
+        "text": "Verificación y organización"
+      },
+      {
+        "type": "code",
+        "text": "kit/\n  fuentes.json\n  00_datos.py\n  talleres.py\n  spark_taller.py\n  data/raw/       # originales sin editar\n  salidas/        # resultados reconstruibles\n  entregas/      # informes personales"
+      },
+      {
+        "type": "p",
+        "text": "Leer salidas/verificacion.json: archivo presente, huella coincidente, conteo esperado, JSON sin error de API y ZIP íntegro. Los scripts reconstruyen y sobrescriben sus salidas homónimas; las conclusiones del estudiante se guardan en entregas. En nuevas descargas registrar fecha, versión, licencia, URL, tamaño y huella. Para reproducibilidad guardar también python --version y python -m pip freeze."
+      },
+      {
+        "type": "h",
+        "text": "Preparación del dominio PQRS"
+      },
+      {
+        "type": "code",
+        "text": "python -m pip install -r requirements_pqrs.txt\npython pqrs_descarga.py --listar\npython pqrs_talleres.py perfil\npython pqrs_talleres.py formatos"
+      },
+      {
+        "type": "p",
+        "text": "Por defecto se utilizan las tres muestras incluidas en data/pqrs_muestras. Para datos completos: descargar selectivamente y señalar la carpeta con --datos y --completo. No se incluye otra copia de 1,82 GB en el ZIP docente."
+      },
+      {
+        "type": "code",
+        "text": "python pqrs_descarga.py --descargar 2024_I\npython pqrs_descarga.py --verificar\npython pqrs_talleres.py perfil --completo --datos data/pqrs_completos"
+      },
+      {
+        "type": "p",
+        "text": "La verificación completa requiere los tres cortes; si solo se descargó uno, la comprobación informará los que faltan. Para probar un único CSV con pandas, usar su separador y chunksize según P01. Los scripts de prácticas completas están diseñados para los tres cortes. La descarga rechaza HTML, limita cada archivo a 1,5 veces el tamaño de referencia y conserva como .nueva una fuente cuyo hash cambió."
+      },
+      {
+        "type": "p",
+        "text": "Espacio: 5 GB para la ruta de muestras y datos agroambientales; reservar 8 GB para los tres CSV PQRS, Parquet, temporales y salidas. Con herramientas instaladas, planificar 15–20 GB libres para la ruta completa. Son presupuestos preventivos, no tamaños de instalación medidos. Usar SSD y bloques de 25.000 filas; bajar a 5.000–10.000 si la RAM es limitada. Con 8 GB se recomienda mantener el benchmark pandas en muestras y ampliar completos con DuckDB/Polars."
+      },
+      {
+        "type": "h",
+        "text": "Notebooks actuales"
+      },
+      {
+        "type": "code",
+        "text": "python -m ipykernel install --sys-prefix --name bigdata-wsl --display-name \"BigData WSL Ubuntu 26.04 Python 3.12\"\n# Desde la raíz, con .venv activo\ncd kit\npython -m jupyter lab --no-browser --ip=127.0.0.1\n# Abrir Notebooks/ y seleccionar el kernel bigdata-wsl"
+      },
+      {
+        "type": "p",
+        "text": "Seleccionar el kernel del mismo entorno Python. Los cuatro notebooks PQRS/eventos y los tres geoespaciales E08, E09 y E11 declaran una ruta local editable y usan datos abiertos del kit. Los notebooks históricos de Supersalud se conservan por procedencia y no se ejecutan de corrido como guía vigente. Las rutas /content, desactivación TLS, GPU y funciones de correo no forman parte de la práctica actual."
+      },
+      {
+        "type": "p",
+        "text": "GeoPandas 1.1.1, Pyogrio 0.11.1 y Matplotlib 3.10.3 se fijan en kit/requirements.txt junto con Rasterio, Shapely y PyProj. Instalar en el único .venv del repositorio y ejecutar python -m pip check. Los mapas se muestran en Jupyter sin aplicación de escritorio. Comandos separados: geografia (DANE/IGAC), suelo (SoilGrids/WoSIS), clima (NASA/CHIRPS); clima_suelo reúne los dos últimos informes."
       }
     ]
   },
   {
     "title": "Modo de presentar y conducir el curso",
     "blocks": [
+      {
+        "type": "p",
+        "text": "Viernes: explicación y demostraciones guiadas por el profesor, sin entregas ni calificación. El profesor ejecuta, explica y comparte sus archivos de referencia; los estudiantes observan, preguntan y pueden seguir voluntariamente. Sábado: ejecución por los estudiantes, revisión y entrega durante la clase. La evidencia evaluable debe corresponder a su propia ejecución. No se exige una entrega ni trabajo autónomo obligatorio entre ambos encuentros."
+      },
+      {
+        "type": "p",
+        "text": "E = ejercicio general del curso (E01–E13). P = práctica con datos PQRS (P01–P04); PQRS significa peticiones, quejas, reclamos y sugerencias. El número identifica la actividad, no la sesión. T01 = taller teórico de capacidad; I01 = introducción a eventos NASA."
+      },
       {
         "type": "p",
         "text": "La presentación institucional introduce la pregunta y el concepto. La guía contiene pasos, datos y criterios. El notebook permite observar y modificar el procedimiento. El cierre exige evidencia propia y una explicación del resultado. Cada recurso tiene una función y los mismos IDs de actividad."
@@ -1574,9 +1738,9 @@
         "items": [
           "Abrir con una pregunta verificable y declarar el dato o supuesto que se usará.",
           "Exponer un concepto durante 10–20 min y demostrar una operación breve con el archivo real.",
-          "Trabajar en salas de dos o tres estudiantes con una consigna y producto concreto. Alternar quién ejecuta, quién revisa y quién documenta.",
+          "Los sábados, trabajar en salas de dos o tres estudiantes con una consigna y producto concreto. Alternar quién ejecuta, quién revisa y quién documenta.",
           "Compartir una tabla o control agregado y discutir unidades, denominador y límite de interpretación.",
-          "Registrar en entregas/ el resultado y la decisión. El docente consulta los controles del corte y evita evaluar solo la cantidad de herramientas utilizadas."
+          "Los sábados, registrar en entregas/ el resultado y la decisión. El docente consulta los controles del corte y evita evaluar solo la cantidad de herramientas utilizadas."
         ]
       },
       {
@@ -1685,6 +1849,116 @@
           0.43,
           0.42
         ]
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Código",
+          "Significado",
+          "Actividad"
+        ],
+        "rows": [
+          [
+            "E01",
+            "Ejercicio 01",
+            "Pregunta y procedencia"
+          ],
+          [
+            "E02",
+            "Ejercicio 02",
+            "Descarga y perfil inicial"
+          ],
+          [
+            "E03",
+            "Ejercicio 03",
+            "Identidad territorial y vigencias"
+          ],
+          [
+            "E04",
+            "Ejercicio 04",
+            "Formatos y contrato de datos"
+          ],
+          [
+            "E05",
+            "Ejercicio 05",
+            "Calidad de análisis de suelo"
+          ],
+          [
+            "E06",
+            "Ejercicio 06",
+            "Rendimiento agrícola e integración SQL"
+          ],
+          [
+            "E07",
+            "Ejercicio 07",
+            "Spark y equivalencia de resultados"
+          ],
+          [
+            "E08",
+            "Ejercicio 08",
+            "Shapes y capacidad de uso"
+          ],
+          [
+            "E09",
+            "Ejercicio 09",
+            "Propiedades del suelo y profundidad"
+          ],
+          [
+            "E10",
+            "Ejercicio 10",
+            "Rendimiento del procesamiento"
+          ],
+          [
+            "E11",
+            "Ejercicio 11",
+            "Clima y reproducción de eventos"
+          ],
+          [
+            "E12",
+            "Ejercicio 12",
+            "Línea base temporal y gobernanza"
+          ],
+          [
+            "E13",
+            "Ejercicio 13",
+            "Producto integrador reproducible"
+          ],
+          [
+            "P01",
+            "Práctica PQRS 01",
+            "Perfil PQRS y lectura por bloques"
+          ],
+          [
+            "P02",
+            "Práctica PQRS 02",
+            "Parquet, contrato y reejecución"
+          ],
+          [
+            "P03",
+            "Práctica PQRS 03",
+            "Calidad de reportes y consulta diferida"
+          ],
+          [
+            "P04",
+            "Práctica PQRS 04",
+            "Escala real y comparación de motores"
+          ],
+          [
+            "T01",
+            "Taller teórico",
+            "Capacidad y escala"
+          ],
+          [
+            "I01",
+            "Introducción",
+            "Eventos finitos con NASA"
+          ]
+        ],
+        "widths": [
+          0.12,
+          0.28,
+          0.6
+        ]
       }
     ]
   },
@@ -1693,11 +1967,11 @@
     "blocks": [
       {
         "type": "p",
-        "text": "Ruta WSL del curso: /mnt/c/Users/TUPTC/bigdata/big-data-postgraduate, clonado desde main. Activar .venv en la raíz y ejecutar desde kit/."
+        "text": "Modalidad y entrega: demostración docente el viernes; ejecución propia y entrega el sábado. Evidencia integrada en la entrega del 2026-10-03 (16:45–17:00). "
       },
       {
         "type": "p",
-        "text": "Sesión 1. Trabajo activo orientativo: 75 minutos, integrado con demostración y discusión según la agenda."
+        "text": "Sesión 1. Tiempo de clase orientativo: 75 minutos, integrado con demostración y discusión según la agenda."
       },
       {
         "type": "h",
@@ -1788,11 +2062,11 @@
     "blocks": [
       {
         "type": "p",
-        "text": "Ruta WSL del curso: /mnt/c/Users/TUPTC/bigdata/big-data-postgraduate, clonado desde main. Activar .venv en la raíz y ejecutar desde kit/."
+        "text": "Modalidad y entrega: actividad estudiantil los sábados. Evidencia integrada en la entrega del 2026-10-03 (16:45–17:00). "
       },
       {
         "type": "p",
-        "text": "Sesión 2. Trabajo activo orientativo: 90 minutos, integrado con demostración y discusión según la agenda."
+        "text": "Sesión 2. Tiempo de clase orientativo: 90 minutos, integrado con demostración y discusión según la agenda."
       },
       {
         "type": "h",
@@ -1871,6 +2145,10 @@
       {
         "type": "p",
         "text": "Detectar qué campos exigirían una tabla de métodos analíticos para comparaciones científicas."
+      },
+      {
+        "type": "p",
+        "text": "Durante la clase 2 el perfil se desarrolla con pd.read_csv y operaciones explícitas de pandas; la plantilla PD01 sirve de apoyo. El comando talleres.py perfil y su perfil.csv son referencias automatizadas para después de comprender el procedimiento."
       }
     ]
   },
@@ -1879,11 +2157,11 @@
     "blocks": [
       {
         "type": "p",
-        "text": "Ruta WSL del curso: /mnt/c/Users/TUPTC/bigdata/big-data-postgraduate, clonado desde main. Activar .venv en la raíz y ejecutar desde kit/."
+        "text": "Modalidad y entrega: actividad estudiantil los sábados. Evidencia integrada en la entrega del 2026-10-03 (16:45–17:00). "
       },
       {
         "type": "p",
-        "text": "Sesión 2. Trabajo activo orientativo: 90 minutos, integrado con demostración y discusión según la agenda."
+        "text": "Sesión 2. Tiempo de clase orientativo: 90 minutos, integrado con demostración y discusión según la agenda."
       },
       {
         "type": "h",
@@ -1970,11 +2248,11 @@
     "blocks": [
       {
         "type": "p",
-        "text": "Ruta WSL del curso: /mnt/c/Users/TUPTC/bigdata/big-data-postgraduate, clonado desde main. Activar .venv en la raíz y ejecutar desde kit/."
+        "text": "Modalidad y entrega: demostración docente el viernes; ejecución propia y entrega el sábado. Evidencia integrada en la entrega del 2026-10-10 (16:30–16:45). "
       },
       {
         "type": "p",
-        "text": "Sesión 3. Trabajo activo orientativo: 30 minutos, integrado con demostración y discusión según la agenda."
+        "text": "Sesión 3. Tiempo de clase orientativo: 30 minutos, integrado con demostración y discusión según la agenda."
       },
       {
         "type": "h",
@@ -2061,11 +2339,11 @@
     "blocks": [
       {
         "type": "p",
-        "text": "Ruta WSL del curso: /mnt/c/Users/TUPTC/bigdata/big-data-postgraduate, clonado desde main. Activar .venv en la raíz y ejecutar desde kit/."
+        "text": "Modalidad y entrega: actividad estudiantil los sábados. Evidencia integrada en la entrega del 2026-10-10 (16:30–16:45). "
       },
       {
         "type": "p",
-        "text": "Sesión 4. Trabajo activo orientativo: 90 minutos, integrado con demostración y discusión según la agenda."
+        "text": "Sesión 4. Tiempo de clase orientativo: 90 minutos, integrado con demostración y discusión según la agenda."
       },
       {
         "type": "h",
@@ -2148,11 +2426,11 @@
     "blocks": [
       {
         "type": "p",
-        "text": "Ruta WSL del curso: /mnt/c/Users/TUPTC/bigdata/big-data-postgraduate, clonado desde main. Activar .venv en la raíz y ejecutar desde kit/."
+        "text": "Modalidad y entrega: actividad estudiantil los sábados. Evidencia integrada en la entrega del 2026-10-10 (16:30–16:45). "
       },
       {
         "type": "p",
-        "text": "Sesión 4. Trabajo activo orientativo: 90 minutos, integrado con demostración y discusión según la agenda."
+        "text": "Sesión 4. Tiempo de clase orientativo: 90 minutos, integrado con demostración y discusión según la agenda."
       },
       {
         "type": "h",
@@ -2239,11 +2517,11 @@
     "blocks": [
       {
         "type": "p",
-        "text": "Ruta WSL del curso: /mnt/c/Users/TUPTC/bigdata/big-data-postgraduate, clonado desde main. Activar .venv en la raíz y ejecutar desde kit/."
+        "text": "Modalidad y entrega: demostración docente el viernes; ejecución propia y entrega el sábado. Evidencia integrada en la entrega del 2026-10-17 (16:30–17:00). "
       },
       {
         "type": "p",
-        "text": "Sesiones 5 y 6. Trabajo guiado E07: 90 minutos el 16 de octubre y 135 minutos el 17, integrados con demostración y revisión del plan."
+        "text": "Sesión 5: demostración docente de E07, 90 minutos el viernes 16/10. Sesión 6: ejecución propia y equivalencia 45 minutos (08:00–08:45) y joins/ventanas 135 minutos (09:45–12:00) el sábado 17/10."
       },
       {
         "type": "h",
@@ -2280,7 +2558,7 @@
       {
         "type": "steps",
         "items": [
-          "Instalar JDK 21 y Spark dentro de WSL Ubuntu-26.04 según docs/instalacion-wsl.md; verificar java -version.",
+          "Instalar JDK 21 en Ubuntu y verificar java -version. Instalar requirements_spark.txt en el entorno del curso.",
           "Ejecutar spark_taller.py lotes con local[2]. Identificar lectura, agregación y shuffle en explain(formatted).",
           "Comparar todos los grupos contra DuckDB con tolerancia de 0,000001 en el rendimiento.",
           "Examinar la ventana row_number que obtiene tres municipios por cultivo, estado y año, con desempate por código municipal.",
@@ -2293,7 +2571,7 @@
       },
       {
         "type": "code",
-        "text": "java -version\n# Preparar Spark según docs/instalacion-wsl.md\njava -version\npython spark_taller.py lotes"
+        "text": "java -version\npython -m pip install -r requirements_spark.txt\npython spark_taller.py lotes"
       },
       {
         "type": "h",
@@ -2318,6 +2596,10 @@
       {
         "type": "p",
         "text": "Cambiar spark.sql.shuffle.partitions de 4 a 2 y comparar el plan y el número de archivos, conservando resultados."
+      },
+      {
+        "type": "p",
+        "text": "Ruta visible del 16 y 17 de octubre: kit/Notebooks/05_Spark_lectura_y_agregacion.ipynb prepara EVA y DIVIPOLA desde CSV, convierte tipos, escribe/relee Parquet y verifica agregados Spark/DuckDB. Luego 06_Spark_joins_y_ventanas.ipynb lee sus productos, verifica cardinalidad, joins, broadcast, ranking y particiones. Salidas en kit/salidas/E07. Seguir con E08 y E09. Usar el único .venv y JDK 21 según WSL o Linux/macOS; scripts como automatización posterior."
       }
     ]
   },
@@ -2326,7 +2608,7 @@
     "blocks": [
       {
         "type": "p",
-        "text": "Ruta WSL del curso: /mnt/c/Users/TUPTC/bigdata/big-data-postgraduate, clonado desde main. Activar .venv en la raíz y ejecutar desde kit/."
+        "text": "Modalidad y entrega: actividad estudiantil los sábados. Evidencia integrada en la entrega del 2026-10-17 (16:30–17:00). "
       },
       {
         "type": "p",
@@ -2376,7 +2658,7 @@
         "type": "steps",
         "items": [
           "Descargar o verificar los ZIP DANE; comprobar sus componentes y abrir el .prj. La copia suministrada utiliza WGS84.",
-          "En QGIS cargar departamentos y municipios. Unir una tabla municipal agregada por mpio_cdpmp y codigo_municipio, ambos como texto.",
+          "En Jupyter leer departamentos y municipios con GeoPandas. Seleccionar un año y agregar la tabla a una fila por codigo_municipio; unir con mpio_cdpmp como texto de cinco dígitos, validate=\"one_to_one\" y registrar municipios sin correspondencia.",
           "Cargar los GeoJSON IGAC. Revisar sus cinco polígonos, atributos de clase y extensión antes de generar un mapa.",
           "Ejecutar geografia. El script repara geometrías para la operación, intersecta y calcula áreas en EPSG:9377; conserva los originales y exporta resultados en WGS84.",
           "Abrir intersecciones_muestra.geojson, etiquetar “muestra de cinco polígonos por tema” y comparar área calculada con el área original almacenada."
@@ -2412,7 +2694,15 @@
       },
       {
         "type": "p",
-        "text": "En QGIS exportar la intersección a GeoPackage y comparar conservación de nombres largos frente a Shapefile."
+        "text": "Con GeoPandas exportar la intersección a GeoPackage, volver a leerla y verificar nombres de columnas, CRS y cantidad de geometrías. Comparar las limitaciones de nombres de Shapefile."
+      },
+      {
+        "type": "p",
+        "text": "Desarrollo reproducible: ejecutar kit/Notebooks/E08_Geoespacial.ipynb con el kernel WSL del curso. Entregar notebook ejecutado, mapa PNG y controles en kit/salidas/E08/. GeoPandas gestiona vectores, Rasterio ráster y Matplotlib los mapas. Las celdas usan directamente las bibliotecas; estudiar los scripts de automatización después."
+      },
+      {
+        "type": "p",
+        "text": "La unión tabular del notebook requiere también AGROSAVIA y DIVIPOLA. Preparar con python 00_datos.py --descargar agrosavia divipola. Filtrar un año, agrupar registros por municipio y validar cardinalidad one_to_one. Los registros no equivalen a cobertura territorial."
       }
     ]
   },
@@ -2421,7 +2711,7 @@
     "blocks": [
       {
         "type": "p",
-        "text": "Ruta WSL del curso: /mnt/c/Users/TUPTC/bigdata/big-data-postgraduate, clonado desde main. Activar .venv en la raíz y ejecutar desde kit/."
+        "text": "Modalidad y entrega: actividad estudiantil los sábados. Evidencia integrada en la entrega del 2026-10-17 (16:30–17:00). "
       },
       {
         "type": "p",
@@ -2470,9 +2760,9 @@
       {
         "type": "steps",
         "items": [
-          "Ejecutar clima para obtener el inventario de ráster y perfiles. Consultar método, profundidad y licencia de WoSIS.",
+          "Ejecutar suelo para obtener el inventario de ráster y perfiles. Consultar método, profundidad y licencia de WoSIS.",
           "Contar diez registros y tres perfiles distintos; construir una tabla por profile_id y profundidad.",
-          "En QGIS abrir soilgrids.tif y comprobar 44 × 42 celdas. Aplicar el factor pH = valor/10.",
+          "En Jupyter abrir soilgrids.tif con Rasterio y representarlo con Matplotlib; comprobar 44 × 42 celdas. Aplicar el factor pH = valor/10. Usar GeoPandas para situar los perfiles WoSIS y comprobar si están dentro del recorte.",
           "Detectar 188 celdas cero sin NoData declarado. El script las excluye provisionalmente de la media interpretativa y las reporta como pendientes; no sustituye ni edita el original.",
           "Comparar los intervalos del mapa químico IGAC y la taxonomía de correlación. Explicar por qué no se calcula un error de predicción con perfiles fuera del recorte o sin igual profundidad."
         ]
@@ -2483,7 +2773,7 @@
       },
       {
         "type": "code",
-        "text": "python talleres.py clima"
+        "text": "python talleres.py suelo"
       },
       {
         "type": "h",
@@ -2508,6 +2798,14 @@
       {
         "type": "p",
         "text": "Diseñar, sin inventar mediciones, un protocolo para evaluar SoilGrids con puntos coincidentes y profundidad compatible."
+      },
+      {
+        "type": "p",
+        "text": "Desarrollo reproducible: ejecutar kit/Notebooks/E09_Geoespacial.ipynb con el kernel WSL del curso. Entregar notebook ejecutado, mapa PNG y controles en kit/salidas/E09/. GeoPandas gestiona vectores, Rasterio ráster y Matplotlib los mapas. Las celdas usan directamente las bibliotecas; estudiar los scripts de automatización después."
+      },
+      {
+        "type": "p",
+        "text": "El comando suelo usa SoilGrids y WoSIS; genera control_suelo.json, perfiles_wosis.csv y mapa_suelo.png. La comparación temática del notebook utiliza IGAC química y correlación. No requiere NASA ni CHIRPS."
       }
     ]
   },
@@ -2516,11 +2814,11 @@
     "blocks": [
       {
         "type": "p",
-        "text": "Ruta WSL del curso: /mnt/c/Users/TUPTC/bigdata/big-data-postgraduate, clonado desde main. Activar .venv en la raíz y ejecutar desde kit/."
+        "text": "Modalidad y entrega: demostración docente el viernes; ejecución propia y entrega el sábado. Evidencia integrada en la entrega del 2026-10-24 (16:30–17:00). "
       },
       {
         "type": "p",
-        "text": "Sesión 7. Trabajo activo orientativo: 135 minutos, integrado con demostración y discusión según la agenda."
+        "text": "Sesión 7. Tiempo de clase orientativo: 135 minutos, integrado con demostración y discusión según la agenda."
       },
       {
         "type": "h",
@@ -2603,11 +2901,11 @@
     "blocks": [
       {
         "type": "p",
-        "text": "Ruta WSL del curso: /mnt/c/Users/TUPTC/bigdata/big-data-postgraduate, clonado desde main. Activar .venv en la raíz y ejecutar desde kit/."
+        "text": "Modalidad y entrega: actividad estudiantil los sábados. Evidencia integrada en la entrega del 2026-10-24 (16:30–17:00). "
       },
       {
         "type": "p",
-        "text": "Sesión 8. Trabajo activo orientativo: 270 minutos, integrado con demostración y discusión según la agenda."
+        "text": "Sesión 8. Tiempo de clase orientativo: 270 minutos, integrado con demostración y discusión según la agenda."
       },
       {
         "type": "h",
@@ -2682,6 +2980,14 @@
       {
         "type": "p",
         "text": "Proponer cómo procesar correcciones tardías del proveedor conservando historial y explicar una estrategia de reejecución por partición."
+      },
+      {
+        "type": "p",
+        "text": "Desarrollo reproducible: ejecutar kit/Notebooks/E11_Geoespacial.ipynb con el kernel WSL del curso. Entregar notebook ejecutado, mapa PNG y controles en kit/salidas/E11/. GeoPandas gestiona vectores, Rasterio ráster y Matplotlib los mapas. Las celdas usan directamente las bibliotecas; estudiar los scripts de automatización después."
+      },
+      {
+        "type": "p",
+        "text": "El comando clima usa solo NASA y CHIRPS; genera control_clima.json, nasa_diario.parquet y mapa_clima.png. El notebook cubre soporte espacial; la evidencia Spark de eventos sigue siendo obligatoria según el enunciado."
       }
     ]
   },
@@ -2690,11 +2996,11 @@
     "blocks": [
       {
         "type": "p",
-        "text": "Ruta WSL del curso: /mnt/c/Users/TUPTC/bigdata/big-data-postgraduate, clonado desde main. Activar .venv en la raíz y ejecutar desde kit/."
+        "text": "Modalidad y entrega: demostración docente el viernes; ejecución propia y entrega el sábado. Evidencia integrada en la entrega del 2026-10-31 (16:30–17:00). E12 acompaña el candidato formativo del 31/10 y se integra en la calificación final del 07/11."
       },
       {
         "type": "p",
-        "text": "Sesión 9, viernes 30 de octubre. Trabajo guiado de E12: 105 minutos. El bloque de gobernanza dispone de 30 minutos adicionales dentro de la misma clase de 3 horas."
+        "text": "Sesión 9, viernes 30 de octubre. Trabajo guiado de E12: 105 minutos. El bloque de gobernanza dispone de 30 minutos adicionales dentro de la misma clase de 3 horas. El viernes lo ejecuta el profesor; la ejecución estudiantil se realiza en el bloque del sábado indicado en el calendario."
       },
       {
         "type": "h",
@@ -2785,123 +3091,137 @@
     "blocks": [
       {
         "type": "p",
-        "text": "Ruta WSL del curso: /mnt/c/Users/TUPTC/bigdata/big-data-postgraduate, clonado desde main. Activar .venv en la raíz y ejecutar desde kit/."
+        "text": "Modalidad y entrega: actividad estudiantil los sábados. Evidencia integrada en la entrega del 2026-11-07 (16:00–16:30). Candidato formativo: 31/10. Clínica docente sin entrega: 06/11. Final y defensa: 07/11."
       },
       {
         "type": "p",
-        "text": "[Índice del curso](../README.md) · [Evaluación](../docs/mapa-ejercicios.md) · [Calendario](../docs/calendario.md)"
+        "text": "Sesiones 10–12. Integración y auditoría: 31 de octubre, 450 minutos. Clínica y ensayo: 6 de noviembre, 180 minutos. Sustentación y cierre: 7 de noviembre, 420 minutos. Los 1.050 minutos de esta fase se imparten íntegramente en línea, dentro de las 64 horas contratadas."
       },
       {
         "type": "p",
-        "text": "Elegir **PQRS** o **agroambiental** y construir un producto reproducible. Las competencias comunes se acreditan con las prácticas del curso; no se exige desarrollar dos proyectos ni unir reportes de salud con muestras de suelo."
+        "text": "Construir y defender un producto reproducible del dominio elegido, con una pregunta, unidad, controles y límites. La ruta agroambiental conserva el mapa y la evaluación por cultivo. La ruta PQRS aporta series de reportes, dimensión territorial, calidad y comparación de motores; utiliza NASA para demostrar ingeniería de eventos y EVA para el ejercicio común de evaluación temporal. Cada producto distingue claramente la evidencia de su dominio de los ejercicios metodológicos comunes."
+      },
+      {
+        "type": "p",
+        "text": "Construir una evidencia técnica defendible que reúna las competencias del curso."
       },
       {
         "type": "h",
-        "text": "Hitos y trabajo en clase"
+        "text": "Datos y descarga"
       },
       {
         "type": "p",
-        "text": "- Clase 10, 31 de octubre: reconstrucción y auditoría cruzada; producto candidato."
+        "text": "D01 agrosavia.csv, 20.380 MB, completo."
       },
       {
         "type": "p",
-        "text": "- Clase 11, 6 de noviembre: resolver hallazgos, validar y ensayar la defensa."
+        "text": "D02 divipola.csv, 0.071 MB, completo."
       },
       {
         "type": "p",
-        "text": "- Clase 12, 7 de noviembre: entrega final y sustentación de 15 minutos por equipo, con preguntas y transición."
+        "text": "D04 dane_municipios.zip, 71.576 MB, completo."
       },
       {
         "type": "p",
-        "text": "Estos tres encuentros reúnen 1.050 minutos dentro de las 64 horas en línea. La ampliación fuera de clase es opcional."
-      },
-      {
-        "type": "h",
-        "text": "Fuentes y preparación por ruta"
-      },
-      {
-        "type": "table",
-        "headers": [
-          "Ruta",
-          "Entradas",
-          "Producto específico"
-        ],
-        "rows": [
-          [
-            "PQRS",
-            "Muestras de tres cortes; completos opcionales para volumen; DIVIPOLA si se usa dimensión territorial",
-            "Series de reportes, contrato, conteos por período/territorio y cobertura de enlace"
-          ],
-          [
-            "Agroambiental",
-            "AGROSAVIA, EVA y DIVIPOLA; DANE/IGAC para mapa; demás fuentes según pregunta",
-            "Tabla agrícola con denominador correcto, mapa y cobertura espacial"
-          ]
-        ]
+        "text": "D03 dane_departamentos.zip, 12.524 MB, completo."
       },
       {
         "type": "p",
-        "text": "Consultar [datasets](../docs/datasets.md), [descarga y entorno](../docs/entorno.md), [manifiesto PQRS](../kit/pqrs_fuentes.json) y [manifiesto agroambiental](../kit/fuentes.json). Descargar solo las fuentes necesarias. Los archivos completos y las salidas no se incorporan al repositorio."
-      },
-      {
-        "type": "h",
-        "text": "Ejecución inicial"
+        "text": "D05 eva.csv, 27.490 MB, completo."
       },
       {
         "type": "p",
-        "text": "Desde `kit/`, después de preparar las entradas y el entorno:"
+        "text": "D07 igac_capacidad.json, 0.096 MB, muestra."
+      },
+      {
+        "type": "p",
+        "text": "D08 igac_quimica.json, 0.030 MB, muestra."
+      },
+      {
+        "type": "p",
+        "text": "D06 igac_correlacion.json, 0.012 MB, muestra."
+      },
+      {
+        "type": "p",
+        "text": "D09 soilgrids.tif, 0.002 MB, muestra."
+      },
+      {
+        "type": "p",
+        "text": "D10 wosis.json, 0.007 MB, muestra."
+      },
+      {
+        "type": "p",
+        "text": "D11 nasa.json, 0.002 MB, muestra."
+      },
+      {
+        "type": "p",
+        "text": "D12 chirps.tif, 4.213 MB, muestra."
+      },
+      {
+        "type": "p",
+        "text": "Con el kit completo ejecutar --verificar. Para obtener una nueva copia utilizar la ruta B del capítulo de descarga y los IDs indicados abajo. Los shapes DANE se descargan por navegador. Todas las URLs están en el catálogo y en fuentes.json."
       },
       {
         "type": "code",
-        "text": "# Ruta PQRS con muestras\npython pqrs_talleres.py formatos\npython pqrs_talleres.py calidad\npython pqrs_talleres.py benchmark --repeticiones 3\n# Ruta agroambiental\npython talleres.py calidad\npython talleres.py consultas"
-      },
-      {
-        "type": "p",
-        "text": "Ejecutar la ruta elegida, no todas las líneas como obligación. Adjuntar por separado las evidencias comunes E07 (Spark), E08–E09 (soporte espacial), I01/E11 (eventos NASA) y E12 (evaluación temporal EVA), identificando su dominio y sus limitaciones."
+        "text": "python 00_datos.py --descargar agrosavia divipola dane_municipios dane_departamentos eva igac_capacidad igac_quimica igac_correlacion soilgrids wosis nasa chirps"
       },
       {
         "type": "h",
-        "text": "Instrucciones y aceptación"
+        "text": "Instrucciones"
       },
       {
-        "type": "p",
-        "text": "1. Definir pregunta, unidad de observación, población cubierta y límites. Para PQRS, reportes no equivalen a personas únicas ni prevalencia."
-      },
-      {
-        "type": "p",
-        "text": "2. Registrar procedencia, tamaños, hashes, versiones y comandos. Conservar originales y verificar cardinalidad tras cada transformación."
-      },
-      {
-        "type": "p",
-        "text": "3. Construir el producto específico de la ruta. El mapa agroambiental no es una exigencia de mapa clínico para PQRS: en salud se puede entregar una tabla territorial con conteos, vigencia y cobertura."
-      },
-      {
-        "type": "p",
-        "text": "4. Incorporar una consulta verificada, controles de calidad y un experimento de rendimiento. Declarar muestra o completo en cada resultado."
-      },
-      {
-        "type": "p",
-        "text": "5. Presentar las evidencias metodológicas comunes sin atribuirlas al dominio equivocado. Diferenciar una reproducción de eventos de una prueba de recuperación efectivamente ejecutada."
-      },
-      {
-        "type": "p",
-        "text": "6. Otro equipo reconstruye controles; registrar hallazgo, corrección y resultado de la nueva ejecución."
-      },
-      {
-        "type": "p",
-        "text": "7. Entregar código/notebooks, informe de 8–12 páginas, ficha de gobernanza y defensa. Explicar un resultado que no se puede inferir de los datos."
+        "type": "steps",
+        "items": [
+          "Elegir una pregunta y un ámbito territorial; justificar qué fuentes pueden integrarse y cuáles solo aportan contexto. No forzar un join entre las doce fuentes.",
+          "Reconstruir el pipeline desde una copia verificada y registrar versiones. Otro equipo ejecuta los comandos y compara controles.",
+          "Presentar un mapa, una tabla agronómica con denominador correcto, una medida de calidad del dato y una medida de cobertura.",
+          "Incluir comparación de motores, experimento de formatos, traza de eventos y línea base temporal. Separar desempeño informático y rendimiento agrícola.",
+          "Redactar informe, ficha de gobernanza y defensa. Explicar al menos un resultado que no se puede inferir de los datos."
+        ]
       },
       {
         "type": "h",
-        "text": "Evaluación"
+        "text": "Ejecución"
+      },
+      {
+        "type": "code",
+        "text": "python 00_datos.py --verificar\npython talleres.py calidad\npython talleres.py consultas"
+      },
+      {
+        "type": "h",
+        "text": "Entrega y criterios"
       },
       {
         "type": "p",
-        "text": "Proyecto e informe: **35 %**. Sustentación individual: **15 %**. Las prácticas previas completan el 50 % restante según el [mapa de evaluación](../docs/mapa-ejercicios.md). No hay un peso adicional por cada notebook."
+        "text": "Paquete ejecutable, informe de 8–12 páginas y sustentación de 15 minutos por equipo, incluyendo preguntas y transición. El equipo revisor debe reconstruir los controles sin editar datos originales ni rutas absolutas del docente."
+      },
+      {
+        "type": "h",
+        "text": "Advertencia de interpretación"
       },
       {
         "type": "p",
-        "text": "Dentro de cada entrega: corrección y unidades 30 %, reproducibilidad y trazabilidad 25 %, justificación 25 % y comunicación de límites 20 %. No se penaliza optar por las muestras cuando el equipo no admite los completos; sí se exige declarar el alcance y no extrapolarlo."
+        "text": "La disponibilidad en línea no garantiza estabilidad futura. Conservar el corte y la atribución. Las muestras geográficas del curso no autorizan conclusiones nacionales ni decisiones de fertilización parcelaria."
+      },
+      {
+        "type": "h",
+        "text": "Ampliación dentro del bloque"
+      },
+      {
+        "type": "p",
+        "text": "Diseñar un plan de ampliación de cobertura y una estimación razonada de almacenamiento sin ejecutar descargas masivas."
+      },
+      {
+        "type": "p",
+        "text": "Elegir fuentes pertinentes, documentar licencia y granularidad. La disponibilidad de quince archivos no obliga a unirlos todos ni a duplicar las rutas prácticas. Los archivos originales permanecen sin edición. La salida agregada debe conservar procedencia y controlar grupos pequeños cuando corresponda."
+      },
+      {
+        "type": "p",
+        "text": "La evaluación final corresponde al calendario contractual. El producto candidato se entrega el 31 de octubre; las correcciones se trabajan en la clase del 6 de noviembre. No se exige trabajo autónomo adicional para completar las horas contratadas."
+      },
+      {
+        "type": "p",
+        "text": "Adjuntar mapas y controles espaciales producidos en Jupyter con los notebooks E08, E09 y E11, indicando CRS, cardinalidad y cobertura."
       }
     ]
   },
@@ -2910,7 +3230,7 @@
     "blocks": [
       {
         "type": "p",
-        "text": "Ruta WSL del curso: /mnt/c/Users/TUPTC/bigdata/big-data-postgraduate, clonado desde main. Activar .venv en la raíz y ejecutar desde kit/."
+        "text": "Modalidad y entrega: actividad estudiantil los sábados. Evidencia integrada en la entrega del 2026-10-03 (16:45–17:00). "
       },
       {
         "type": "p",
@@ -2933,8 +3253,8 @@
         "text": "D13–D15: tres cortes de Supersalud. Muestras reales incluidas de 1.000 filas por corte, 2,235 MB en conjunto. Completos: 532,696 MB, 576,711 MB y 706,836 MB; total 1,816 GB. Consultar separador, URL, licencia y SHA-256 en pqrs_fuentes.json."
       },
       {
-        "type": "code",
-        "text": "python pqrs_descarga.py --listar\n# Completo opcional antes de P04:\npython pqrs_descarga.py --descargar 2023_II 2024_I 2024_II"
+        "type": "p",
+        "text": "Preparar muestras desde kit/ con python 00_datos.py --descargar pqrs y python 00_datos.py --verificar pqrs. El grupo descarga tres CSV de 1.000 filas en data/pqrs_muestras y conserva archivos existentes verificados. El descargador pqrs_descarga.py queda para completos en P04. Consultar talleres/P01.md, actividad 0; no agrega otra entrega."
       },
       {
         "type": "h",
@@ -2944,8 +3264,8 @@
         "type": "steps",
         "items": [
           "Revisar pqrs_fuentes.json: distinguir período del nombre del corte, campo periodo y separador.",
-          "Ejecutar perfil con las tres muestras; contar filas, revisar las 38 columnas y vacíos literales.",
-          "Modificar --bloque a 100, 500 y 1.000 en muestras. Comparar memoria del DataFrame y tamaño CSV sin extrapolar linealmente la RSS.",
+          "Leer las tres muestras con pd.read_csv; contar filas, revisar las 38 columnas y vacíos literales.",
+          "Modificar chunksize a 100, 500 y 1.000 en muestras. Comparar memoria del DataFrame y tamaño CSV sin extrapolar linealmente la RSS.",
           "Contrastar mes, ubicación del peticionario, ubicación del afectado e identidad candidata.",
           "Describir qué controles se ejecutarían sobre los archivos completos; reservar la prueba de volumen para P04."
         ]
@@ -2956,7 +3276,7 @@
       },
       {
         "type": "code",
-        "text": "python pqrs_talleres.py perfil\npython pqrs_talleres.py perfil --bloque 500"
+        "text": "Abrir kit/Notebooks/01_Perfil_PQRS.ipynb: rutas explícitas y operaciones pandas visibles. El script de automatización se utiliza después de la clase 2."
       },
       {
         "type": "h",
@@ -2981,6 +3301,18 @@
       {
         "type": "p",
         "text": "Cambiar una condición de la consulta, anticipar su efecto y verificar la equivalencia entre implementaciones. Documentar qué campo o metadata adicional permitiría una conclusión más sólida."
+      },
+      {
+        "type": "p",
+        "text": "En clase 2 no se importan funciones de pqrs_talleres ni se usa detección automática de rutas. El estudiante declara los archivos, lee con pandas, inspecciona, compara y verifica cada resultado. La solución P01 conserva este flujo explícito; salidas en kit/salidas/clase2/P01."
+      },
+      {
+        "type": "p",
+        "text": "Preparar muestras desde kit/ con python 00_datos.py --descargar pqrs y python 00_datos.py --verificar pqrs. El grupo descarga tres CSV de 1.000 filas en data/pqrs_muestras y conserva archivos existentes verificados. El descargador pqrs_descarga.py queda para completos en P04. Consultar talleres/P01.md, actividad 0; no agrega otra entrega."
+      },
+      {
+        "type": "p",
+        "text": "Preparación obligatoria antes de P01: desde kit/, con .venv activo, ejecutar python 00_datos.py --descargar pqrs y python 00_datos.py --verificar pqrs. Continuar cuando los tres cortes indiquen coincide. Los archivos existentes correctos se conservan. P03 requiere además DIVIPOLA verificada y el Parquet de P02; P04 descarga completos solo para la prueba de volumen con pqrs_descarga.py. Ver comandos y prerrequisitos en talleres/P01.md."
       }
     ]
   },
@@ -2989,7 +3321,7 @@
     "blocks": [
       {
         "type": "p",
-        "text": "Ruta WSL del curso: /mnt/c/Users/TUPTC/bigdata/big-data-postgraduate, clonado desde main. Activar .venv en la raíz y ejecutar desde kit/."
+        "text": "Modalidad y entrega: demostración docente el viernes; ejecución propia y entrega el sábado. Evidencia integrada en la entrega del 2026-10-10 (16:30–16:45). "
       },
       {
         "type": "p",
@@ -3013,7 +3345,7 @@
       },
       {
         "type": "code",
-        "text": "python pqrs_descarga.py --listar\n# Completo opcional antes de P04:\npython pqrs_descarga.py --descargar 2023_II 2024_I 2024_II"
+        "text": "python 00_datos.py --descargar pqrs\npython 00_datos.py --verificar pqrs"
       },
       {
         "type": "h",
@@ -3022,11 +3354,11 @@
       {
         "type": "steps",
         "items": [
-          "Ejecutar formatos con las muestras antes de abrir Parquet. Verificar el corte mediante hashes.",
+          "En el notebook P02, leer las muestras con pd.read_csv, verificar hashes y esquema, seleccionar columnas y convertir tipos antes de escribir Parquet.",
           "Inspeccionar las 16 columnas de la proyección: el original de 38 columnas permanece intacto. La proyección conserva fila_fuente y corte_archivo.",
           "Comparar el archivo Parquet y la carpeta particionada por anio/mes_num. Revisar que periodo contiene el año.",
-          "Ejecutar dos veces con la misma configuración y comparar filas y firma_contenido en control_formatos_pqrs.json.",
-          "En memoria retirar una columna de una muestra y llamar normalizar; comprobar ValueError. Restaurar el esquema y explicar cuándo puede publicarse."
+          "Repetir las celdas de escritura y relectura; comparar DataFrames, filas y firma_contenido en control_formatos_pandas.json. La firma SHA-256 del notebook no es la firma del script automatizado.",
+          "En memoria retirar una columna de una muestra y comparar explícitamente columnas esperadas y recibidas; lanzar y comprobar ValueError. Restaurar desde la copia original y explicar cuándo puede publicarse."
         ]
       },
       {
@@ -3060,6 +3392,14 @@
       {
         "type": "p",
         "text": "Cambiar una condición de la consulta, anticipar su efecto y verificar la equivalencia entre implementaciones. Documentar qué campo o metadata adicional permitiría una conclusión más sólida."
+      },
+      {
+        "type": "p",
+        "text": "Desarrollar primero el notebook correspondiente con operaciones pandas explícitas; los comandos del script son referencias de automatización posteriores. Los notebooks generan kit/salidas/pandas/P02 y P03. P03 lee el Parquet de P02 y requiere DIVIPOLA. La firma SHA-256 del notebook P02 compara su CSV ordenado y no equivale a la firma del script."
+      },
+      {
+        "type": "p",
+        "text": "Preparación obligatoria antes de P02: desde kit/, con .venv activo, ejecutar python 00_datos.py --descargar pqrs y python 00_datos.py --verificar pqrs. Continuar cuando los tres cortes indiquen coincide. Los archivos existentes correctos se conservan. P03 requiere además DIVIPOLA verificada y el Parquet de P02; P04 descarga completos solo para la prueba de volumen con pqrs_descarga.py. Ver comandos y prerrequisitos en talleres/P02.md."
       }
     ]
   },
@@ -3068,11 +3408,11 @@
     "blocks": [
       {
         "type": "p",
-        "text": "Ruta WSL del curso: /mnt/c/Users/TUPTC/bigdata/big-data-postgraduate, clonado desde main. Activar .venv en la raíz y ejecutar desde kit/."
+        "text": "Modalidad y entrega: actividad estudiantil los sábados. Evidencia integrada en la entrega del 2026-10-10 (16:30–16:45). "
       },
       {
         "type": "p",
-        "text": "Sesión 4. Trabajo orientativo: 60 min dentro de los bloques de la agenda."
+        "text": "Sesión 4, sábado 10/10: orientación 09:45–10:00; E04/P02 propios 10:00–10:20; controles P03 10:20–10:45; consulta y explicación Polars/DuckDB 10:45–12:00. Los comandos usan las muestras incluidas."
       },
       {
         "type": "h",
@@ -3092,7 +3432,7 @@
       },
       {
         "type": "code",
-        "text": "python pqrs_descarga.py --listar\n# Completo opcional antes de P04:\npython pqrs_descarga.py --descargar 2023_II 2024_I 2024_II"
+        "text": "python 00_datos.py --descargar pqrs\npython 00_datos.py --verificar pqrs"
       },
       {
         "type": "h",
@@ -3101,10 +3441,10 @@
       {
         "type": "steps",
         "items": [
-          "Ejecutar calidad después de formatos y revisar control_calidad_pqrs.json.",
+          "Ejecutar P02 antes de P03. Leer su Parquet con pandas y escribir las máscaras de calidad; inspeccionar las filas en revisión y guardar control_calidad.csv.",
           "Analizar claves candidatas, período y edad en revisión; describir por qué la proyección no alcanza para identificar duplicados exactos de los 38 campos.",
-          "Revisar ubicaciones del afectado y peticionario por separado. Conservar los registros sin DIVIPOLA y formular hipótesis comprobables.",
-          "Observar un plan Polars con scan_parquet y filter. Comparar conteos con una consulta SQL sobre la misma entrada.",
+          "Leer DIVIPOLA con pandas y usar merge por separado para afectado y peticionario, con validate=\"many_to_one\" e indicator=True. Inspeccionar los anti-joins, conservar filas sin correspondencia y comprobar la cardinalidad.",
+          "Construir primero el filtro y groupby con pandas. Observar después el plan Polars con scan_parquet y filter; comparar todos los grupos con pandas y DuckDB sobre la misma entrada.",
           "Definir una política de publicar, revisar o detener con evidencia. Medir impacto antes de excluir filas."
         ]
       },
@@ -3139,6 +3479,14 @@
       {
         "type": "p",
         "text": "Cambiar una condición de la consulta, anticipar su efecto y verificar la equivalencia entre implementaciones. Documentar qué campo o metadata adicional permitiría una conclusión más sólida."
+      },
+      {
+        "type": "p",
+        "text": "Desarrollar primero el notebook correspondiente con operaciones pandas explícitas; los comandos del script son referencias de automatización posteriores. Los notebooks generan kit/salidas/pandas/P02 y P03. P03 lee el Parquet de P02 y requiere DIVIPOLA. La firma SHA-256 del notebook P02 compara su CSV ordenado y no equivale a la firma del script."
+      },
+      {
+        "type": "p",
+        "text": "Preparación obligatoria antes de P03: desde kit/, con .venv activo, ejecutar python 00_datos.py --descargar pqrs y python 00_datos.py --verificar pqrs. Continuar cuando los tres cortes indiquen coincide. Los archivos existentes correctos se conservan. P03 requiere además DIVIPOLA verificada y el Parquet de P02; P04 descarga completos solo para la prueba de volumen con pqrs_descarga.py. Ver comandos y prerrequisitos en talleres/P03.md."
       }
     ]
   },
@@ -3147,15 +3495,11 @@
     "blocks": [
       {
         "type": "p",
-        "text": "Ruta WSL del curso: /mnt/c/Users/TUPTC/bigdata/big-data-postgraduate, clonado desde main. Activar .venv en la raíz y ejecutar desde kit/."
+        "text": "Modalidad y entrega: demostración docente el viernes; ejecución propia y entrega el sábado. Evidencia integrada en la entrega del 2026-10-24 (16:30–17:00). "
       },
       {
         "type": "p",
-        "text": "Preparado por el PhD Esteban Hernández, CyberColombia."
-      },
-      {
-        "type": "p",
-        "text": "Sesión 7, viernes 23 de octubre. Trabajo experimental: 135 minutos compartidos con E10. Preparación de fuentes validada durante las clases previas."
+        "text": "Sesión 7, viernes 23 de octubre. Trabajo experimental: 135 minutos compartidos con E10. Preparación de fuentes validada durante las clases previas. El viernes lo ejecuta el profesor; la ejecución estudiantil se realiza en el bloque del sábado indicado en el calendario."
       },
       {
         "type": "h",
@@ -3175,31 +3519,21 @@
       },
       {
         "type": "code",
-        "text": "python pqrs_descarga.py --listar\n# Completo opcional antes de P04:\npython pqrs_descarga.py --descargar 2023_II 2024_I 2024_II"
+        "text": "python 00_datos.py --descargar pqrs\npython 00_datos.py --verificar pqrs"
       },
       {
         "type": "h",
         "text": "Instrucciones"
       },
       {
-        "type": "p",
-        "text": "1. Ejecutar primero benchmark con muestras para confirmar consulta y entorno. Las dependencias están en requirements_pqrs.txt."
-      },
-      {
-        "type": "p",
-        "text": "2. Obtener los tres CSV de la copia docente o descargarlos uno por vez. Verificar hashes y esquema; reservar espacio para temporales."
-      },
-      {
-        "type": "p",
-        "text": "3. Ejecutar formatos --completo en la carpeta correcta; mantener chunksize 25.000 o reducirlo según memoria."
-      },
-      {
-        "type": "p",
-        "text": "4. Comparar los cinco motores con calentamiento y tres repeticiones. Los procesos son independientes y usan dos hilos; la caché del sistema puede persistir."
-      },
-      {
-        "type": "p",
-        "text": "5. Publicar mediana de tiempo, RSS máxima muestreada, intervalo de sondeo, versiones y conteos. Explicar por qué 3.000 filas pueden estar dominadas por el costo de arranque."
+        "type": "steps",
+        "items": [
+          "Ejecutar primero benchmark con muestras para confirmar consulta y entorno. Las dependencias están en requirements_pqrs.txt.",
+          "Obtener los tres CSV de la copia docente o descargarlos uno por vez. Verificar hashes y esquema; reservar espacio para temporales.",
+          "Ejecutar formatos --completo en la carpeta correcta; mantener chunksize 25.000 o reducirlo según memoria.",
+          "Comparar los cinco motores con calentamiento y tres repeticiones. Los procesos son independientes y usan dos hilos; la caché del sistema puede persistir.",
+          "Publicar mediana de tiempo, RSS máxima muestreada, intervalo de sondeo, versiones y conteos. Explicar por qué 3.000 filas pueden estar dominadas por el costo de arranque."
+        ]
       },
       {
         "type": "h",
@@ -3207,7 +3541,7 @@
       },
       {
         "type": "code",
-        "text": "python pqrs_talleres.py benchmark\npython pqrs_talleres.py formatos --completo --datos data/pqrs_completos --salidas salidas/pqrs_completos\npython pqrs_talleres.py benchmark --completo --repeticiones 3 --salidas salidas/pqrs_completos"
+        "text": "python pqrs_talleres.py formatos\npython pqrs_talleres.py benchmark\npython pqrs_talleres.py formatos --completo --datos data/pqrs_completos\npython pqrs_talleres.py benchmark --completo --repeticiones 3"
       },
       {
         "type": "h",
@@ -3234,16 +3568,12 @@
         "text": "Cambiar una condición de la consulta, anticipar su efecto y verificar la equivalencia entre implementaciones. Documentar qué campo o metadata adicional permitiría una conclusión más sólida."
       },
       {
-        "type": "h",
-        "text": "Ajuste de la práctica"
+        "type": "p",
+        "text": "Preparación obligatoria antes de P04: desde kit/, con .venv activo, ejecutar python 00_datos.py --descargar pqrs y python 00_datos.py --verificar pqrs. Continuar cuando los tres cortes indiquen coincide. Los archivos existentes correctos se conservan. P03 requiere además DIVIPOLA verificada y el Parquet de P02; P04 descarga completos solo para la prueba de volumen con pqrs_descarga.py. Ver comandos y prerrequisitos en talleres/P04.md."
       },
       {
         "type": "p",
-        "text": "E10 y P04 comparten 135 minutos de práctica; se entrega un único informe. No repetir obligatoriamente un benchmark completo con EVA y otro con PQRS. La medición de muestras es válida para revisar equivalencia, sin conclusiones sobre el volumen nacional."
-      },
-      {
-        "type": "p",
-        "text": "[Prerrequisitos y evaluación](../docs/mapa-ejercicios.md)."
+        "text": "Primero desarrollar el notebook 04, después de ejecutar P02. Leer explícitamente los productos de `kit/salidas/pandas/P02`; ejecutar cada motor en una celda con `%%time`, comprobar igualdad fuera de la medición y registrar tres repeticiones después del calentamiento. Alternar el orden de ejecución. Las salidas del notebook quedan en `kit/salidas/pandas/P04`: `benchmark_notebook.csv`, `benchmark_notebook_resumen.csv` y `conteos_verificados.csv`.\n\nEl tiempo del notebook incluye lectura, agregación y resultado en pandas, pero no arranque de proceso, exportación, ordenación ni comprobaciones. No mide RSS y no fija los mismos hilos para todos los motores. Mantener este informe separado del CLI. Revisar las consultas visibles antes de continuar con la automatización siguiente."
       }
     ]
   },
@@ -3252,11 +3582,11 @@
     "blocks": [
       {
         "type": "p",
-        "text": "Ruta WSL del curso: /mnt/c/Users/TUPTC/bigdata/big-data-postgraduate, clonado desde main. Activar .venv en la raíz y ejecutar desde kit/."
+        "text": "Modalidad y entrega: actividad estudiantil los sábados. Evidencia integrada en la entrega del 2026-10-24 (16:30–17:00). "
       },
       {
         "type": "p",
-        "text": "Sesión 8, 45 min, dentro del bloque de conceptos de eventos e I01. Retomar con Spark en E11."
+        "text": "Sesión 8, 30 min, dentro del bloque de conceptos de eventos e I01. Retomar con Spark en E11."
       },
       {
         "type": "h",
@@ -3276,7 +3606,7 @@
       },
       {
         "type": "code",
-        "text": "python 00_datos.py --descargar nasa\npython pqrs_talleres.py eventos"
+        "text": "python 00_datos.py --descargar nasa\npython 00_datos.py --verificar nasa"
       },
       {
         "type": "h",
@@ -3306,12 +3636,20 @@
       {
         "type": "p",
         "text": "La regla Python sirve para razonar sobre una traza y no reproduce toda la semántica de Structured Streaming. El archivo PQRS no tiene tiempos de evento suficientemente precisos para este ejemplo; mantener separadas la reproducción NASA y las series mensuales de reportes."
+      },
+      {
+        "type": "p",
+        "text": "Desarrollar primero la sección I01 del notebook 04: lectura JSON, DataFrame, merge, decisiones de reintento/atraso y escritura/relectura explícitas. Salidas en kit/salidas/pandas/P04. Después consultar pqrs_talleres.py eventos como automatización, con salidas en kit/salidas/pqrs."
       }
     ]
   },
   {
     "title": "Controles y guía del docente",
     "blocks": [
+      {
+        "type": "p",
+        "text": "Viernes: explicación y demostraciones guiadas por el profesor, sin entregas ni calificación. El profesor ejecuta, explica y comparte sus archivos de referencia; los estudiantes observan, preguntan y pueden seguir voluntariamente. Sábado: ejecución por los estudiantes, revisión y entrega durante la clase. La evidencia evaluable debe corresponder a su propia ejecución. No se exige una entrega ni trabajo autónomo obligatorio entre ambos encuentros. E = ejercicio general del curso (E01–E13). P = práctica con datos PQRS (P01–P04); PQRS significa peticiones, quejas, reclamos y sugerencias. El número identifica la actividad, no la sesión. T01 = taller teórico de capacidad; I01 = introducción a eventos NASA."
+      },
       {
         "type": "p",
         "text": "Los controles siguientes corresponden únicamente al corte fechado suministrado. Si cambia una fuente, volver a ejecutar los scripts y publicar otra versión del manifiesto. El número de registros no se impone como condición universal de calidad; sirve para comprobar que todos trabajan con la misma entrada."
@@ -3407,7 +3745,7 @@
           ],
           [
             "Pocos recursos de RAM",
-            "Dos hilos, un departamento y muestras; cerrar QGIS al ejecutar Spark si hace falta."
+            "Dos hilos, un departamento y muestras; cerrar kernels y figuras que no se utilicen al ejecutar Spark."
           ],
           [
             "Ceros en SoilGrids sin NoData",
@@ -3419,7 +3757,7 @@
           ],
           [
             "Java ausente",
-            "Instalar JDK 21 dentro de Ubuntu-26.04 según docs/instalacion-wsl.md; comprobar antes de E07."
+            "Instalar Java 17/21 según la guía de la plataforma; comprobar antes de E07."
           ],
           [
             "Streaming no muestra ventana final",
@@ -3461,11 +3799,11 @@
       },
       {
         "type": "p",
-        "text": "QGIS, intersección vectorial"
+        "text": "GeoPandas, intersección vectorial"
       },
       {
         "type": "url",
-        "text": "https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/vectoroverlay.html"
+        "text": "https://geopandas.org/en/stable/docs/user_guide/set_operations.html"
       },
       {
         "type": "p",
@@ -3594,141 +3932,6 @@
           "Métricas compuestas históricas se estudian en gobernanza y no como puntuaciones calculadas con campos inexistentes.",
           "Ejemplos acotados con observaciones abiertas y comparación equivalente de motores."
         ]
-      }
-    ]
-  },
-  {
-    "title": "Alineación de ejercicios y evaluación",
-    "blocks": [
-      {
-        "type": "p",
-        "text": "[Índice](../README.md) · [Programa](programa.md) · [Calendario](calendario.md)"
-      },
-      {
-        "type": "p",
-        "text": "Las doce clases suman 64 horas efectivas. Las actividades comparten los bloques existentes: no se exige repetir todas las prácticas en ambos dominios ni ejecutar los notebooks históricos completos. Cada entrega reúne la evidencia producida en clase; una ampliación sustituye una actividad equivalente."
-      },
-      {
-        "type": "table",
-        "headers": [
-          "Clases",
-          "Ruta y prerrequisitos",
-          "Evidencia única",
-          "Peso"
-        ],
-        "rows": [
-          [
-            "1–2",
-            "T01 y E01–E03; P01 con las tres muestras PQRS",
-            "Pregunta, presupuesto de recursos, manifiesto, perfil y claves territoriales",
-            "10 %"
-          ],
-          [
-            "3–4",
-            "E04–E06 y P02–P03; ejecutar formatos antes de calidad PQRS",
-            "Contrato, conciliación, proyección Parquet, prueba de reejecución y consulta",
-            "10 %"
-          ],
-          [
-            "5–6",
-            "E07 después de calidad/consultas agroambientales; E08–E09 con geometrías y rásteres",
-            "Equivalencia Spark/DuckDB, cardinalidad y mapa con cobertura explícita",
-            "10 %"
-          ],
-          [
-            "7–8",
-            "E10/P04 con formatos ya preparado; I01/E11 con NASA y fuentes de clima",
-            "Un informe experimental y una traza de eventos",
-            "20 %"
-          ],
-          [
-            "9–11",
-            "E12 como práctica común de evaluación temporal; E13 en el dominio elegido",
-            "Producto candidato el 31/10, corrección y ensayo el 06/11, informe final",
-            "35 %"
-          ],
-          [
-            "12",
-            "E13 con evidencias reconstruibles",
-            "Sustentación final el 07/11 y explicación individual",
-            "15 %"
-          ]
-        ]
-      },
-      {
-        "type": "h",
-        "text": "Orden mínimo de ejecución"
-      },
-      {
-        "type": "p",
-        "text": "Desde `kit/`, con el entorno activo:"
-      },
-      {
-        "type": "code",
-        "text": "python pqrs_talleres.py perfil\npython pqrs_talleres.py formatos\npython pqrs_talleres.py calidad\npython pqrs_talleres.py benchmark --repeticiones 3\npython pqrs_talleres.py eventos"
-      },
-      {
-        "type": "p",
-        "text": "Perfil, formatos, calidad y benchmark usan las muestras incluidas por defecto. Eventos requiere `data/raw/nasa.json`. P03 usa DIVIPOLA para el control territorial cuando está disponible: descargarla antes de solicitar ese control. Los notebooks actuales preparan sus pasos previos; sus celdas se distribuyen entre las clases correspondientes, no se ejecutan todas en cada encuentro."
-      },
-      {
-        "type": "p",
-        "text": "Para la ruta agroambiental: `talleres.py calidad` → `talleres.py consultas` → `spark_taller.py lotes` o `talleres.py modelo`. Geografía necesita DANE e IGAC; `talleres.py clima` lee NASA, CHIRPS, SoilGrids y WoSIS. E11 lee NASA para Spark."
-      },
-      {
-        "type": "h",
-        "text": "Uso de Supersalud histórico y actual"
-      },
-      {
-        "type": "table",
-        "headers": [
-          "Material original",
-          "Actividad vigente",
-          "Ajuste didáctico"
-        ],
-        "rows": [
-          [
-            "Sesiones históricas 1 y 2, duplicadas",
-            "P01 y P03",
-            "Medir perfil y faltantes sin inferir anonimato o errores por edad alta"
-          ],
-          [
-            "Sesión histórica 3",
-            "P02",
-            "Validar contrato y reejecución; registrar incidencias localmente, sin correo"
-          ],
-          [
-            "Sesión histórica 4, comparación de motores",
-            "E10/P04",
-            "CPU, consulta equivalente, calentamiento, tres repeticiones y memoria observada"
-          ],
-          [
-            "Sesión histórica 4, índices",
-            "E12: discusión de gobernanza",
-            "Revisar variables ausentes y supuestos; no fabricar puntuaciones clínicas"
-          ],
-          [
-            "Sesión histórica 4, bucles de streaming",
-            "I01 y E11",
-            "Traza finita con observaciones NASA; distinguir reintentos, atraso y semántica de Spark"
-          ]
-        ]
-      },
-      {
-        "type": "h",
-        "text": "Límites del alcance"
-      },
-      {
-        "type": "p",
-        "text": "P04 ofrece una ruta con 3.000 filas y otra con 2.444.766. El corte completo requiere unos 1,816 GB de descarga más salidas y temporales. La ruta con muestras permite demostrar equivalencia en equipos limitados; no demuestra rendimiento a escala completa. En ambos casos se declara el alcance."
-      },
-      {
-        "type": "p",
-        "text": "I01 no implementa recuperación ni toda la semántica de Spark. E11 crea un checkpoint nuevo por ejecución: el entregable básico es una traza y un análisis de recuperación, no afirmar que se probó reinicio desde el mismo estado. Un experimento de recuperación real puede sustituir una ampliación si se implementa y documenta."
-      },
-      {
-        "type": "p",
-        "text": "E12 evalúa persistencia sobre EVA para todos los equipos. Ese resultado metodológico se identifica aparte del proyecto PQRS; no se mezcla con tasas de salud. Los proyectos PQRS pueden mostrar distribución de reportes por territorio, sin calcular tasas poblacionales si faltan denominadores compatibles y validados."
       }
     ]
   }

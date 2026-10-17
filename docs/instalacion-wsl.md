@@ -2,7 +2,7 @@
 
 [Índice](../README.md) · [Datos y ejecución](entorno.md) · [Notebooks](../kit/Notebooks/README.md)
 
-Este es el entorno base para todas las instrucciones vigentes del curso. PowerShell se usa para instalar y administrar WSL; Python, Git, Java, bibliotecas, Jupyter y las prácticas se ejecutan **dentro de Ubuntu-26.04**. Las instrucciones antiguas de los anexos históricos no sustituyen esta guía.
+Esta guía es la instalación de referencia para Windows. Para equipos Linux o macOS, seguir la [instalación nativa](instalacion-linux-macos.md). PowerShell se usa para instalar y administrar WSL; Python, Git, Java, bibliotecas, Jupyter y las prácticas se ejecutan **dentro de Ubuntu-26.04**. Las instrucciones antiguas de los anexos históricos no sustituyen esta guía.
 
 ## 1. Instalar WSL desde Windows
 
@@ -42,6 +42,8 @@ La columna `VERSION` debe mostrar `2`. Si muestra `1`, salir de Ubuntu y ejecuta
 
 ## 2. Entrar a la carpeta base y clonar
 
+`TUPTC` es el usuario Windows del ejemplo: sustituirlo por el nombre real en todas las rutas `/mnt/c/Users/TUPTC/`. No reutilizar esta carpeta para crear un entorno Windows nativo; esa alternativa necesita otro clon.
+
 **Todos los comandos siguientes son Bash, dentro de Ubuntu.** Confirmar la distribución y preparar la carpeta base del curso:
 
 ```bash
@@ -80,15 +82,19 @@ uv --version
 uv python install 3.12
 cd /mnt/c/Users/TUPTC/bigdata
 cd big-data-postgraduate
-uv venv --python 3.12 --seed .venv
+if [ ! -e .venv ]; then
+    uv venv --python 3.12 --seed .venv
+fi
 source .venv/bin/activate
 python --version
-python -c 'import sys; print(sys.executable)'
+python -c 'import sys, platform; assert sys.version_info[:2] == (3, 12); assert sys.prefix != sys.base_prefix; print(sys.executable, platform.machine())'
 ```
 
-Debe aparecer Python `3.12.x` y un ejecutable dentro de `/mnt/c/Users/TUPTC/bigdata/big-data-postgraduate/.venv/`. Se crea **un solo entorno**, en la raíz del repositorio. No crear otro `.venv` dentro de `kit/`. Si ya existe el entorno, activar el existente en lugar de recrearlo.
+Debe aparecer Python `3.12.x` y un ejecutable dentro de `/mnt/c/Users/TUPTC/bigdata/big-data-postgraduate/.venv/`. Se crea **un entorno base CPU**, en la raíz del repositorio. No crear otro `.venv` dentro de `kit/`. Si ya existe el entorno, activar el existente en lugar de recrearlo.
 
 [Ubuntu 26.04: versión de Python](https://documentation.ubuntu.com/release-notes/26.04/summary-for-lts-users/) · [Instalador oficial de uv](https://docs.astral.sh/uv/getting-started/installation/) · [Instalación de versiones de Python con uv](https://docs.astral.sh/uv/guides/install-python/).
+
+El bloque anterior conserva un entorno existente. Si la comprobación de Python falla o la carpeta pertenece a otro sistema, no instalar paquetes encima; seguir la [reconstrucción del entorno](entornos-virtuales.md#5-retomar-o-reconstruir). La única ampliación con entorno separado es GPU; las clases ordinarias siguen usando `.venv`.
 
 ## 4. Instalar las bibliotecas y Jupyter
 
@@ -105,11 +111,13 @@ Los archivos de requisitos son la referencia de versiones. Usar siempre `python 
 Comprobación de importaciones:
 
 ```bash
-python -c "import pandas, numpy, pyarrow, duckdb, polars, rasterio, shapely, pyproj; print('Bibliotecas disponibles')"
+python -c "import pandas, numpy, pyarrow, duckdb, polars, rasterio, shapely, pyproj, geopandas, pyogrio, matplotlib; print('Bibliotecas disponibles')"
 python -c "import duckdb; print(duckdb.sql('SELECT 2 + 2').fetchone())"
 ```
 
 La consulta debe devolver `(4,)`.
+
+La instalación anterior es **CPU**. La [ampliación opcional de Polars GPU](polars-gpu.md) se realiza aparte: controlador NVIDIA en Windows, CUDA Toolkit compatible dentro de WSL 2 y paquetes en `.venv-gpu`. No instalar el controlador Linux dentro de WSL ni ejecutar los requisitos GPU antes de preparar esos prerrequisitos.
 
 ## 5. Configurar Java y Spark
 
@@ -127,6 +135,7 @@ java -version
 javac -version
 python -m pip install -r kit/requirements_spark.txt
 python -m pip check
+export PYSPARK_PYTHON="$VIRTUAL_ENV/bin/python"
 ```
 
 Prueba mínima, antes de procesar datos:
@@ -152,28 +161,30 @@ En Ubuntu, con el entorno activo:
 ```bash
 cd /mnt/c/Users/TUPTC/bigdata
 cd big-data-postgraduate/kit
-python pqrs_talleres.py perfil
 python -m jupyter lab --no-browser --ip=127.0.0.1
 ```
 
 Copiar en el navegador de Windows la URL `http://localhost:8888/lab?token=...` que muestre Jupyter, usando el puerto y token reales. Abrir `Notebooks/01_Perfil_PQRS.ipynb` y seleccionar **BigData · WSL Ubuntu 26.04 · Python 3.12**. El navegador se abre en Windows, pero el kernel ejecuta en Ubuntu. Detener Jupyter con `Ctrl+C` al terminar. [Acceso desde Windows mediante localhost](https://learn.microsoft.com/en-us/windows/wsl/networking).
 
-Las tres muestras PQRS ya están en el clon. NASA, los archivos agroambientales y los completos PQRS requieren las descargas de [la guía de datos](entorno.md); no iniciar el notebook de eventos hasta disponer de `kit/data/raw/nasa.json`.
+Las tres muestras PQRS ya están en el clon; desde `kit/`, prepararlas con `python 00_datos.py --descargar pqrs` y comprobarlas con `python 00_datos.py --verificar pqrs`. NASA, los archivos agroambientales y los completos PQRS requieren las descargas de [la guía de datos](entorno.md); no iniciar el notebook de eventos hasta disponer de `kit/data/raw/nasa.json`.
 
-## 7. QGIS para la actividad de mapas
+## 7. Mapas en Jupyter con GeoPandas
 
-QGIS es una aplicación de Ubuntu independiente del virtualenv. Para la práctica visual, desde la misma distribución:
+Todos los ejercicios geoespaciales se ejecutan en el mismo `.venv`: GeoPandas y Pyogrio para vectores, Rasterio para ráster y Matplotlib para mapas. Las versiones están fijadas en `kit/requirements.txt`. Esta actividad no necesita una aplicación de escritorio ni WSLg.
 
 ```bash
-sudo apt update
-sudo apt install -y qgis
-qgis --version
-qgis
+cd /mnt/c/Users/TUPTC/bigdata
+cd big-data-postgraduate
+source .venv/bin/activate
+python -m pip install -r kit/requirements.txt -r kit/requirements_notebooks.txt
+python -m pip check
+python -c "import geopandas, pyogrio, rasterio, matplotlib; print('Entorno geoespacial disponible')"
+jupyter lab kit/Notebooks/
 ```
 
-La ventana usa WSLg. Requiere WSL 2 y soporte de aplicaciones gráficas (Windows 11 o Windows 10 build 19044 o posterior). Si el paquete no aparece, revisar los repositorios habilitados de Ubuntu y consultar al docente antes de agregar repositorios de otra versión. Las bibliotecas Python del curso permanecen en `.venv`; no instalar QGIS mediante pip.
+Abrir los notebooks E08, E09 y E11 del [índice](../kit/Notebooks/README.md). Los mapas se muestran en el navegador y se guardan en `kit/salidas/`. Instalar dentro de Ubuntu, sin `sudo pip`; mantener el kernel del curso. La prueba de importaciones no reemplaza la ejecución con los datasets.
 
-[Aplicaciones gráficas Linux con WSLg](https://learn.microsoft.com/en-us/windows/wsl/tutorials/gui-apps) · [Paquete QGIS de Ubuntu 26.04](https://packages.ubuntu.com/en/resolute/qgis).
+[Instalación de GeoPandas](https://geopandas.org/en/stable/getting_started/install.html) · [Rasterio y mapas](https://rasterio.readthedocs.io/en/stable/topics/plotting.html).
 
 ## 8. Retomar el trabajo en otra sesión
 
@@ -190,6 +201,7 @@ cd /mnt/c/Users/TUPTC/bigdata
 cd big-data-postgraduate
 source .venv/bin/activate
 source "$HOME/.config/bigdata/entorno.sh"
+export PYSPARK_PYTHON="$VIRTUAL_ENV/bin/python"
 git status --short
 # Si no hay cambios locales pendientes:
 git switch main

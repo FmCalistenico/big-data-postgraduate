@@ -4,7 +4,9 @@ Preparado por el PhD Esteban Hernández, CyberColombia.
 
 P01: 3 de octubre. P02: 9 de octubre. P03: 10 de octubre. P04: 23 de octubre. I01: 24 de octubre. Los notebooks acompañan los talleres y comparten las horas de clase; no añaden entregas obligatorias.
 
-Preparar el único `.venv` de la raíz según la guía [Windows/WSL](../../docs/instalacion-wsl.md) o [Linux/macOS](../../docs/instalacion-linux-macos.md). En instalación nativa, adaptar `repositorio` o `REPO` a la ruta real como indica esa guía. Abrir desde `kit/` o `kit/Notebooks/`, usar el mismo entorno Python y ejecutar en orden. Los prerrequisitos son explícitos: P03 lee el Parquet producido por P02 y requiere DIVIPOLA; no ejecuta P02 ni descarga fuentes silenciosamente.
+Preparar el `.venv` base CPU de la raíz según la guía [Windows/WSL](../../docs/instalacion-wsl.md) o [Linux/macOS](../../docs/instalacion-linux-macos.md). En instalación nativa, adaptar `repositorio` o `REPO` a la ruta real como indica esa guía. Abrir desde `kit/` o `kit/Notebooks/`, usar el mismo entorno Python y ejecutar en orden. Los prerrequisitos son explícitos: P03 y P04 leen los productos de P02; P03 requiere DIVIPOLA; no ejecuta P02 ni descarga fuentes silenciosamente.
+
+Para crear o comprobar el entorno y el kernel, consultar [entornos por plataforma](../../docs/entornos-virtuales.md). La [ampliación NVIDIA GPU](../../docs/polars-gpu.md) usa `.venv-gpu` y su propio kernel; no es necesaria para estos notebooks.
 
 Los notebooks históricos se conservan en `supersalud/`, con su procedencia y limitaciones, y no son la guía de ejecución actual.
 
@@ -17,6 +19,8 @@ Como referencia durante las prácticas, consultar la [guía práctica de pandas]
 | [01 Perfil PQRS](01_Perfil_PQRS.ipynb) | P01 · clase 2 | Conteos, esquema, hashes y memoria por tamaño de bloque |
 | [02 Parquet y contratos](02_Parquet_y_contratos.ipynb) | P02 · clase 3 | Proyección de 16 columnas, particiones, reejecución y fallo de contrato |
 | [03 Calidad y consulta](03_Calidad_y_consulta.ipynb) | P03 · clase 4 | Calidad sin exclusiones arbitrarias y consulta diferida de 2024 |
+| [05 Spark: lectura y agregación](05_Spark_lectura_y_agregacion.ipynb) | E07 · clase 5, 16 de octubre | CSV, conversión, Parquet, plan y equivalencia con DuckDB |
+| [06 Spark: joins y ventanas](06_Spark_joins_y_ventanas.ipynb) | E07 · clase 6, 17 de octubre | Cardinalidad, broadcast, top 3 y particiones |
 | [04 Rendimiento y eventos](04_Rendimiento_y_eventos.ipynb) | P04 · clase 7; I01 · clase 8 | Equivalencia entre motores y traza finita NASA |
 
 El notebook 04 se usa en dos momentos: detenerse tras el benchmark en clase 7 y ejecutar la sección de eventos en clase 8. Los eventos requieren `data/raw/nasa.json`, que se descarga desde el manifiesto agroambiental. Los notebooks no incorporan descargas de 1,816 GB como paso automático.
@@ -44,3 +48,33 @@ P01 declara una ruta WSL editable y utiliza `pd.read_csv`, inspección, filtros 
 ## P02 → P03: archivos y API visibles
 
 P02 explica `read_csv`, selección y conversión, `concat`, `groupby`, `to_csv`, `to_parquet`, `read_parquet`, contrato defectuoso y comprobación de reejecución. P03 lee `kit/salidas/pandas/P02/pqrs.parquet` y muestra reglas, `merge`, cardinalidad, anti-joins y consultas equivalentes en pandas, Polars y DuckDB. Preparar DIVIPOLA antes de P03; las salidas de este notebook quedan en `kit/salidas/pandas/P03`. Las soluciones de referencia mantienen los mismos pasos.
+
+## Desde P04: operaciones y tiempos visibles
+
+Ampliación opcional: [P04 Polars CPU y GPU](04_Rendimiento_y_eventos_update1.ipynb) conserva
+la agrupación PQRS por corte, año, mes y departamento. Usa los productos de P02
+o los completos preparados según P04. Se ejecuta primero en CPU; GPU requiere
+el entorno NVIDIA separado y verificado. Incluye equivalencia, calentamiento,
+tres repeticiones y fronteras de medición explícitas. Sus evidencias se integran
+en P04, sin otra entrega. La ejecución CUDA queda pendiente de validación real.
+
+El notebook 04 lee los productos de P02 (`kit/salidas/pandas/P02`); no ejecuta `lab.formatos` ni `lab.benchmark`. Presenta cinco celdas medidas: pandas, Polars, DuckDB sobre Parquet, sobre particiones y sobre CSV. Cada una incluye lectura, agregación y materialización del resultado en pandas; las verificaciones y visualizaciones quedan fuera. Una vuelta de calentamiento y tres vueltas alternadas generan `benchmark_notebook.csv` y su resumen en `kit/salidas/pandas/P04`. Los tiempos del kernel no se mezclan con el benchmark CLI, que además incluye procesos nuevos, exportación y sondeo RSS.
+
+I01 muestra `json.load`, conversión a DataFrame, `merge` de entregas con observaciones, reglas explícitas de reintento y atraso, escritura y relectura de la traza. Sus evidencias quedan también en `kit/salidas/pandas/P04`.
+
+E08, E09 y E11 declaran una ruta editable y usan directamente `read_csv`, `read_file`, `merge`, `make_valid`, `overlay`, `to_crs`, lectura de ventanas Rasterio y exportación de archivos. Las salidas se guardan respectivamente en `kit/salidas/E08`, `kit/salidas/E09` y `kit/salidas/E11`. Los scripts automatizados conservan sus rutas anteriores y se estudian después de ejecutar y explicar las celdas.
+
+## Ruta del fin de semana: 16 y 17 de octubre
+
+El número 04 identifica el notebook PQRS existente, que se usa el 23 y 24 de octubre; no indica que deba ejecutarse antes de Spark. Para el 16 y 17 de octubre, seguir este orden:
+
+1. **05 Spark, lectura y agregación:** descargar/verificar EVA y DIVIPOLA, leer CSV con pandas, convertir tipos conservando errores, escribir y releer Parquet, ejecutar agregación Spark y contrastar cada grupo con DuckDB.
+2. **06 Spark, joins y ventanas:** leer los productos de 05, verificar claves, ejecutar LEFT JOIN y broadcast, contrastar el ranking con DuckDB y cambiar las particiones conservando resultados.
+3. **E08 Geoespacial:** geometrías, unión municipal e intersecciones.
+4. **E09 Geoespacial:** ráster, pH, perfiles y profundidad.
+
+Preparar JDK 21 y `requirements_spark.txt` en el `.venv` base CPU de la raíz según la guía WSL o Linux/macOS. Spark usa `local[2]`. Cerrar su sesión al terminar cada notebook. 05 y 06 guardan productos en `kit/salidas/E07`; 06 requiere haber completado 05. Los scripts del kit quedan como referencia posterior de automatización. La entrega del sábado integra los controles Spark, plan explicado, consulta de ventana y evidencias E08/E09; no añade una entrega el viernes.
+
+## Guía de consulta geográfica
+
+La [guía práctica de GeoPandas](../../docs/manual-geopandas.md) incluye ejemplos ejecutables de mapas de Colombia, ciudades, territorios especiales, municipios resaltados y consultas de quejas por meses y edades. Se ejecuta en el entorno CPU del curso, con los ZIP DANE; distingue datos ficticios de muestras reales.

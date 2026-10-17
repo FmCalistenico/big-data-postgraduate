@@ -108,36 +108,24 @@ def benchmark():
     assert rows[0]['filas']==rows[1]['filas'] and abs(rows[0]['suma_t']-rows[1]['suma_t'])<1e-5
     pd.DataFrame(rows).to_csv(OUT/'benchmark.csv',index=False);print(rows)
 def geografia():
-    import shapefile
-    from shapely.geometry import shape, mapping
-    from shapely.ops import transform
-    from shapely import make_valid
-    from pyproj import Transformer
-    # Leer el ZIP directamente mantiene juntos los componentes del shapefile.
-    reader=shapefile.Reader(str(RAW/'dane_municipios.zip'),encoding='utf-8')
-    fields=[f[0] for f in reader.fields[1:]]
-    code=next(c for c in fields if c.lower()=='mpio_cdpmp')
-    entries=[]
-    for sr in reader.iterShapeRecords():
-        props=dict(zip(fields,sr.record)); g=make_valid(shape(sr.shape.__geo_interface__))
-        entries.append((str(props[code]).zfill(5),g,props))
-    project=Transformer.from_crs(4326,9377,always_xy=True).transform
-    rows=[];features=[]
-    for theme in ['igac_capacidad','igac_quimica']:
-        data=json.loads((RAW/(theme+'.json')).read_text())
-        for f in data['features']:
-            geom=make_valid(shape(f['geometry']))
-            for cod,mun,props in entries:
-                if not geom.intersects(mun):continue
-                inter=geom.intersection(mun)
-                if inter.is_empty or inter.area==0:continue
-                area=transform(project,inter).area/10000
-                row={'tema':theme,'codigo_municipio':cod,'objectid':f['properties'].get('OBJECTID'),'area_interseccion_ha':area,'alcance':'muestra_de_5_poligonos'}
-                rows.append(row);features.append({'type':'Feature','geometry':mapping(inter),'properties':row})
-    pd.DataFrame(rows).to_csv(OUT/'intersecciones_muestra.csv',index=False)
-    save_json('intersecciones_muestra.geojson',{'type':'FeatureCollection','features':features})
-    save_json('control_geografico.json',{'municipios_leidos':len(entries),'intersecciones':len(rows),'crs_area':'EPSG:9377','limitacion':'No representa cobertura nacional ni municipal completa.'})
-    print('Intersecciones:',len(rows))
+    from geoespacial import intersecciones
+    return intersecciones()
+def suelo():
+    import numpy as np
+    import rasterio
+    result={}
+    with rasterio.open(RAW/'soilgrids.tif') as src:
+        a=src.read(1,masked=True).astype(float)
+        # pH x 10. Conservar la máscara; 0 no se supone automáticamente NoData.
+        a=a/10;valid=a[(a>0)&(a<=14)]
+        result['soilgrids']={'shape':src.shape,'crs':str(src.crs),'nodata':src.nodata,'min_ph':float(valid.min()),'max_ph':float(valid.max()),'media_ph_sin_ceros_por_revisar':float(valid.mean()),'pixeles_validos':int(valid.count())}
+        result['soilgrids']['celdas_cero']=int(np.sum(a.filled(np.nan)==0))
+        result['soilgrids']['advertencia']='Inspeccionar celdas cero y metadatos. No compararlas con muestras sin equivalencia de profundidad y ubicación.'
+    w=json.loads((RAW/'wosis.json').read_text())
+    result['wosis']={'registros':len(w['features']),'perfiles_distintos':len({f['properties']['profile_id'] for f in w['features']}),'paises':sorted({f['properties']['country_name'] for f in w['features']})}
+    from geoespacial import mapa_suelo
+    mapa_suelo()
+    save_json('control_suelo.json',result);print(result);return result
 def clima():
     import numpy as np
     import rasterio
@@ -148,13 +136,6 @@ def clima():
         records.append({'fecha':pd.to_datetime(date,format='%Y%m%d'),'t2m':None if params['T2M'][date]==-999 else params['T2M'][date],'lluvia_mm':None if params['PRECTOTCORR'][date]==-999 else params['PRECTOTCORR'][date]})
     df=pd.DataFrame(records);df.to_parquet(OUT/'nasa_diario.parquet',index=False)
     result={'nasa_dias':len(df),'nasa_temperatura_media':float(df['t2m'].mean()),'nasa_precipitacion_suma':float(df['lluvia_mm'].sum())}
-    with rasterio.open(RAW/'soilgrids.tif') as src:
-        a=src.read(1,masked=True).astype(float)
-        # pH x 10. Conservar la máscara; 0 no se supone automáticamente NoData.
-        a=a/10;valid=a[(a>0)&(a<=14)]
-        result['soilgrids']={'shape':src.shape,'crs':str(src.crs),'nodata':src.nodata,'min_ph':float(valid.min()),'max_ph':float(valid.max()),'media_ph_sin_ceros_por_revisar':float(valid.mean()),'pixeles_validos':int(valid.count())}
-        result['soilgrids']['celdas_cero']=int(np.sum(a.filled(np.nan)==0))
-        result['soilgrids']['advertencia']='Inspeccionar celdas cero y metadatos. No compararlas con muestras sin equivalencia de profundidad y ubicación.'
     with rasterio.open(RAW/'chirps.tif') as src:
         # Recorte de demostración; no corresponde a un municipio completo.
         bounds=transform_bounds('EPSG:4326',src.crs,-73.4,5.5,-73.3,5.6)
@@ -162,9 +143,13 @@ def clima():
         a=src.read(1,window=window,masked=True)
         a=np.ma.masked_where(a<0,a)
         result['chirps']={'crs':str(src.crs),'nodata':src.nodata,'pixeles_validos':int(a.count()),'media_lluvia_mensual_mm':float(a.mean()),'periodo':'2025-01','bbox':[-73.4,5.5,-73.3,5.6]}
-    w=json.loads((RAW/'wosis.json').read_text())
-    result['wosis']={'registros':len(w['features']),'perfiles_distintos':len({f['properties']['profile_id'] for f in w['features']}),'paises':sorted({f['properties']['country_name'] for f in w['features']})}
-    save_json('control_clima_suelo.json',result);print(json.dumps(result,ensure_ascii=False,indent=2))
+    from geoespacial import mapa_clima
+    mapa_clima()
+    save_json('control_clima.json',result);print(result);return result
+def clima_suelo():
+    # Compatibilidad para informes que necesitan ambos dominios.
+    result={**suelo(), **clima()}
+    save_json('control_clima_suelo.json',result);return result
 def modelo():
     from sklearn.metrics import mean_absolute_error
     # Pronóstico anual municipal por persistencia. No usa producción/área del año objetivo como predictores.
@@ -196,5 +181,5 @@ def modelo():
     valid.to_csv(OUT/'predicciones_persistencia.csv',index=False)
     save_json('evaluacion_modelo.json',reports);print(reports)
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('taller',choices=['perfil','calidad','consultas','benchmark','geografia','clima','modelo']);a=p.parse_args();globals()[a.taller]()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('taller',choices=['perfil','calidad','consultas','benchmark','geografia','suelo','clima','clima_suelo','modelo']);a=p.parse_args();globals()[a.taller]()
 if __name__=='__main__':main()

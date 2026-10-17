@@ -1,2 +1,3 @@
 polars==1.35.2
+# CPU por defecto. Ampliación NVIDIA separada: ../docs/polars-gpu.md (.venv-gpu).
 psutil==7.1.0

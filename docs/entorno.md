@@ -1,8 +1,10 @@
-# Datos y ejecución sobre WSL Ubuntu-26.04
+# Datos y ejecución del curso
 
-[Instalación completa desde Windows](instalacion-wsl.md) · [Índice](../README.md)
+[Windows/WSL](instalacion-wsl.md) · [Linux/macOS](instalacion-linux-macos.md) · [Índice](../README.md)
 
-Todas las instrucciones de esta página se ejecutan en **Ubuntu-26.04 sobre WSL 2**, después de preparar el entorno indicado en la guía. Antes de iniciar:
+Como apoyo para las personas con poca experiencia en la CLI de Linux, se anexó la [guía de línea de comandos](guia-cli-linux/README.md), con ejemplos de navegación, consulta y verificación de archivos, además de un cheat sheet de 100 comandos y sus opciones habituales.
+
+Preparar el entorno de la guía correspondiente al sistema. Los ejemplos de navegación siguientes usan la ruta Windows/WSL; en Linux/macOS sustituir la carpeta base por `"$HOME/bigdata"`. Mantener los comandos relativos, los requisitos y el `.venv` base CPU. Antes de iniciar en WSL:
 
 ```bash
 cd /mnt/c/Users/TUPTC/bigdata
@@ -12,6 +14,12 @@ cd kit
 ```
 
 El clon no incluye los originales agroambientales ni los completos PQRS; `--verificar` requiere obtener antes todas las fuentes correspondientes.
+
+## Polars con GPU (opcional)
+
+La instalación NVIDIA tiene una [guía independiente](polars-gpu.md): primero se preparan el controlador y CUDA Toolkit según Linux o WSL 2, y después los paquetes Python en `.venv-gpu`. No ejecutar esa instalación como parte de la preparación CPU. En macOS se utiliza CPU.
+
+Consultar [entornos virtuales por plataforma](entornos-virtuales.md) para crear, activar y verificar `.venv`, así como para la alternativa Windows nativa de las guías rápidas.
 
 ## Tres rutas para obtener los datos
 
@@ -34,7 +42,7 @@ Las URLs exactas están en fuentes.json y en el [catálogo de fuentes](datasets.
 
 - Abrir el catálogo vigente y buscar MGN2025-Nivel. Seleccionar los enlaces de Nivel Departamento y Nivel Municipio en formato Shapefile.
 - Guardar los ZIP sin modificar como dane_departamentos.zip y dane_municipios.zip dentro de data/raw. Tamaños observados: 12,52 MB y 71,58 MB. Las etiquetas del catálogo pueden diferir del tamaño descargado.
-- Verificar con 00_datos.py --verificar. Para QGIS, extraer cada ZIP a una carpeta propia y abrir su .shp. Conservar .shx, .dbf y .prj en la misma carpeta.
+- Verificar con 00_datos.py --verificar. GeoPandas lee los ZIP DANE con read_file y el prefijo zip://. Si se extraen, conservar .shp, .shx, .dbf y .prj juntos y comprobar el CRS antes de reproyectar.
 - Si el portal responde 403 o la descarga tarda, usar la copia docente. No insistir con múltiples descargas. El enlace antiguo del MGN devolvió 404 y no debe quedar como dependencia del taller.
 
 No descargar MGN2025_00_COLOMBIA.zip con todos los niveles: el catálogo anuncia aproximadamente 1,5 GB y contiene detalle que no requiere el curso. Los dos ZIP seleccionados incluyen exclusivamente los niveles necesarios. No se reemplazan polígonos por puntos de DIVIPOLA para evitar esa descarga.
@@ -56,7 +64,7 @@ Leer salidas/verificacion.json: archivo presente, huella coincidente, conteo esp
 
 ## Preparación del dominio PQRS
 
-Las dependencias se instalan según [la guía WSL](instalacion-wsl.md). Desde `kit/`, en Ubuntu y con `.venv` activo:
+Las dependencias se instalan según la guía [WSL](instalacion-wsl.md) o [Linux/macOS](instalacion-linux-macos.md). Desde `kit/`, con `.venv` activo:
 
 ```
 python pqrs_descarga.py --listar
@@ -64,7 +72,7 @@ python pqrs_talleres.py perfil
 python pqrs_talleres.py formatos
 ```
 
-Por defecto se utilizan las tres muestras incluidas en data/pqrs_muestras. Para datos completos: descargar selectivamente y señalar la carpeta con --datos y --completo. No se incluye otra copia de 1,82 GB en el ZIP docente.
+Las tres muestras incluidas en `data/pqrs_muestras` también se preparan desde `kit/` con `python 00_datos.py --descargar pqrs` y se comprueban con `python 00_datos.py --verificar pqrs`. El [taller P01, actividad 0](../talleres/P01.md) detalla este procedimiento. Los archivos existentes que coinciden se conservan; una versión distinta produce error sin sobrescritura. Para los completos se mantiene `pqrs_descarga.py`, como se muestra a continuación.
 
 ```
 python pqrs_descarga.py --descargar 2024_I
@@ -78,14 +86,20 @@ Espacio: 5 GB para la ruta de muestras y datos agroambientales; reservar 8 GB pa
 
 ## Notebooks actuales
 
-Seguir [la instalación WSL y registro del kernel](instalacion-wsl.md). Desde Ubuntu, con el entorno de la raíz activo y situado en `kit/`:
+Registrar el kernel según la guía del sistema. Con el entorno de la raíz activo y situado en `kit/`:
 
 ```bash
 python -m jupyter lab --no-browser --ip=127.0.0.1
 ```
 
-Abrir `Notebooks/` y seleccionar el kernel BigData de WSL. Las dependencias y herramientas se instalan en Ubuntu, no en Windows. Los anexos históricos conservan comandos originales de Colab únicamente como referencia.
+Abrir `Notebooks/` y seleccionar el kernel BigData correspondiente al sistema. En Windows las dependencias se instalan dentro de WSL; en Linux/macOS, de forma nativa. Los anexos históricos conservan comandos originales de Colab únicamente como referencia.
 
 ## Rutas de los scripts
 
 Los scripts vigentes resuelven sus fuentes y salidas a partir de su archivo dentro de `kit/`. En PQRS, `--config`, `--datos` y `--salidas` relativos también se interpretan desde `kit/`; las rutas absolutas se respetan. El descargador general interpreta `--respaldo` desde el directorio actual: usar una ruta absoluta para una copia externa. No escribir rutas de otra máquina dentro de los scripts.
+
+## Ejecución geoespacial
+
+Consultar la [guía práctica de GeoPandas](manual-geopandas.md) para mapas de Colombia, resaltado de municipios y consultas tabulares por meses y edades antes de unirlas a las geometrías.
+
+Usar el entorno base CPU `.venv` del curso con GeoPandas, Pyogrio, Rasterio y Matplotlib. Desde `kit/`, `python talleres.py geografia` ejecuta E08, `python talleres.py suelo` prepara E09 y `python talleres.py clima` prepara E11. Los mapas se generan en Jupyter o como PNG en `salidas/`. `python talleres.py clima_suelo` reúne ambos informes para compatibilidad y requiere las cuatro fuentes SoilGrids, WoSIS, NASA y CHIRPS. Consultar el [índice de notebooks](../kit/Notebooks/README.md).

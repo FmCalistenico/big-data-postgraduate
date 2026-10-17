@@ -14,21 +14,21 @@
       "fecha_texto": "Viernes 02/10/2026",
       "tema": "Fundamentos y escala",
       "practica": "E01 / T01: pregunta, procedencia y capacidad",
-      "producto": "Ficha de problema y presupuesto de recursos",
+      "producto": "Referencia docente: Ficha de problema y presupuesto de recursos; ejecución y entrega estudiantil el sábado",
       "horario": "18:00–22:00",
       "minutos_clase": 225,
       "agenda": [
         [
           "18:00–18:20",
-          "Organización, diagnóstico y unidades de los dos dominios"
+          "Explicación / demostración docente: Organización, diagnóstico y unidades de los dos dominios"
         ],
         [
           "18:20–19:35",
-          "Cinco V y T01: cálculo de 2 GB, 20 GB y 2 TB"
+          "Explicación / demostración docente: Cinco V y T01: cálculo de 2 GB, 20 GB y 2 TB"
         ],
         [
           "19:35–20:00",
-          "Restricciones, escalamiento y Amdahl"
+          "Explicación / demostración docente: Restricciones, escalamiento y Amdahl"
         ],
         [
           "20:00–20:15",
@@ -36,13 +36,16 @@
         ],
         [
           "20:15–21:30",
-          "E01: casos, procedencia, ciclo de vida y ficha"
+          "Explicación / demostración docente: E01: casos, procedencia, ciclo de vida y ficha"
         ],
         [
           "21:30–22:00",
-          "Discusión y cierre"
+          "Explicación / demostración docente: Discusión y cierre"
         ]
-      ]
+      ],
+      "modalidad": "Demostración guiada por el profesor",
+      "entrega_estudiantil": false,
+      "fecha_entrega": "2026-10-03"
     },
     {
       "sesion": 2,
@@ -50,7 +53,7 @@
       "fecha_texto": "Sábado 03/10/2026",
       "tema": "Ingesta y perfilado",
       "practica": "E02–E03 / P01: descargas, PQRS y DIVIPOLA",
-      "producto": "Manifiesto, perfil y claves territoriales",
+      "producto": "Ficha de problema, presupuesto de recursos, manifiesto, perfil y claves territoriales",
       "horario": "08:00–17:00",
       "minutos_clase": 450,
       "agenda": [
@@ -96,13 +99,17 @@
         ],
         [
           "16:00–16:45",
-          "Contrato inicial y diccionario de variables"
+          "Ficha propia E01/T01, contrato inicial y diccionario de variables"
         ],
         [
           "16:45–17:00",
           "Entrega y preparación del siguiente encuentro"
         ]
-      ]
+      ],
+      "modalidad": "Actividad estudiantil y entrega en clase",
+      "entrega_estudiantil": true,
+      "fecha_entrega": "2026-10-03",
+      "bloque_entrega": "16:45–17:00"
     },
     {
       "sesion": 3,
@@ -110,21 +117,21 @@
       "fecha_texto": "Viernes 09/10/2026",
       "tema": "Arquitecturas, formatos y pipelines",
       "practica": "E04 / P02: contrato, CSV y Parquet",
-      "producto": "Parquet, contrato y traza de reejecución",
+      "producto": "Referencia docente: Parquet, contrato y traza de reejecución; ejecución y entrega estudiantil el sábado",
       "horario": "18:00–22:00",
       "minutos_clase": 225,
       "agenda": [
         [
           "18:00–18:45",
-          "Relacional, warehouse, lake y formatos; contraste conceptual con Zarr"
+          "Arquitecturas y formatos: explicación y demostración docente"
         ],
         [
           "18:45–19:15",
-          "E04: contrato de datos y capas del producto"
+          "E04: demostración docente del contrato y las capas"
         ],
         [
           "19:15–20:00",
-          "P02: CSV, proyección y Parquet particionado"
+          "P02: demostración docente CSV a Parquet"
         ],
         [
           "20:00–20:15",
@@ -132,17 +139,24 @@
         ],
         [
           "20:15–21:00",
-          "P02: configuración, fallo controlado y reejecución"
+          "P02: demostración docente de fallo y reejecución"
         ],
         [
-          "21:00–21:45",
-          "ETL/ELT, monitoreo y decisiones de arquitectura"
+          "21:00–21:15",
+          "Explicación / demostración docente: ETL/ELT, orquestación y monitoreo"
+        ],
+        [
+          "21:15–21:45",
+          "Demostración docente de controles y publicación"
         ],
         [
           "21:45–22:00",
-          "Defensa breve del contrato"
+          "Discusión y preparación de la entrega del sábado"
         ]
-      ]
+      ],
+      "modalidad": "Demostración guiada por el profesor",
+      "entrega_estudiantil": false,
+      "fecha_entrega": "2026-10-10"
     },
     {
       "sesion": 4,
@@ -150,7 +164,7 @@
       "fecha_texto": "Sábado 10/10/2026",
       "tema": "Calidad e integración",
       "practica": "E05–E06 / P03: suelos, calidad PQRS y EVA",
-      "producto": "Controles de calidad y consulta conciliada",
+      "producto": "Contrato propio, Parquet, prueba de reejecución, controles de calidad, consultas equivalentes y cobertura",
       "horario": "08:00–17:00",
       "minutos_clase": 450,
       "agenda": [
@@ -164,7 +178,7 @@
         ],
         [
           "09:45–10:45",
-          "P03: calidad PQRS sin exclusiones injustificadas"
+          "09:45–10:00 orientación; 10:00–10:20 E04/P02 propios; 10:20–10:45 P03 calidad"
         ],
         [
           "10:45–12:00",
@@ -192,9 +206,13 @@
         ],
         [
           "16:30–17:00",
-          "Cierre y preparación de Spark"
+          "16:30–16:45 entrega única E04–E06/P02–P03; 16:45–17:00 preparación de Spark"
         ]
-      ]
+      ],
+      "modalidad": "Actividad estudiantil y entrega en clase",
+      "entrega_estudiantil": true,
+      "fecha_entrega": "2026-10-10",
+      "bloque_entrega": "16:30–16:45"
     },
     {
       "sesion": 5,
@@ -202,21 +220,21 @@
       "fecha_texto": "Viernes 16/10/2026",
       "tema": "Procesamiento con Spark",
       "practica": "E07: planes, particiones y equivalencia Spark/DuckDB",
-      "producto": "Plan explicado y control de equivalencia",
+      "producto": "Referencia docente: Plan explicado y control de equivalencia; ejecución y entrega estudiantil el sábado",
       "horario": "18:00–21:15",
       "minutos_clase": 180,
       "agenda": [
         [
           "18:00–18:30",
-          "Motores y entorno Spark"
+          "Explicación / demostración docente: Motores y entorno Spark"
         ],
         [
           "18:30–19:15",
-          "Driver, particiones, transformaciones y plan"
+          "Explicación / demostración docente: Driver, particiones, transformaciones y plan"
         ],
         [
           "19:15–20:00",
-          "E07: agregación y acción"
+          "Explicación / demostración docente: E07: agregación y acción"
         ],
         [
           "20:00–20:15",
@@ -224,13 +242,16 @@
         ],
         [
           "20:15–21:00",
-          "E07: equivalencia con DuckDB"
+          "Explicación / demostración docente: E07: equivalencia con DuckDB"
         ],
         [
           "21:00–21:15",
-          "Plan, controles y cierre"
+          "Explicación / demostración docente: Plan, controles y cierre"
         ]
-      ]
+      ],
+      "modalidad": "Demostración guiada por el profesor",
+      "entrega_estudiantil": false,
+      "fecha_entrega": "2026-10-17"
     },
     {
       "sesion": 6,
@@ -238,13 +259,13 @@
       "fecha_texto": "Sábado 17/10/2026",
       "tema": "Consultas e integración distribuida",
       "practica": "E07–E09: joins, shapes DANE/IGAC, SoilGrids y WoSIS",
-      "producto": "Consulta, mapa y alcance espacial",
+      "producto": "Plan y equivalencia Spark/DuckDB, consulta de ventanas, mapa y alcance espacial",
       "horario": "08:00–17:00",
       "minutos_clase": 450,
       "agenda": [
         [
           "08:00–09:30",
-          "Joins, claves, cardinalidad y planes"
+          "Reejecución propia E07, plan y equivalencia (08:00–08:45); joins y cardinalidad (08:45–09:30)"
         ],
         [
           "09:30–09:45",
@@ -274,7 +295,11 @@
           "16:30–17:00",
           "Revisión del soporte espacial y entrega"
         ]
-      ]
+      ],
+      "modalidad": "Actividad estudiantil y entrega en clase",
+      "entrega_estudiantil": true,
+      "fecha_entrega": "2026-10-17",
+      "bloque_entrega": "16:30–17:00"
     },
     {
       "sesion": 7,
@@ -282,17 +307,17 @@
       "fecha_texto": "Viernes 23/10/2026",
       "tema": "Rendimiento y escalabilidad",
       "practica": "E10 / P04: tiempo, RAM y motores con PQRS real",
-      "producto": "Tabla experimental e informe de rendimiento",
+      "producto": "Referencia docente: Tabla experimental e informe de rendimiento; ejecución y entrega estudiantil el sábado",
       "horario": "18:00–21:15",
       "minutos_clase": 180,
       "agenda": [
         [
           "18:00–18:30",
-          "Protocolo experimental, caché y RSS"
+          "Explicación / demostración docente: Protocolo experimental, caché y RSS"
         ],
         [
           "18:30–20:00",
-          "E10/P04: consulta equivalente y mediciones PQRS"
+          "Explicación / demostración docente: E10/P04: consulta equivalente y mediciones PQRS"
         ],
         [
           "20:00–20:15",
@@ -300,13 +325,16 @@
         ],
         [
           "20:15–21:00",
-          "Repeticiones, planes y comparación CSV–Parquet"
+          "Explicación / demostración docente: Repeticiones, planes y comparación CSV–Parquet"
         ],
         [
           "21:00–21:15",
-          "Informe y decisión de estrategia"
+          "Explicación / demostración docente: Informe y decisión de estrategia"
         ]
-      ]
+      ],
+      "modalidad": "Demostración guiada por el profesor",
+      "entrega_estudiantil": false,
+      "fecha_entrega": "2026-10-24"
     },
     {
       "sesion": 8,
@@ -314,17 +342,17 @@
       "fecha_texto": "Sábado 24/10/2026",
       "tema": "Streaming de eventos",
       "practica": "E11 / I01: NASA, CHIRPS, eventos, ventanas y recuperación",
-      "producto": "Traza de eventos y análisis de recuperación",
+      "producto": "Informe de benchmark propio, traza de eventos y análisis de recuperación",
       "horario": "08:00–17:00",
       "minutos_clase": 450,
       "agenda": [
         [
           "08:00–08:45",
-          "NASA, CHIRPS, escalas y unidades"
+          "E10/P04: benchmark propio con muestras; tres repeticiones y equivalencia"
         ],
         [
           "08:45–09:30",
-          "I01: traza finita y conceptos de eventos"
+          "NASA/CHIRPS: unidades y escala (15 min); I01: traza finita (30 min)"
         ],
         [
           "09:30–09:45",
@@ -348,13 +376,17 @@
         ],
         [
           "15:15–16:30",
-          "Colas, garantías y auditoría de la reproducción"
+          "Auditoría de eventos y consolidación del informe experimental"
         ],
         [
           "16:30–17:00",
-          "Entrega experimental"
+          "Entrega única E10–E11/P04/I01"
         ]
-      ]
+      ],
+      "modalidad": "Actividad estudiantil y entrega en clase",
+      "entrega_estudiantil": true,
+      "fecha_entrega": "2026-10-24",
+      "bloque_entrega": "16:30–17:00"
     },
     {
       "sesion": 9,
@@ -362,17 +394,17 @@
       "fecha_texto": "Viernes 30/10/2026",
       "tema": "Analítica y gobernanza",
       "practica": "E12: rendimiento por cultivo, evaluación temporal y gobernanza",
-      "producto": "Evaluación temporal y ficha de gobernanza",
+      "producto": "Referencia docente: Evaluación temporal y ficha de gobernanza; ejecución y entrega estudiantil el sábado",
       "horario": "18:00–21:15",
       "minutos_clase": 180,
       "agenda": [
         [
           "18:00–18:30",
-          "Métrica, población, tiempo y fuga de información"
+          "Explicación / demostración docente: Métrica, población, tiempo y fuga de información"
         ],
         [
           "18:30–20:00",
-          "E12: persistencia, rendimiento y MAE por cultivo"
+          "Explicación / demostración docente: E12: persistencia, rendimiento y MAE por cultivo"
         ],
         [
           "20:00–20:15",
@@ -380,17 +412,20 @@
         ],
         [
           "20:15–20:30",
-          "E12: error por cultivo y cobertura"
+          "Explicación / demostración docente: E12: error por cultivo y cobertura"
         ],
         [
           "20:30–21:00",
-          "Gobernanza y revisión crítica de índices compuestos"
+          "Explicación / demostración docente: Gobernanza y revisión crítica de índices compuestos"
         ],
         [
           "21:00–21:15",
-          "Definición del producto integrador"
+          "Explicación / demostración docente: Definición del producto integrador"
         ]
-      ]
+      ],
+      "modalidad": "Demostración guiada por el profesor",
+      "entrega_estudiantil": false,
+      "fecha_entrega": "2026-10-31"
     },
     {
       "sesion": 10,
@@ -398,13 +433,13 @@
       "fecha_texto": "Sábado 31/10/2026",
       "tema": "Integración y auditoría del proyecto",
       "practica": "E13: reconstrucción, pruebas y auditoría cruzada",
-      "producto": "Producto candidato y lista de hallazgos",
+      "producto": "Evaluación temporal EVA, ficha de gobernanza, producto candidato e informe con hallazgos",
       "horario": "08:00–17:00",
       "minutos_clase": 450,
       "agenda": [
         [
           "08:00–09:30",
-          "E13: reconstrucción desde originales y contratos"
+          "E12 propio: evaluación temporal EVA (08:00–08:45); E13: reconstrucción (08:45–09:30)"
         ],
         [
           "09:30–09:45",
@@ -434,7 +469,11 @@
           "16:30–17:00",
           "Entrega candidata y preparación de la clínica"
         ]
-      ]
+      ],
+      "modalidad": "Actividad estudiantil y entrega en clase",
+      "entrega_estudiantil": true,
+      "fecha_entrega": "2026-10-31",
+      "bloque_entrega": "16:30–17:00"
     },
     {
       "sesion": 11,
@@ -442,7 +481,7 @@
       "fecha_texto": "Viernes 06/11/2026",
       "tema": "Clínica de proyectos y ensayo de defensa",
       "practica": "E13: correcciones, límites e informe final",
-      "producto": "Producto corregido, informe y ensayo",
+      "producto": "Referencia docente: Producto corregido, informe y ensayo; ejecución y entrega estudiantil el sábado",
       "horario": "18:00–21:15",
       "minutos_clase": 180,
       "agenda": [
@@ -452,7 +491,7 @@
         ],
         [
           "18:45–20:00",
-          "E13: correcciones y validación entre pares"
+          "Explicación / demostración docente: E13: profesor demuestra correcciones y validación; discusión de casos"
         ],
         [
           "20:00–20:15",
@@ -464,9 +503,12 @@
         ],
         [
           "21:00–21:15",
-          "Entrega final y organización de sustentaciones"
+          "Preparación de la entrega del sábado y organización de turnos; sin entrega"
         ]
-      ]
+      ],
+      "modalidad": "Demostración guiada por el profesor",
+      "entrega_estudiantil": false,
+      "fecha_entrega": "2026-11-07"
     },
     {
       "sesion": 12,
@@ -474,7 +516,7 @@
       "fecha_texto": "Sábado 07/11/2026",
       "tema": "Sustentación y cierre contractual",
       "practica": "E13: defensa, retroalimentación y entrega verificable",
-      "producto": "Producto final, sustentación y acta de cierre",
+      "producto": "Paquete final corregido, informe de 8–12 páginas y registro de defensa individual",
       "horario": "08:00–16:30",
       "minutos_clase": 420,
       "agenda": [
@@ -504,13 +546,63 @@
         ],
         [
           "15:15–16:00",
-          "Retroalimentación y evaluación individual"
+          "Retroalimentación y evaluación individual; completar correcciones finales"
         ],
         [
           "16:00–16:30",
           "Acta, entregas verificables y cierre contractual"
         ]
-      ]
+      ],
+      "modalidad": "Actividad estudiantil y entrega en clase",
+      "entrega_estudiantil": true,
+      "fecha_entrega": "2026-11-07",
+      "bloque_entrega": "16:00–16:30"
+    }
+  ],
+  "politica_entregas": "Viernes: explicación y demostraciones guiadas por el profesor, sin entregas ni calificación. El profesor ejecuta, explica y comparte sus archivos de referencia; los estudiantes observan, preguntan y pueden seguir voluntariamente. Sábado: ejecución por los estudiantes, revisión y entrega durante la clase. La evidencia evaluable debe corresponder a su propia ejecución. No se exige una entrega ni trabajo autónomo obligatorio entre ambos encuentros.",
+  "leyenda_actividades": "E = ejercicio general del curso (E01–E13). P = práctica con datos PQRS (P01–P04); PQRS significa peticiones, quejas, reclamos y sugerencias. El número identifica la actividad, no la sesión. T01 = taller teórico de capacidad; I01 = introducción a eventos NASA.",
+  "entregas": [
+    {
+      "fecha": "2026-10-03",
+      "hora": "16:45–17:00",
+      "codigos": "E01–E03 / P01 / T01",
+      "producto": "Ficha de problema, presupuesto de recursos, manifiesto, perfil y claves territoriales",
+      "peso": "10 %"
+    },
+    {
+      "fecha": "2026-10-10",
+      "hora": "16:30–16:45",
+      "codigos": "E04–E06 / P02–P03",
+      "producto": "Contrato propio, Parquet, prueba de reejecución, controles de calidad, consultas equivalentes y cobertura",
+      "peso": "10 %"
+    },
+    {
+      "fecha": "2026-10-17",
+      "hora": "16:30–17:00",
+      "codigos": "E07–E09",
+      "producto": "Plan y equivalencia Spark/DuckDB, consulta de ventanas, mapa y alcance espacial",
+      "peso": "10 %"
+    },
+    {
+      "fecha": "2026-10-24",
+      "hora": "16:30–17:00",
+      "codigos": "E10–E11 / P04 / I01",
+      "producto": "Informe de benchmark propio, traza de eventos y análisis de recuperación",
+      "peso": "20 %"
+    },
+    {
+      "fecha": "2026-10-31",
+      "hora": "16:30–17:00",
+      "codigos": "E12–E13",
+      "producto": "Evaluación temporal EVA, ficha de gobernanza, producto candidato e informe con hallazgos",
+      "peso": "Hito formativo del bloque de proyecto (35 %)"
+    },
+    {
+      "fecha": "2026-11-07",
+      "hora": "16:00–16:30",
+      "codigos": "E13 / sustentación individual",
+      "producto": "Paquete final corregido, informe de 8–12 páginas y registro de defensa individual",
+      "peso": "35 % proyecto + 15 % sustentación"
     }
   ]
 }
