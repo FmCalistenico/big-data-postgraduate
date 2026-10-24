@@ -1,20 +1,29 @@
-# Clase 08: Streaming de eventos
+# Clase 8: Streaming de eventos
 
 Preparado por el PhD Esteban Hernández, CyberColombia.
 
-Sábado 24/10/2026. 7 h 30 min de clase efectiva.
+Sábado 24/10/2026. 08:00–17:00. 450 minutos efectivos.
 
-| Segmento | Temas y ejercicios |
+**Modalidad:** Actividad estudiantil y entrega en clase.
+
+Viernes: explicación y demostraciones guiadas por el profesor, sin entregas ni calificación. El profesor ejecuta, explica y comparte sus archivos de referencia; los estudiantes observan, preguntan y pueden seguir voluntariamente. Sábado: ejecución por los estudiantes, revisión y entrega durante la clase. La evidencia evaluable debe corresponder a su propia ejecución. No se exige una entrega ni trabajo autónomo obligatorio entre ambos encuentros.
+
+E = ejercicio general del curso (E01–E13). P = práctica con datos PQRS (P01–P04); PQRS significa peticiones, quejas, reclamos y sugerencias. El número identifica la actividad, no la sesión. T01 = taller teórico de capacidad; I01 = introducción a eventos NASA.
+
+| Horario | Tema y actividad |
 |---|---|
-| Mañana · antes del receso | NASA, CHIRPS, escalas y unidades; I01: traza finita y conceptos de eventos |
-| Mañana · después del receso | E11: Spark, ventanas y watermark |
-| Tarde · después del almuerzo y antes del receso | E11: tardanza, estado, checkpoint y recuperación |
-| Tarde · después del receso | Colas, garantías y auditoría de la reproducción; Entrega experimental |
+| 08:00–08:45 | E10/P04: benchmark propio con muestras; tres repeticiones y equivalencia |
+| 08:45–09:30 | NASA/CHIRPS: unidades y escala (15 min); I01: traza finita (30 min) |
+| 09:30–09:45 | Receso de la mañana |
+| 09:45–12:00 | E11: Spark, ventanas y watermark |
+| 12:00–13:00 | Almuerzo |
+| 13:00–15:00 | E11: tardanza, estado, checkpoint y recuperación |
+| 15:00–15:15 | Receso de la tarde |
+| 15:15–16:30 | Auditoría de eventos y consolidación del informe experimental |
+| 16:30–17:00 | Entrega única E10–E11/P04/I01 |
 
-Producto: Traza de eventos y análisis de recuperación.
+**Entrega:** Informe de benchmark propio, traza de eventos y análisis de recuperación. Cierre 16:30–17:00.
 
-Consultar el [calendario contractual](../../docs/calendario.md). Todas las horas se imparten en línea; el trabajo autónomo es opcional.
+[Calendario](../../docs/calendario.md) · [Entregas sabatinas](../../docs/entregas-sabados.md) · [Talleres y evaluación](../../docs/mapa-ejercicios.md)
 
-Talleres: [E11](../../talleres/E11.md), [I01](../../talleres/I01.md).
-
-[Mapa de ejercicios, prerrequisitos y evaluación](../../docs/mapa-ejercicios.md).
+Las actividades geoespaciales E08, E09 y E11 se desarrollan con GeoPandas, Rasterio y Matplotlib en Jupyter. Consultar los [notebooks y sus requisitos](../../kit/Notebooks/README.md#ejercicios-geoespaciales).
