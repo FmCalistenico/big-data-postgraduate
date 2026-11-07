@@ -4,14 +4,14 @@
 
 Curso: Big Data · Especialización en Bases de Datos · Fecha: 2026-11-07
 
-| N.º | Nombre completo | Código | Rol |
-|---|---|---|---|
-| 1 | | | P1 · Población y desempeño |
-| 2 | | | P2 · Producción agrícola |
-| 3 | | | P3 · Cartografía |
-| 4 | | | P4 · Suelo IGAC |
-| 5 | | | P5 · Estadística |
-| 6 | | | P6 · Plataforma, calidad e integración |
+## Integrantes
+
+- José Luis Gachagoque Sánchez
+- Leibnitz Edison Andrés Rojas Castillo
+- Juan Sebastián Sánchez López
+- Deiver Torres Mariño
+- Daniel Viasus Fuentes
+- Stefany Pinto
 
 ## 1. Resumen
 
@@ -112,7 +112,7 @@ La EVA 2023 registra 96 cultivos. Por toneladas dominan caña (2.078.348 t), pap
 
 **3. ¿Cómo se distribuyen las clases de capacidad de uso de las tierras en cada municipio?**
 
-El 78 % del área es de clases VII y VIII (VIII 41,8 %, VII 36,4 %): tierras con fuertes limitaciones, aptas sobre todo para conservación y uso forestal. Solo el 10,7 % es de clases III–IV, las de menos limitaciones presentes (no hay I ni II). Clase predominante por municipio: VIII en 51, VII en 51, VI en 13, IV en 8. 7 municipios tienen más de 5 % de su área sin clasificar.
+El 78 % del área es de clases VII y VIII (VIII 41,8 %, VII 36,4 %): tierras con fuertes limitaciones, aptas sobre todo para conservación y uso forestal. Solo el 10,7 % es de clases III–IV, las de menos limitaciones presentes (no hay I ni II). Clase predominante por municipio: VII en 51, VIII en 51, VI en 13, IV en 8. 7 municipios tienen más de 5 % de su área sin clasificar.
 
 *Evidencia: Gráfico p4, mapa m5, gold/suelo_municipio (IGAC 1:100.000, 2004).*
 

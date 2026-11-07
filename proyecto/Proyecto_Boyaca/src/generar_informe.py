@@ -69,14 +69,14 @@ def generar() -> str:
 
 Curso: Big Data · Especialización en Bases de Datos · Fecha: {date.today().isoformat()}
 
-| N.º | Nombre completo | Código | Rol |
-|---|---|---|---|
-| 1 | | | P1 · Población y desempeño |
-| 2 | | | P2 · Producción agrícola |
-| 3 | | | P3 · Cartografía |
-| 4 | | | P4 · Suelo IGAC |
-| 5 | | | P5 · Estadística |
-| 6 | | | P6 · Plataforma, calidad e integración |
+## Integrantes
+
+- José Luis Gachagoque Sánchez
+- Leibnitz Edison Andrés Rojas Castillo
+- Juan Sebastián Sánchez López
+- Deiver Torres Mariño
+- Daniel Viasus Fuentes
+- Stefany Pinto
 
 ## 1. Resumen
 
