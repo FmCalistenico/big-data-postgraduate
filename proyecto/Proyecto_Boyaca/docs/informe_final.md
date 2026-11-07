@@ -221,4 +221,4 @@ Para estudiar la disposición al cambio o una relación causal se necesitaría m
 
 ## 9. Reproducibilidad
 
-`bash run_pipeline.sh` ejecuta los notebooks 01–08 y las pruebas; `python -m src.generar_informe` regenera este informe y `python -m src.publicar_sitio` la página. Versiones en `requirements.txt` y `requirements-lock.txt`. Guía completa en `docs/GUIA_EJECUCION.md`.
+`bash run_pipeline.sh` ejecuta los notebooks 01–08 y las pruebas; `python -m src.generar_informe` regenera este informe y `python -m src.publicar_sitio` la página. Versiones en `requirements.txt` y `requirements-lock.txt`. Guía completa en el README del proyecto.

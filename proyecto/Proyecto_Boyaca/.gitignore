@@ -10,3 +10,8 @@ data_lake/rejects/*
 tests/fixtures/*
 outputs/**/*
 !**/.gitkeep
+
+# guías internas del equipo
+docs/GUIA_EJECUCION.md
+docs/GUIA_EXPLICACION.md
+docs/GUION_SUSTENTACION.md

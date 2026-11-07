@@ -1,55 +1,49 @@
 # Proyecto final Boyacá · Big Data
 
-Pipeline reproducible bronze → silver → gold para los 123 municipios de Boyacá: población, producción agrícola, capacidad de uso de las tierras y desempeño municipal.
+## Integrantes
 
-## Empiece aquí
+- José Luis Gachagoque Sánchez
+- Leibnitz Edison Andrés Rojas Castillo
+- Juan Sebastián Sánchez López
+- Deiver Torres Mariño
+- Daniel Viasus Fuentes
+- Stefany Pinto
 
-- Ejecutar: docs/GUIA_EJECUCION.md
-- Explicar cada parte: docs/GUIA_EXPLICACION.md
-- Tablas y columnas: docs/diccionario_datos.md
-- Herramientas y particionamiento: docs/justificacion_herramientas.md
-- Informe: docs/informe_final.md
-- Resultados publicados: carpeta site/ (GitHub Pages)
+## Informe y resultados
 
-Ejecución:
+https://fmcalistenico.github.io/big-data-postgraduate/
 
-    python3 -m venv .venv && source .venv/bin/activate
+## Guía de ejecución 1: todo el pipeline con un comando
+
+Desde la carpeta Proyecto_Boyaca:
+
+    python3 -m venv .venv
+    source .venv/bin/activate
     pip install -r requirements.txt
     bash run_pipeline.sh
     python -m src.publicar_sitio
 
+run_pipeline.sh ejecuta los notebooks 01 a 08 en orden y luego las pruebas (26).
+publicar_sitio genera la página de resultados en site/.
+
+## Guía de ejecución 2: notebook por notebook
+
+Abrir JupyterLab desde Proyecto_Boyaca (jupyter lab) y ejecutar en orden los notebooks
+01 a 08 de la carpeta notebooks/, con Kernel -> Restart Kernel and Run All Cells.
+
 ## Estructura
 
     Proyecto_Boyaca/
-    ├── staging/       los 6 archivos originales
-    ├── data_lake/     bronze (CSV + manifiesto), silver y gold (Parquet), rejects
-    ├── src/           toda la lógica
-    ├── notebooks/     01 … 08, en orden
-    ├── tests/         pytest
-    ├── outputs/       calidad, estadística, figuras y mapas
-    ├── site/          página de resultados (GitHub Pages)
-    └── docs/          guías e informe
-
-## Responsables
-
-| Rol | Archivos |
-|---|---|
-| P1 Población y desempeño | silver_poblacion.py, silver_desempeno.py |
-| P2 Producción agrícola | silver_agricola.py, gold_agricola.py |
-| P3 Cartografía | geo.py, silver_municipios.py, mapas.py |
-| P4 Suelo IGAC | silver_suelo.py, gold_suelo.py |
-| P5 Estadística | estadistica.py, graficos.py |
-| P6 Plataforma y calidad | config.py, calidad.py, contratos.py, mocks.py, ingesta_bronze.py, gold_integracion.py, publicar_sitio.py |
-
-## Resultado principal
-
-En 2020, la proporción de población de 18 a 44 años se asocia positivamente con el desempeño municipal: Spearman r = 0,24 (IC 95 % 0,06–0,40), p = 0,004, n = 123. La asociación es débil, se mantiene en los tres análisis de sensibilidad y no demuestra causalidad.
-
-## Decisiones clave
-
-- No hay un año común: la hipótesis principal usa 2020 (MDM) y las agrícolas 2023 (EVA).
-- Población oficial: poblacion_dane; del archivo por áreas se usan cabecera y rural, nunca las tres filas.
-- MDM: 246 filas en dos bloques; el oficial está en config.MDM_BLOQUE_OFICIAL.
-- Suelo: clases III–VIII + ZU + CA; áreas en EPSG:9377.
-- Faltante = null, nunca 0. Rendimiento = suma de producción / suma de área.
-- Sin particionamiento.
+    ├── staging/              # los 6 archivos originales
+    ├── data_lake/
+    │   ├── bronze/<fuente>/  # CSV sin modificar (GeoJSON -> CSV con WKT) + manifest.json
+    │   ├── silver/           # Parquet / GeoParquet validados
+    │   ├── gold/             # tablas analíticas
+    │   └── rejects/          # filas rechazadas con su motivo
+    ├── src/                  # toda la lógica del pipeline
+    ├── notebooks/            # 01 … 08: llaman a src/ en orden
+    ├── tests/                # pruebas con pytest
+    ├── outputs/              # calidad, estadística, figuras y mapas
+    ├── site/                 # página de resultados (GitHub Pages)
+    ├── requirements.txt
+    └── run_pipeline.sh
