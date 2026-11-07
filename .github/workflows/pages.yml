@@ -8,8 +8,7 @@ name: Publicar resultados en GitHub Pages
 
 on:
   push:
-    branches: [main]
-    paths: ["proyecto/Proyecto_Boyaca/site/**"]
+    branches: [main, dev]
   workflow_dispatch:
 
 env:
